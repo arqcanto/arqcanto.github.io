@@ -1,0 +1,1196 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Proyecto Dzityá · Propuesta para Manuel Farah Martín · Acento Desarrollos</title>
+<meta name="description" content="Propuesta de desarrollo para el aportante del terreno: 80,089 m² en Dzityá, Mérida, Yucatán.">
+<meta name="theme-color" content="#16120F">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --arena:#F8F7F4; --superficie:#FFFFFF; --hundido:#F1EFEB;
+  --tinta:#1D1B26; --gris:#67615A; --borde:#8C8378; --apagado:#D9D3CB;
+  --nar:#EA5B27; --nar-tinte:#FDE8DD; --nar-texto:#B93F14; --pase-suave:#E9DCD2;
+  --carbon:#16120F; --carbon-alto:#2A221D; --carbon-menu:#1F1915; --carbon-etiqueta:#CBBFB5;
+  --casa:#B7820C; --casa-t:#F6E7C1; --casa-tx:#764705;
+  --depto:#6D4FD0; --depto-t:#E9E3FB; --depto-tx:#4F35A8;
+  --com:#D2455C; --com-t:#FBDDE2; --com-tx:#9F1239;
+  --comun:#1F9A8A; --comun-t:#D3EFEA; --comun-tx:#10584F;
+  --sombra:0 1px 2px rgba(22,18,15,.05),0 10px 24px -12px rgba(22,18,15,.16);
+  --sombra-chica:0 1px 2px rgba(22,18,15,.05),0 8px 18px -10px rgba(22,18,15,.18);
+  --sombra-pase:0 2px 4px rgba(22,18,15,.12),0 18px 36px -18px rgba(22,18,15,.45);
+  --sombra-menu:0 4px 10px rgba(22,18,15,.18),0 20px 36px -14px rgba(22,18,15,.5);
+  --r-pieza:14px; --r-tarjeta:20px; --r-pase:28px; --r-redondo:999px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --font:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:16px;scrollbar-color:#C9C3BB var(--arena)}
+body{background:var(--arena);color:var(--tinta);font-family:var(--font);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--nar-tinte);color:var(--nar-texto)}
+:focus-visible{outline:2px solid var(--nar);outline-offset:3px;border-radius:6px}
+img{display:block;max-width:100%}
+a{color:var(--nar-texto);text-underline-offset:3px}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.caja{width:min(1180px,100%);margin:0 auto;padding:0 20px}
+section{position:relative}
+.oculto-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Cada lámina, una pantalla */
+.lamina{min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:clamp(64px,8vw,104px) 0 clamp(112px,11vw,136px)}
+
+/* Títulos: minúsculas, peso 800 y el punto naranja */
+.h1{font-size:clamp(52px,9.4vw,104px);font-weight:800;letter-spacing:-.04em;line-height:.98}
+.h2{font-size:clamp(30px,4.4vw,52px);font-weight:800;letter-spacing:-.035em;line-height:1.05;text-wrap:balance}
+.h3{font-size:clamp(20px,2vw,24px);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.h1 b,.h2 b,.h3 b{color:var(--nar)}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--gris);max-width:46ch;margin-top:14px;text-wrap:pretty}
+.cabeza{margin-bottom:clamp(26px,3.6vw,44px)}
+.nota{font-size:14px;color:var(--gris);max-width:80ch;text-wrap:pretty;margin-top:clamp(18px,2.4vw,26px)}
+.soft{background:var(--superficie);border-radius:var(--r-tarjeta);box-shadow:var(--sombra)}
+.chip{display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 13px;border-radius:var(--r-redondo);font-size:14px;font-weight:700;white-space:nowrap;background:var(--hundido);color:var(--tinta)}
+.chip i{width:9px;height:9px;border-radius:var(--r-redondo);display:block;flex:none}
+.sw{width:12px;height:12px;border-radius:4px;display:inline-block;flex:none}
+.c-casa{--c:var(--casa);--t:var(--casa-t);--tx:var(--casa-tx)}
+.c-depto{--c:var(--depto);--t:var(--depto-t);--tx:var(--depto-tx)}
+.c-com{--c:var(--com);--t:var(--com-t);--tx:var(--com-tx)}
+.c-comun{--c:var(--comun);--t:var(--comun-t);--tx:var(--comun-tx)}
+.c-don{--c:repeating-linear-gradient(135deg,#D9822B 0 3px,#FCE9D2 3px 7px);--t:#FCE9D2;--tx:#8A3D0C}
+.sw,.chip i{background:var(--c)}
+.chip.tipo{background:var(--t);color:var(--tx)}
+.punto{width:12px;height:12px;border-radius:var(--r-redondo);background:var(--c);display:inline-block;flex:none}
+
+/* ——— Portada y cierre: el pase en carbón, con el naranja de acento ——— */
+.oscura{background:var(--carbon);color:#fff}
+.oscura ::selection{background:var(--nar);color:var(--carbon)}
+.oscura :focus-visible{outline-color:var(--nar)}
+.portada{min-height:100svh;display:flex;padding:clamp(28px,4vw,48px) 0}
+.portada .caja,.cierre .caja{display:flex;flex-direction:column;width:min(1180px,100%)}
+.portada .caja{justify-content:space-between;gap:48px}
+.marca{display:flex;align-items:center}
+.marca img{width:clamp(132px,12vw,176px);height:auto}
+.portada .marca img{width:clamp(150px,14vw,204px)}
+.portada .h1 b,.cierre .h2 b{color:var(--nar)}
+.portada .sub{font-size:clamp(19px,2vw,24px);font-weight:600;color:#fff;margin-top:clamp(16px,2vw,24px);max-width:30ch;text-wrap:balance;letter-spacing:-.01em}
+.portada .donde{font-size:clamp(15px,1.4vw,17px);color:var(--pase-suave);margin-top:10px}
+.bajar{display:inline-flex;align-items:center;gap:10px;margin-top:clamp(28px,4vw,40px);font-size:15px;font-weight:700;color:var(--nar-texto);text-decoration:none;height:48px;padding:0 20px 0 16px;border-radius:var(--r-redondo);background:#fff;box-shadow:0 10px 24px -12px rgba(0,0,0,.6);transition:transform .3s var(--ease)}
+.bajar:hover{transform:translateY(-2px)}
+.bajar svg{animation:empuje 2.6s var(--ease) infinite}
+@keyframes empuje{0%,55%,100%{transform:translateY(0)}28%{transform:translateY(3px)}}
+.portada{overflow:clip}
+.para{padding-top:22px;position:relative;font-size:clamp(15px,1.5vw,18px);color:var(--pase-suave)}
+.para b{color:#fff;font-weight:800}
+/* el talón del pase: línea punteada de orilla a orilla, con muescas en los bordes de la pantalla */
+.para::before{content:"";position:absolute;top:0;left:calc(50% - 50vw);right:calc(50% - 50vw);border-top:2px dashed rgba(255,255,255,.32)}
+.para::after{content:"";position:absolute;top:-11px;left:calc(50% - 50vw - 12px);width:24px;height:24px;border-radius:var(--r-redondo);background:var(--arena);box-shadow:100vw 0 0 var(--arena)}
+
+/* ——— Píldora de navegación ——— */
+.menu{position:fixed;z-index:40;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translate(-50%,0);width:min(560px,calc(100% - 24px));height:60px;border-radius:var(--r-redondo);background:var(--carbon-menu);box-shadow:var(--sombra-menu),inset 0 0 0 1px rgba(255,255,255,.07);display:flex;align-items:center;padding:0 5px;gap:2px;transition:transform .5s var(--ease),opacity .4s var(--ease)}
+.menu.oculto{transform:translate(-50%,140%);opacity:0}
+.menu a{flex:1;height:50px;border-radius:var(--r-redondo);display:flex;align-items:center;justify-content:center;color:var(--carbon-etiqueta);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:background-color .3s var(--ease),color .3s var(--ease)}
+.menu a:hover{color:#fff}
+.menu a[aria-current="true"]{background:var(--nar);color:var(--carbon);font-weight:700;flex:1.18}
+.velo{position:fixed;z-index:39;left:0;right:0;bottom:0;height:110px;background:linear-gradient(to bottom,rgba(248,247,244,0),rgba(248,247,244,.92) 60%);pointer-events:none;transition:opacity .4s var(--ease)}
+.velo.oculto{opacity:0}
+
+/* ——— 2. El terreno ——— */
+.terreno-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(20px,3vw,32px);align-items:start}
+.croquis{border-radius:var(--r-pase);overflow:hidden;position:relative}
+.croquis svg{width:100%;height:auto;display:block}
+/* croquis sobre la imagen satelital: píldoras blancas, como los chips de «toma forma» */
+/* relleno leve para ver el terreno; el borde (blanco por fuera, color al centro) separa los tablajes */
+.cq-tab{mix-blend-mode:screen}
+.cq-tab polygon{fill-opacity:.62;stroke:none}
+.cq-blanco polygon{fill:none;stroke:#fff;stroke-width:6px;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.cq-linea polygon{fill:none;stroke-width:2.5px;stroke-opacity:.95;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+.t-26310{fill:#9A82EC;stroke:#8B6FE6}.t-26315{fill:#2DB3A1;stroke:#1F9A8A}.t-26314{fill:#E8798A;stroke:#E0607A}.t-26329{fill:#E2B04A;stroke:#D9A030}
+.cq-vial-b{fill:#FCE9D2;fill-opacity:.12;stroke:#FCE9D2;stroke-width:1.5px;stroke-dasharray:7 6;vector-effect:non-scaling-stroke}
+.cq-frente line{stroke:var(--nar);stroke-width:4px;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.cq-marcas{position:absolute;inset:0;pointer-events:none}
+.cq-p{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:7px;padding:5px 12px 5px 10px;border-radius:14px;background:#fff;color:var(--tinta);font-size:14px;font-weight:800;line-height:1.15;white-space:nowrap;box-shadow:0 1px 2px rgba(22,18,15,.08),0 8px 18px -8px rgba(22,18,15,.4)}
+.cq-p small{display:block;font-size:11px;font-weight:600;color:var(--gris);letter-spacing:0}
+.cq-p .sw{width:10px;height:10px;border-radius:var(--r-redondo)}
+.cq-p.calle,.cq-p.vial{font-size:13px;font-weight:700}
+.cq-p .linea{width:14px;height:3px;border-radius:2px;background:var(--nar);flex:none}
+.cq-p.vial .sw{width:12px;height:12px;border-radius:4px}
+.cq-norte{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);width:38px;height:38px;border-radius:var(--r-redondo);background:#fff;box-shadow:0 1px 2px rgba(22,18,15,.08),0 8px 18px -8px rgba(22,18,15,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;line-height:1}
+.cq-norte b{font-weight:800}
+.cq-norte svg{width:9px;height:12px;margin-top:1px}
+.credito{position:absolute;right:12px;top:12px;font-size:11px;font-weight:600;color:var(--gris);background:rgba(255,255,255,.9);padding:3px 9px;border-radius:var(--r-redondo)}
+.datos{display:grid;gap:14px}
+.dato{padding:20px 22px}
+.dato .k{font-size:14px;color:var(--gris);font-weight:600}
+.dato .v{font-size:clamp(30px,3.4vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-top:2px}
+.dato .v small{font-size:.5em;font-weight:700;letter-spacing:-.01em;color:var(--gris)}
+.lista{list-style:none;display:grid;gap:12px;margin-top:12px}
+.lista li{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;font-size:15px}
+.lista li b{font-weight:700}
+.lista .m{font-weight:800;font-size:17px;white-space:nowrap}
+.lista .gris{color:var(--gris)}
+.ico{width:36px;height:36px;border-radius:var(--r-redondo);display:flex;align-items:center;justify-content:center;flex:none}
+.ico.nar{background:var(--nar-tinte);color:var(--nar-texto)}
+.ico.hund{background:var(--hundido);color:var(--gris)}
+.ico.aviso{background:#FBEBD0;color:#8A3D0C}
+
+
+/* ——— 3. El proyecto toma forma: escena fija ——— */
+.historia{display:grid;grid-template-columns:minmax(0,1fr)}
+.escena,.pasos{grid-area:1/1}
+.escena{position:sticky;top:0;height:100svh;overflow:hidden;z-index:1}
+.marco{position:absolute;inset:0;overflow:hidden;background:#DCE6CF}
+.plato{position:absolute;left:0;top:0;width:2000px;height:1116px;transform-origin:0 0;transition:transform 1s var(--ease)}
+.plato>svg,.plato>img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.maqueta .tz{opacity:0;transition:opacity .7s var(--ease) calc(var(--i,0)*70ms)}
+.escena.ver-trazo .maqueta .tz{opacity:1}
+.maqueta .vol{opacity:0;transform:translateY(-26px);transition:opacity .6s var(--ease) calc(var(--i,0)*45ms),transform .8s var(--ease) calc(var(--i,0)*45ms)}
+.escena.ver-vol .maqueta .vol{opacity:1;transform:none}
+.maqueta .arb{opacity:0;transition:opacity .8s var(--ease) calc(400ms + var(--i,0)*30ms)}
+.escena.ver-vol .maqueta .arb{opacity:1}
+.techo{stroke:rgba(29,27,38,.18);stroke-width:1.5;stroke-linejoin:round}
+.muro{stroke:rgba(29,27,38,.18);stroke-width:1.5;stroke-linejoin:round}
+.v-casa .techo{fill:#FBF1D6}.v-casa .muro{fill:#E9C877}
+.v-depto .techo{fill:#F1EDFD}.v-depto .muro{fill:#B8A6EE}
+.v-com .techo{fill:#FDEBEE}.v-com .muro{fill:#EE9AA8}
+.lote-borde{fill:none;stroke:var(--nar);stroke-width:calc(2.5px / var(--s,1));stroke-dasharray:14 12;transition:opacity .6s var(--ease)}
+.escena.ver-vol .lote-borde,.escena.ver-zonas .lote-borde{opacity:0}
+/* paso 1: zonificación en plano */
+.maqueta .zonas{opacity:0;transition:opacity .7s var(--ease)}
+.escena.ver-zonas .maqueta .zonas{opacity:1}
+.zonas polygon{stroke:#fff;stroke-width:calc(2.5px / var(--s,1));stroke-linejoin:round}
+.escena.ver-zonas .mz{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.marca-tipo .chip b{font-weight:800;margin-left:calc(3px / var(--s,1))}
+/* donación: solo en el paso 1 (zonificación en plano) */
+.don{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .6s var(--ease)}
+.don polygon{fill:url(#raya-don);stroke:#B4610F;stroke-width:calc(2px / var(--s,1));stroke-linejoin:round}
+.escena.ver-zonas .don{opacity:1}
+.escena.ver-zonas .marca-tipo.mt-don{opacity:1;transform:translate(-50%,-50%) scale(1)}
+/* render: aparece completo desde el paso 3 y se queda fijo */
+.render{opacity:0;transition:opacity .8s var(--ease),filter .7s var(--ease)}
+.escena.ver-render .render{opacity:1}
+.escena[data-foco="comercio"] .render,.escena[data-foco="deptos"] .render,.escena[data-foco="casas"] .render,.escena[data-foco="comunes"] .render{filter:grayscale(.85) brightness(1.12) contrast(.78)}
+.capa .lit{opacity:0;transition:opacity .6s var(--ease)}
+.escena[data-foco="comercio"] .lit-com,.escena[data-foco="deptos"] .lit-depto,.escena[data-foco="casas"] .lit-casa,.escena[data-foco="comunes"] .lit-comun{opacity:1}
+.capa .tinte{opacity:0;mix-blend-mode:multiply;transition:opacity .6s var(--ease)}
+.capa .borde{fill:none;stroke-width:calc(2.5px / var(--s,1));stroke-linejoin:round;opacity:0;transition:opacity .5s var(--ease)}
+.escena[data-foco="comercio"] .b-com,.escena[data-foco="deptos"] .b-depto,.escena[data-foco="casas"] .b-casa,.escena[data-foco="comunes"] .b-comun{opacity:1}
+.t-com{fill:var(--com)}.t-depto{fill:var(--depto)}.t-casa{fill:var(--casa)}.t-comun{fill:var(--comun)}
+.b-com,.b-depto,.b-casa,.b-comun{stroke:#fff}
+.marcas{position:absolute;inset:0;pointer-events:none}
+.marca-tipo{position:absolute;left:var(--x);transform:translate(-50%,-50%) scale(.92);opacity:0;transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.marca-tipo .chip{height:calc(32px / var(--s,1));padding:0 calc(13px / var(--s,1));gap:calc(7px / var(--s,1));font-size:calc(14px / var(--s,1));box-shadow:0 calc(8px / var(--s,1)) calc(18px / var(--s,1)) calc(-8px / var(--s,1)) rgba(22,18,15,.35)}
+.marca-tipo .chip i{width:calc(9px / var(--s,1));height:calc(9px / var(--s,1))}
+.escena[data-foco="comercio"] .mt-com,.escena[data-foco="deptos"] .mt-depto,.escena[data-foco="casas"] .mt-casa,.escena[data-foco="comunes"] .mt-comun{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.mt-calle{opacity:1;transform:translate(-50%,-50%);font-size:calc(13px / var(--s,1));white-space:nowrap;font-weight:700;color:#fff;letter-spacing:.02em;text-shadow:0 1px 10px rgba(0,0,0,.45)}
+.escena:not(.ver-render) .mt-calle{color:var(--gris);text-shadow:none}
+.leyenda-escena{position:absolute;right:16px;top:16px;z-index:3;font-size:12px;font-weight:600;color:var(--gris);background:rgba(255,255,255,.88);padding:5px 12px;border-radius:var(--r-redondo);opacity:0;transition:opacity .5s var(--ease)}
+.escena.ver-render .leyenda-escena{opacity:1}
+
+.pasos{position:relative;z-index:2;pointer-events:none}
+.paso-h{min-height:115svh;display:flex;flex-direction:column;padding:0 clamp(16px,3vw,40px)}
+.paso-h:last-child{min-height:105svh}
+.tarjeta{pointer-events:auto;position:sticky;top:var(--top,16svh);width:min(400px,100%);margin:14svh 0 10svh;padding:24px 24px 22px;background:var(--superficie);border-radius:var(--r-pase);box-shadow:0 2px 6px rgba(22,18,15,.06),0 24px 48px -20px rgba(22,18,15,.35);transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.paso-h[data-lado="der"] .tarjeta{margin-left:auto}
+.paso-h[data-bajo]{justify-content:flex-end}
+.paso-h[data-bajo] .tarjeta{top:auto;bottom:96px;margin-bottom:96px}
+.js .paso-h:not(.activo) .tarjeta{opacity:0;transform:translateY(10px)}
+.tarjeta .h3{margin-bottom:8px}
+.tarjeta p{font-size:16px;color:var(--gris);text-wrap:pretty}
+.mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+.mini div{background:var(--hundido);border-radius:var(--r-pieza);padding:10px 12px}
+.mini small{display:block;font-size:12px;color:var(--gris);font-weight:600}
+.mini b{display:block;font-size:19px;font-weight:800;letter-spacing:-.02em}
+.mini b em{font-style:normal;font-size:12px;color:var(--gris);font-weight:600;letter-spacing:0}
+.mini .ancha{grid-column:1/-1}
+.tarjeta.areas{width:min(470px,100%)}
+.barra{display:flex;gap:2px;height:30px;border-radius:8px;overflow:hidden;margin:14px 0 6px}
+.barra span{display:block;height:100%;background:var(--c)}
+.barra-etq{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--gris);font-weight:700}
+.barra-etq .vend{color:var(--nar-texto)}
+.tabla-a{width:100%;border-collapse:collapse;margin-top:12px;font-size:14px}
+.tabla-a td{padding:7px 0;border-top:1px solid var(--hundido);vertical-align:top}
+.tabla-a td:nth-child(2),.tabla-a td:nth-child(3){text-align:right;white-space:nowrap;font-weight:700;padding-left:10px}
+.tabla-a td:first-child{display:flex;gap:8px;align-items:baseline}
+.tabla-a td:first-child .sw{transform:translateY(1px)}
+.tabla-a .u{display:block;font-size:12px;color:var(--gris);font-weight:500}
+.tabla-a tfoot td{font-weight:800}
+.indica{display:flex;gap:8px;align-items:center;margin-top:14px;font-size:13px;color:var(--gris);font-weight:600}
+.indica svg{animation:empuje 2.6s var(--ease) infinite}
+
+/* ——— 4. De dónde sale el precio ——— */
+.precio-t{padding:clamp(18px,2.6vw,30px)}
+.pr{display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,1.15fr) minmax(0,1.15fr) 96px minmax(0,1.25fr);gap:12px;align-items:center}
+.pr+.pr{margin-top:12px}
+.pr.cab{margin-bottom:-2px}
+.pr.cab span{font-size:13px;font-weight:700;color:var(--gris)}
+.pr .nm{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:800;letter-spacing:-.01em}
+.pc{background:var(--hundido);border-radius:var(--r-pieza);padding:14px 16px;min-width:0}
+.pc b{display:block;font-size:clamp(21px,2.2vw,26px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.pc em{font-style:normal;font-size:13px;color:var(--gris);font-weight:600}
+.pc small{font-size:12px;color:var(--gris);font-weight:600}
+.pc.final{background:var(--carbon);color:#fff;box-shadow:var(--sombra-pase)}
+.pc.final em,.pc.final small{color:var(--pase-suave)}
+.mas{display:flex;flex-direction:column;align-items:center;gap:4px;color:var(--nar-texto);font-weight:800;font-size:15px;white-space:nowrap}
+.mas span{display:flex;align-items:center;justify-content:center;width:44px;height:30px;border-radius:var(--r-redondo);background:var(--nar-tinte)}
+.solo-tel{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ——— 5. Lo que ya se vende en la zona ——— */
+.grupo+.grupo{margin-top:clamp(36px,4.4vw,56px)}
+.grupo-top{display:flex;justify-content:space-between;align-items:end;gap:12px 24px;flex-wrap:wrap;margin-bottom:18px}
+.grupo-top .prom{font-size:15px;color:var(--gris)}
+.grupo-top .prom b{color:var(--tinta);font-size:22px;font-weight:800;letter-spacing:-.02em;margin-left:4px}
+.tira{display:grid;grid-template-columns:repeat(var(--cols,4),minmax(0,1fr));gap:16px}
+.proy{overflow:hidden;display:flex;flex-direction:column}
+.proy .foto{aspect-ratio:4/3;background:var(--hundido);overflow:hidden;position:relative}
+.proy .foto img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.proy:hover .foto img{transform:scale(1.035)}
+.proy .txt{padding:14px 16px 16px;display:flex;flex-direction:column;gap:2px;flex:1}
+.proy .n{font-size:15px;font-weight:700;letter-spacing:-.01em}
+.proy .p{font-size:22px;font-weight:800;letter-spacing:-.02em}
+.proy .p small{font-size:13px;font-weight:600;color:var(--gris);letter-spacing:0}
+.proy .cred{font-size:12px;color:var(--gris);margin-top:auto;padding-top:8px;line-height:1.35}
+
+/* ——— Barras de precio por m² (láminas 6 y 7) ——— */
+.barras{display:grid;gap:8px}
+.br{display:grid;grid-template-columns:minmax(118px,168px) minmax(0,1fr);gap:14px;align-items:center;font-size:15px}
+.br .nm{color:var(--gris);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.br .pista{display:flex;align-items:center;gap:10px;height:30px}
+.br .pista i{display:block;height:20px;width:calc((100% - 84px) * var(--w) / 100);border-radius:7px;background:var(--apagado);flex:none;transform-origin:left;transition:transform .9s var(--ease) calc(var(--k,0) * 60ms)}
+.br .vl{font-weight:600;color:var(--gris);white-space:nowrap}
+.br.dz .nm,.br.dz .vl{color:var(--nar-texto);font-weight:800}
+.br.dz .pista i{background:var(--nar)}
+.br.rival .nm,.br.rival .vl{color:var(--tinta);font-weight:800}
+.br.rival .pista i{background:var(--tinta)}
+.js .crece:not(.vista) .pista i{transform:scaleX(0)}
+.sub-g{font-size:15px;font-weight:700;color:var(--gris);margin-bottom:14px}
+.sub-g b{color:var(--tinta)}
+.casas-grid{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:start}
+.graf{padding:clamp(18px,2.4vw,28px)}
+.prom-casa{padding:clamp(20px,2.4vw,28px)}
+.prom-casa .h3{margin-bottom:6px}
+.pcasa{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;padding:14px 0;border-top:1px solid var(--hundido)}
+.pcasa:first-of-type{border-top:0}
+.pcasa .q{font-size:16px;font-weight:800}
+.pcasa .q small{display:block;font-size:13px;color:var(--gris);font-weight:500}
+.pcasa .v{font-size:clamp(22px,2.2vw,26px);font-weight:800;letter-spacing:-.02em}
+.pcasa.dz .q{color:var(--nar-texto)}
+.pcasa.prom .q{color:var(--gris)}
+.menos{margin-top:8px;background:var(--carbon);color:#fff;border-radius:var(--r-pieza);padding:16px 18px;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;box-shadow:var(--sombra-pase)}
+.menos b{font-size:clamp(34px,3.6vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1}
+.menos span{font-size:14px;color:var(--pase-suave);font-weight:600}
+.dos-graf{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(18px,2.6vw,32px);align-items:start}
+.lectura{margin-top:16px;background:var(--hundido);border-radius:var(--r-tarjeta);padding:18px 20px;font-size:16px;text-wrap:pretty}
+
+/* ——— 8. Ventas ——— */
+.barra-v{display:flex;gap:3px;height:clamp(52px,6vw,64px);border-radius:16px;overflow:hidden}
+.barra-v span{background:var(--c);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;padding-left:16px;transform-origin:left;transition:transform 1s var(--ease)}
+.tres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,22px);margin-top:clamp(18px,2.6vw,28px)}
+.vt{padding:clamp(20px,2.6vw,28px)}
+.vt .q{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:800}
+.vt .m{display:block;font-size:clamp(36px,4.2vw,50px);font-weight:800;letter-spacing:-.035em;line-height:1;margin-top:clamp(16px,2.4vw,26px)}
+.vt .d{display:block;font-size:15px;color:var(--gris);margin-top:10px}
+
+/* ——— 9. Cascada (vertical en escritorio) ——— */
+.cascada{padding:clamp(20px,3vw,34px)}
+.cols{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:clamp(8px,1.4vw,18px);padding-top:28px}
+.cf .area{position:relative;height:clamp(220px,36svh,330px);border-bottom:2px solid var(--hundido)}
+.cf .seg{position:absolute;left:0;right:0;bottom:calc(var(--b) * 1%);height:calc(var(--h) * 1%);min-height:3px;border-radius:8px;background:var(--apagado);transform-origin:bottom;transition:transform .9s var(--ease) calc(var(--k,0) * 90ms)}
+.cf .m{position:absolute;left:-6px;right:-6px;bottom:calc((var(--b) + var(--h)) * 1% + 8px);text-align:center;font-weight:800;font-size:clamp(13px,1.25vw,16px);letter-spacing:-.01em;white-space:nowrap}
+.cf .n{display:block;text-align:center;font-size:13px;font-weight:600;line-height:1.3;margin-top:10px;text-wrap:balance}
+.cf.grande .seg{background:var(--tinta)}
+.cf.suyo .seg{background:var(--nar)}
+.cf.suyo .m,.cf.suyo .n{color:var(--nar-texto);font-weight:800}
+.cf.utilidad .seg{background:var(--comun)}
+.cf.utilidad .m,.cf.utilidad .n{color:var(--comun-tx);font-weight:800}
+.js .cascada:not(.vista) .seg{transform:scaleY(0)}
+.supuestos{margin-top:22px;background:var(--hundido);border-radius:var(--r-tarjeta);padding:16px 18px}
+.supuestos p{font-size:14px;color:var(--gris)}
+.supuestos p+p{margin-top:6px}
+
+/* ——— 10. Su participación ——— */
+.part{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,2vw,22px)}
+.pt-c{padding:clamp(20px,2.6vw,30px);display:flex;flex-direction:column}
+.pt-c .pc-k{font-size:15px;font-weight:700;color:var(--gris)}
+.pt-c .pc-k b{font-size:clamp(24px,2.4vw,30px);font-weight:800;letter-spacing:-.02em;margin-right:6px}
+.pt-c .pc-k.ventas b{color:var(--nar-texto)}
+.pt-c .pc-k.util b{color:var(--comun-tx)}
+.pt-c .m{font-size:clamp(40px,4.6vw,58px);font-weight:800;letter-spacing:-.04em;line-height:1;margin-top:clamp(18px,2.6vw,30px)}
+.pt-c p{font-size:15px;margin-top:12px;text-wrap:pretty}
+.pt-c.pase{background:var(--carbon);color:#fff;border-radius:var(--r-tarjeta);box-shadow:var(--sombra-pase)}
+.pt-c.pase .pc-k{color:var(--nar);font-size:16px}
+.pt-c.pase p{color:#fff;font-weight:700}
+.valor{margin-top:clamp(14px,2vw,22px);padding:16px 22px;font-size:16px;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline}
+.valor .k{font-weight:800}
+.valor b{font-weight:800;color:var(--nar-texto)}
+.valor .sep{color:var(--borde)}
+
+/* ——— 11. Proporción ——— */
+.prop-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:center}
+.pp{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:16px;align-items:center;padding:18px 0;border-top:1px solid #E6E1DA}
+.pp:first-child{border-top:0;padding-top:0}
+.pp .k{width:44px;height:44px;border-radius:var(--r-redondo);background:var(--nar);color:#fff;font-weight:800;font-size:19px;display:flex;align-items:center;justify-content:center}
+.pp.util .k{background:var(--comun)}
+.pp .t{font-size:17px;font-weight:800;letter-spacing:-.01em}
+.pp .t small{display:block;font-size:14px;color:var(--gris);font-weight:500;margin-top:2px}
+.pp .v{font-size:clamp(24px,2.6vw,32px);font-weight:800;letter-spacing:-.03em;white-space:nowrap}
+.prop-g{padding:clamp(20px,2.6vw,30px)}
+.pb+.pb{margin-top:28px}
+.pb .et{font-size:14px;font-weight:700;color:var(--gris);margin-bottom:8px}
+.pb .bb{display:flex;gap:3px;height:36px;border-radius:10px;overflow:hidden}
+.pb .bb span{display:block;height:100%;background:var(--apagado)}
+.pb .bb .nar{background:var(--nar);width:17.6%}
+.pb .bb .vd{background:var(--comun);width:17.6%}
+.pb .pie{font-size:15px;font-weight:800;margin-top:8px;color:var(--nar-texto)}
+.pb.u .pie{color:var(--comun-tx)}
+
+/* ——— 12. Cierre ——— */
+.cierre{min-height:100svh;display:flex;align-items:center;padding:clamp(64px,8vw,104px) 0 clamp(120px,12vw,150px)}
+.cierre .marca{margin-bottom:clamp(36px,6vh,64px)}
+.cierre .h2{font-size:clamp(40px,6.6vw,80px);letter-spacing:-.04em;max-width:16ch}
+.cierre .monto-c{color:var(--nar);white-space:nowrap}
+.cierre .suma{font-size:clamp(18px,1.9vw,23px);color:var(--pase-suave);margin-top:clamp(20px,2.6vw,30px);max-width:44ch;text-wrap:pretty;font-weight:500}
+.cierre .suma b{color:#fff;font-weight:800}
+.cierre .eq{display:inline-flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:clamp(20px,2.6vw,28px);background:var(--carbon-alto);border-radius:var(--r-pieza);padding:14px 20px;font-size:16px;color:var(--pase-suave);align-self:flex-start}
+.cierre .eq b{font-size:clamp(26px,2.8vw,34px);color:#fff;font-weight:800;letter-spacing:-.02em}
+.cierre .letra{margin-top:clamp(40px,7vh,72px);border-top:2px dashed rgba(255,255,255,.32);padding-top:18px;font-size:14px;color:var(--pase-suave);display:grid;gap:4px;max-width:90ch}
+
+/* ——— Pie ——— */
+.pie-pag{padding:44px 0 150px}
+.pie-pag .marca{margin-bottom:18px}
+.pie-pag .marca img{width:clamp(120px,10vw,148px)}
+.pie-pag p{font-size:13px;color:var(--gris);max-width:90ch}
+.creditos{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 28px;margin-top:16px}
+.creditos li{font-size:12px;color:var(--gris);padding:5px 0;border-bottom:1px solid #EDE9E3}
+.creditos b{color:var(--tinta);font-weight:600}
+
+/* ——— Teléfono ——— */
+@media (max-width:860px){
+  body{font-size:16px}
+  .lamina{padding:56px 0 104px}
+  .terreno-grid,.casas-grid,.dos-graf,.prop-grid{grid-template-columns:1fr}
+  .cq-p,.cq-norte{left:var(--xm);top:var(--ym)}
+  .cq-p{font-size:12px;padding:4px 9px 4px 8px;gap:5px;border-radius:12px}.cq-p.calle,.cq-p.vial{font-size:11px}.cq-p small{font-size:10px}
+  .cq-norte{width:30px;height:30px;font-size:9px}
+  .credito{top:auto;right:auto;bottom:10px;left:10px;font-size:10px}
+  .cq-p.vial{left:12px;top:12px;transform:none}
+  .cq-p.calle.carr{left:auto;top:auto;right:12px;bottom:12px;transform:none}
+  .cq-p.calle.carr small{display:none}
+  .tira{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:72%;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:4px 20px 18px;scrollbar-width:none}
+  .tira::-webkit-scrollbar{display:none}
+  .proy{scroll-snap-align:start}
+  /* precio: cada producto, su propia tarjeta */
+  .pr.cab{display:none}
+  .pr{grid-template-columns:1fr 1fr;gap:8px}
+  .pr+.pr{margin-top:22px;padding-top:18px;border-top:1px solid var(--hundido)}
+  .pr.cab+.pr{margin-top:0;padding-top:0;border-top:0}
+  .pr .nm{grid-column:1/-1}
+  .pr .mas{grid-column:1/-1;flex-direction:row;justify-self:start}
+  .pr .final{grid-column:1/-1}
+  .solo-tel{position:static;width:auto;height:auto;overflow:visible;clip:auto;white-space:normal;display:block}
+  .br{grid-template-columns:104px minmax(0,1fr);gap:10px;font-size:14px}
+  .br .pista i{width:calc((100% - 72px) * var(--w) / 100)}
+  /* cascada: barras horizontales */
+  .cols{grid-template-columns:1fr;gap:0;padding-top:0}
+  .cf{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"n m" "t t";gap:6px 12px;padding:8px 0;align-items:baseline}
+  .cf::before{content:"";grid-area:t;height:16px;border-radius:6px;background:var(--arena)}
+  .cf .area{display:contents}
+  .cf .seg{grid-area:t;position:relative;left:auto;right:auto;bottom:auto;height:16px;min-height:0;margin-left:calc(var(--b) * 1%);width:max(3px,calc(var(--h) * 1%));border-radius:6px;transform-origin:left}
+  .js .cascada:not(.vista) .seg{transform:scaleX(0)}
+  .cf .m{grid-area:m;position:static;text-align:right;font-size:16px}
+  .cf .n{grid-area:n;text-align:left;margin:0;font-size:14px}
+  .tres,.part{grid-template-columns:1fr}
+  .vt .m,.pt-c .m{margin-top:12px}
+  .barra-v span{padding-left:10px}
+  .pp{grid-template-columns:auto minmax(0,1fr);gap:4px 14px}
+  .pp .v{grid-column:2}
+  .valor{flex-direction:column;gap:2px}
+  .valor .sep{display:none}
+  .creditos{grid-template-columns:1fr}
+  /* escena: imagen arriba, tarjeta abajo */
+  .escena{height:54svh;z-index:3}
+  .marco{border-radius:0 0 var(--r-pase) var(--r-pase);box-shadow:0 12px 24px -16px rgba(22,18,15,.35)}
+  .pasos{padding-top:calc(54svh + 20px)}
+  .paso-h,.paso-h:last-child{min-height:0;padding:0 12px}
+  .paso-h[data-bajo]{justify-content:flex-start}
+  .tarjeta,.paso-h[data-lado="der"] .tarjeta,.paso-h[data-bajo] .tarjeta,.tarjeta.areas{position:relative;top:auto;bottom:auto;width:100%;margin:0 0 38svh;padding:18px 18px 16px}
+  .paso-h:last-child .tarjeta{margin-bottom:22svh}
+  .js .paso-h:not(.activo) .tarjeta{opacity:.35;transform:none}
+  .tarjeta p{font-size:15px}
+  .tarjeta.areas .tabla-a{font-size:13px}
+  .leyenda-escena{top:10px;right:10px}
+  .marca-tipo{left:var(--xm)}
+  .marca-tipo .chip{font-size:calc(12.5px / var(--s,1));padding:0 calc(10px / var(--s,1));height:calc(28px / var(--s,1))}
+  .br .nm{white-space:normal;line-height:1.2}
+  .cierre .eq{display:block}
+  .solo-esc{display:none}
+}
+@media (max-width:420px){
+  .h2{font-size:29px}
+  .menu a{font-size:12px}
+  .pc{padding:12px 14px}
+}
+@media (min-width:861px) and (max-height:820px){
+  .tarjeta{padding:18px 20px 16px;margin-top:9svh}
+  .tarjeta p{font-size:15px}
+  .tabla-a td{padding:5px 0}
+  .paso-h[data-bajo] .tarjeta{bottom:84px;margin-bottom:84px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .js .paso-h:not(.activo) .tarjeta{opacity:1;transform:none}
+  .tarjeta{position:relative;top:auto;bottom:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- Lámina 1 · Portada -->
+<header class="portada oscura" id="portada">
+  <div class="caja">
+    <div class="marca"><img src="assets/marca/logo-acento-blanco.png" alt="Acento Desarrollos" width="1200" height="395"></div>
+    <div>
+      <h1 class="h1">Proyecto<br>Dzityá<b>.</b></h1>
+      <p class="sub">Propuesta de desarrollo para el aportante del terreno</p>
+      <p class="donde num">80,089 m² · Dzityá, Mérida, Yucatán</p>
+      <a class="bajar" href="#terreno">
+        <svg width="14" height="18" viewBox="0 0 14 18" aria-hidden="true"><path d="M7 1v14M1.5 9.5 7 15l5.5-5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Empezar
+      </a>
+    </div>
+    <p class="para">Preparada para <b>Manuel Farah Martín</b></p>
+  </div>
+</header>
+
+<nav class="menu oculto" id="menu" aria-label="Secciones">
+  <a href="#terreno" data-sec="terreno">Terreno</a>
+  <a href="#zona" data-sec="mercado">Mercado</a>
+  <a href="#proyecto" data-sec="proyecto">Proyecto</a>
+  <a href="#ventas" data-sec="numeros">Números</a>
+  <a href="#participacion" data-sec="parte">Su parte</a>
+</nav>
+<div class="velo oculto" id="velo" aria-hidden="true"></div>
+
+<main>
+
+<!-- El terreno -->
+<section class="lamina" id="terreno" data-sec="terreno" aria-labelledby="t-terreno">
+  <div class="caja">
+    <div class="cabeza">
+      <h2 class="h2" id="t-terreno">Su terreno, tal como está<b>.</b></h2>
+      <p class="lead">Cuatro tablajes juntos, con frente a dos calles. Se aportan juntos y se desarrollan como un solo proyecto.</p>
+    </div>
+    <div class="terreno-grid">
+      <figure class="soft croquis">
+        <svg viewBox="150 165 930 830" role="img" aria-labelledby="croquis-t">
+          <title id="croquis-t">Imagen satelital con los cuatro tablajes marcados en color: 26315 al norte, con 213 m de frente a la Diagonal 63 E; 26310 al poniente, sin frente; 26314 y 26329 al sur, con 199 m de frente a la Carretera a Dzityá. La vialidad regional proyectada toca la esquina noroeste de 26310 y la ampliación de la carretera toma una franja del frente sur.</title>
+          <defs>
+            <pattern id="raya" width="16" height="16" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <rect width="16" height="16" fill="#FCE9D2"/><rect width="6" height="16" fill="#D9822B"/>
+            </pattern>
+            <clipPath id="clip-26310"><polygon points="226,439 584,400 620,534 429,601 261,658"/></clipPath>
+          </defs>
+          <image href="assets/satelital-limpia.jpg" x="0" y="0" width="1174" height="1138" preserveAspectRatio="none"/>
+          <rect x="0" y="0" width="1174" height="1138" fill="#F8F7F4" opacity=".08"/>
+          <g class="cq-tab">
+            <polygon class="t-26310" points="226,439 584,400 620,534 429,601 261,658"/>
+            <polygon class="t-26315" points="586,223 933,382 948,430 771,486 620,534 584,400"/>
+            <polygon class="t-26314" points="429,601 620,534 705,886 534,944"/>
+            <polygon class="t-26329" points="620,534 771,486 874,835 705,886"/>
+          </g>
+          <g class="cq-blanco">
+            <polygon points="226,439 584,400 620,534 429,601 261,658"/>
+            <polygon points="586,223 933,382 948,430 771,486 620,534 584,400"/>
+            <polygon points="429,601 620,534 705,886 534,944"/>
+            <polygon points="620,534 771,486 874,835 705,886"/>
+          </g>
+          <g class="cq-linea">
+            <polygon class="t-26310" points="226,439 584,400 620,534 429,601 261,658"/>
+            <polygon class="t-26315" points="586,223 933,382 948,430 771,486 620,534 584,400"/>
+            <polygon class="t-26314" points="429,601 620,534 705,886 534,944"/>
+            <polygon class="t-26329" points="620,534 771,486 874,835 705,886"/>
+          </g>
+          <polygon class="cq-vial-b" points="479,272 95,780 -22,691 361,183"/>
+          <polygon points="479,272 95,780 -22,691 361,183" fill="url(#raya)" clip-path="url(#clip-26310)" opacity=".85"/>
+          <polygon points="534,944 874,835 870,822 530,931" fill="url(#raya)"/>
+          <g class="cq-frente">
+            <line x1="586" y1="223" x2="933" y2="382"/>
+            <line x1="534" y1="944" x2="874" y2="835"/>
+          </g>
+        </svg>
+        <div class="cq-marcas" aria-hidden="true">
+          <span class="cq-p" style="--x:29.0%;--y:43.0%;--xm:29.0%;--ym:43.0%"><i class="sw" style="background:var(--depto)"></i><span>26310<small>sin frente</small></span></span>
+          <span class="cq-p" style="--x:62.4%;--y:27.1%;--xm:62.4%;--ym:27.1%"><i class="sw" style="background:#1F9A8A"></i><span>26315</span></span>
+          <span class="cq-p" style="--x:44.9%;--y:71.7%;--xm:44.9%;--ym:71.7%"><i class="sw" style="background:var(--com)"></i><span>26314</span></span>
+          <span class="cq-p" style="--x:64.3%;--y:62.0%;--xm:64.3%;--ym:62.0%"><i class="sw" style="background:var(--casa)"></i><span>26329</span></span>
+          <span class="cq-p calle" style="--x:81.2%;--y:12.9%;--xm:80.6%;--ym:12.4%"><i class="linea"></i><span>Diagonal 63 E<small>213 m de frente</small></span></span>
+          <span class="cq-p calle carr" style="--x:84.4%;--y:89.2%;--xm:79.9%;--ym:94.0%"><i class="linea"></i><span>Carretera a Dzityá<small>199 m de frente</small></span></span>
+          <span class="cq-p vial" style="--x:21.0%;--y:6.0%;--xm:26.3%;--ym:6.0%"><i class="sw c-don"></i><span>Vialidad regional proyectada</span></span>
+          <span class="cq-norte" style="--x:95.7%;--y:47.6%;--xm:95.7%;--ym:50.0%"><b>N</b><svg width="14" height="18" viewBox="-9 -19 18 30"><path d="M0 -19 L9 10 L0 4 L-9 10 Z" fill="#1D1B26"/></svg></span>
+        </div>
+        <span class="credito">Imagen: Esri</span>
+      </figure>
+      <div class="datos">
+        <div class="soft dato">
+          <div class="k">Superficie total</div>
+          <div class="v num">80,089 <small>m²</small></div>
+        </div>
+        <div class="soft dato">
+          <div class="k">Frente a calle</div>
+          <ul class="lista">
+            <li><span class="ico nar" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 8 5"/><path d="M16 5l4 14"/><path d="M12 6v2"/><path d="M12 11v2"/><path d="M12 16v2"/></svg></span><span><b>Carretera a Dzityá</b><br><span class="gris">tablajes 26314 y 26329</span></span><span class="m num">199 m</span></li>
+            <li><span class="ico nar" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19 8 5"/><path d="M16 5l4 14"/><path d="M12 6v2"/><path d="M12 11v2"/><path d="M12 16v2"/></svg></span><span><b>Diagonal 63 E</b><br><span class="gris">tablaje 26315</span></span><span class="m num">213 m</span></li>
+          </ul>
+        </div>
+        <div class="soft dato">
+          <div class="k">Lo que hay que considerar</div>
+          <ul class="lista">
+            <li><span class="ico aviso" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span><span><b>Vialidad regional proyectada</b><br><span class="gris">el municipio la proyecta por la esquina noroeste de 26310</span></span><span></span></li>
+            <li><span class="ico aviso" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4"/><path d="M12 17h.01"/></svg></span><span><b>Ampliación de la Carretera a Dzityá</b><br><span class="gris">toma una franja del frente sur</span></span><span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lo que ya se vende en la zona -->
+<section class="lamina" id="zona" data-sec="mercado" aria-labelledby="t-zona">
+  <div class="caja">
+    <div class="cabeza">
+      <h2 class="h2" id="t-zona">Lo que ya se vende en la zona<b>.</b></h2>
+      <p class="lead">Proyectos en venta cerca de su terreno, con su precio por m². De aquí sale el precio del proyecto.</p>
+    </div>
+    <div class="grupo c-casa">
+      <div class="grupo-top">
+        <h3 class="h3"><span class="chip tipo"><i></i>Casas</span></h3>
+        <div class="prom">Promedio <b class="num">$24,977</b> por m²</div>
+      </div>
+      <div class="tira" style="--cols:5">
+        <article class="soft proy"><div class="foto"><img src="assets/zona/arena-render.webp" alt="Fachada posterior de una casa blanca de dos niveles con jardín y alberca" loading="lazy" width="2000" height="2000"></div><div class="txt"><span class="n">Arena</span><span class="p num">$22,416 <small>por m²</small></span><span class="cred">Imagen: Arena · render</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/townhouse.jpg" alt="Fachada de townhouses de dos niveles con cochera" loading="lazy" width="760" height="570"></div><div class="txt"><span class="n">Townhouse</span><span class="p num">$23,684 <small>por m²</small></span><span class="cred">Imagen: Viva Residencial vía Pincali · render</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/fulgora.jpg" alt="Fachada de casa de dos niveles en Fulgora" loading="lazy" width="760" height="428"></div><div class="txt"><span class="n">Fulgora</span><span class="p num">$23,688 <small>por m²</small></span><span class="cred">Imagen: Acento Desarrollos vía Pincali · render</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/alera.jpg" alt="Fachada de casa en Alera con cochera techada" loading="lazy" width="760" height="570"></div><div class="txt"><span class="n">Alera</span><span class="p num">$25,484 <small>por m²</small></span><span class="cred">Imagen: OREMA vía Pincali · render</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/seremos-casas.jpg" alt="Folleto de townhouses de Seremos" loading="lazy" width="760" height="477"></div><div class="txt"><span class="n">Seremos</span><span class="p num">$29,613 <small>por m²</small></span><span class="cred">Imagen: folleto de Seremos vía Pincali · render</span></div></article>
+      </div>
+    </div>
+
+    <div class="grupo c-depto">
+      <div class="grupo-top">
+        <h3 class="h3"><span class="chip tipo"><i></i>Departamentos</span></h3>
+        <div class="prom">Promedio <b class="num">$35,108</b> por m²</div>
+      </div>
+      <div class="tira" style="--cols:4">
+        <article class="soft proy"><div class="foto"><img src="assets/zona/campocielo.jpg" alt="Área de juegos de Campocielo" loading="lazy" width="760" height="507"></div><div class="txt"><span class="n">Campocielo Loft Elite</span><span class="p num">$26,456 <small>por m²</small></span><span class="cred">Imagen: Royal Inmobiliaria vía Grupo BCI</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/tam18.jpg" alt="Edificio de departamentos Tam18" loading="lazy" width="760" height="428"></div><div class="txt"><span class="n">Tam18</span><span class="p num">$26,683 <small>por m²</small></span><span class="cred">Imagen: Hallivis · render</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/inicial-real-montejo.jpg" alt="Edificio de Inicial Real Montejo con locales en planta baja" loading="lazy" width="760" height="405"></div><div class="txt"><span class="n">Inicial Real Montejo B</span><span class="p num">$28,947 <small>por m²</small></span><span class="cred">Imagen: sitio oficial de Inicial Real Montejo · render</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/alian-alba.jpg" alt="Torres de departamentos Alian de noche" loading="lazy" width="760" height="428"></div><div class="txt"><span class="n">Alian Alba</span><span class="p num">$33,662 <small>por m²</small></span><span class="cred">Imagen: Alí Desarrollos vía JM Group · render</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/seremos-kima.jpg" alt="Fachada de departamentos Seremos Kima" loading="lazy" width="553" height="360"></div><div class="txt"><span class="n">Seremos Kima</span><span class="p num">$33,749 <small>por m²</small></span><span class="cred">Imagen: City Yucatán Brokers · render</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/galatha.jpg" alt="Fachada de Galatha" loading="lazy" width="760" height="443"></div><div class="txt"><span class="n">Galatha</span><span class="p num">$35,074 <small>por m²</small></span><span class="cred">Imagen: desarrollador vía Grupo BCI · render</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/senda-viva.jpg" alt="Edificios blancos de Senda Viva entre árboles" loading="lazy" width="760" height="380"></div><div class="txt"><span class="n">Senda Viva</span><span class="p num">$38,154 <small>por m²</small></span><span class="cred">Imagen: Edifor vía Goodlers · render</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/plantar.jpg" alt="Fachada poniente de Plantar" loading="lazy" width="760" height="456"></div><div class="txt"><span class="n">Plantar</span><span class="p num">$40,540 <small>por m²</small></span><span class="cred">Imagen: Mudarse a Mérida · render</span></div></article>
+      </div>
+    </div>
+
+    <div class="grupo c-com">
+      <div class="grupo-top">
+        <h3 class="h3"><span class="chip tipo"><i></i>Comercial</span></h3>
+        <div class="prom">Promedio <b class="num">$64,584</b> por m²</div>
+      </div>
+      <div class="tira" style="--cols:4">
+        <article class="soft proy"><div class="foto"><img src="assets/zona/seremos-comercial-render.webp" alt="Plaza comercial de dos niveles iluminada de noche, con palmeras al frente" loading="lazy" width="1600" height="900"></div><div class="txt"><span class="n">Seremos</span><span class="p num">$57,057 <small>por m²</small></span><span class="cred">Imagen: Permanecer · Seremos · render</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/midpoint.jpg" alt="Torre y locales de MidPoint Urban Hub" loading="lazy" width="760" height="345"></div><div class="txt"><span class="n">MidPoint Urban Hub</span><span class="p num">$57,300 <small>por m²</small></span><span class="cred">Imagen: anuncio en Pincali · render</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/urban-district.jpg" alt="Plaza comercial Urban District con palmeras" loading="lazy" width="760" height="422"></div><div class="txt"><span class="n">Urban District</span><span class="p num">$70,388 <small>por m²</small></span><span class="cred">Imagen: anuncio en Pincali · render</span></div></article>
+        <article class="soft proy"><div class="foto"><img src="assets/zona/montalma.jpg" alt="Vista aérea de Montalma junto a la avenida" loading="lazy" width="760" height="424"></div><div class="txt"><span class="n">Montalma</span><span class="p num">$73,591 <small>por m²</small></span><span class="cred">Imagen: Meld Group vía Pincali · render</span></div></article>
+      </div>
+    </div>
+    <p class="nota">Fuente: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento. Precios por m² vendible. Las imágenes son de terceros, con crédito a sus titulares.</p>
+  </div>
+</section>
+
+<!-- Lámina 5 · Casas -->
+<section class="lamina" id="casas" data-sec="mercado" aria-labelledby="t-casas">
+  <div class="caja">
+    <div class="cabeza">
+      <h2 class="h2" id="t-casas">Casas: 9 % abajo de Seremos<b>.</b></h2>
+    </div>
+    <div class="casas-grid">
+      <div class="soft graf">
+        <p class="sub-g">Precio por m² de casas en la zona · <b>Seremos es nuestro principal competidor</b></p>
+        <div class="barras crece">
+          <div class="br" style="--k:0"><span class="nm">Arena</span><span class="pista"><i style="--w:75.7"></i><span class="vl num">$22,416</span></span></div>
+          <div class="br" style="--k:1"><span class="nm">Townhouse</span><span class="pista"><i style="--w:80.0"></i><span class="vl num">$23,684</span></span></div>
+          <div class="br" style="--k:2"><span class="nm">Fulgora</span><span class="pista"><i style="--w:80.0"></i><span class="vl num">$23,688</span></span></div>
+          <div class="br" style="--k:3"><span class="nm">Alera</span><span class="pista"><i style="--w:86.1"></i><span class="vl num">$25,484</span></span></div>
+          <div class="br dz" style="--k:4"><span class="nm">Proyecto Dzityá</span><span class="pista"><i style="--w:90.8"></i><span class="vl num">$26,875</span></span></div>
+          <div class="br rival" style="--k:5"><span class="nm">Seremos</span><span class="pista"><i style="--w:100.0"></i><span class="vl num">$29,613</span></span></div>
+        </div>
+      </div>
+      <div class="soft prom-casa">
+        <h3 class="h3">Casa promedio<b>.</b></h3>
+        <div class="pcasa dz"><span class="q">Proyecto Dzityá<small class="num">160 m²</small></span><span class="v num">$4.30M</span></div>
+        <div class="pcasa"><span class="q">Seremos<small class="num">155 m²</small></span><span class="v num">$4.59M</span></div>
+        <div class="pcasa prom"><span class="q">Promedio mercado<small class="num">156 m²</small></span><span class="v num">$3.89M</span></div>
+        <div class="menos"><b class="num">−9 %</b><span>por m² frente a Seremos</span></div>
+      </div>
+    </div>
+    <p class="nota">Fuente: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento. Promedio de los 5 proyectos: $24,977 por m².</p>
+  </div>
+</section>
+
+<!-- Lámina 6 · Departamentos y comercial -->
+<section class="lamina" id="deptos-comercial" data-sec="mercado" aria-labelledby="t-dc">
+  <div class="caja">
+    <div class="cabeza">
+      <h2 class="h2" id="t-dc">Departamentos y comercial, en línea con el mercado<b>.</b></h2>
+    </div>
+    <div class="dos-graf">
+      <div class="soft graf c-depto">
+        <p class="sub-g"><span class="chip tipo"><i></i>Departamentos</span> &nbsp;promedio <b class="num">$35,108</b> por m²</p>
+        <div class="barras crece">
+          <div class="br" style="--k:0"><span class="nm">Campocielo Loft Elite</span><span class="pista"><i style="--w:65.3"></i><span class="vl num">$26,456</span></span></div>
+          <div class="br" style="--k:1"><span class="nm">Tam18</span><span class="pista"><i style="--w:65.8"></i><span class="vl num">$26,683</span></span></div>
+          <div class="br" style="--k:2"><span class="nm">Inicial Real Montejo B</span><span class="pista"><i style="--w:71.4"></i><span class="vl num">$28,947</span></span></div>
+          <div class="br" style="--k:3"><span class="nm">Alian Alba</span><span class="pista"><i style="--w:83.0"></i><span class="vl num">$33,662</span></span></div>
+          <div class="br rival" style="--k:4"><span class="nm">Seremos Kima</span><span class="pista"><i style="--w:83.2"></i><span class="vl num">$33,749</span></span></div>
+          <div class="br" style="--k:5"><span class="nm">Galatha</span><span class="pista"><i style="--w:86.5"></i><span class="vl num">$35,074</span></span></div>
+          <div class="br dz" style="--k:6"><span class="nm">Proyecto Dzityá</span><span class="pista"><i style="--w:92.8"></i><span class="vl num">$37,625</span></span></div>
+          <div class="br" style="--k:7"><span class="nm">Senda Viva</span><span class="pista"><i style="--w:94.1"></i><span class="vl num">$38,154</span></span></div>
+          <div class="br" style="--k:8"><span class="nm">Plantar</span><span class="pista"><i style="--w:100.0"></i><span class="vl num">$40,540</span></span></div>
+        </div>
+      </div>
+      <div>
+        <div class="soft graf c-com">
+          <p class="sub-g"><span class="chip tipo"><i></i>Comercial</span> &nbsp;promedio <b class="num">$64,584</b> por m²</p>
+          <div class="barras crece">
+            <div class="br rival" style="--k:0"><span class="nm">Seremos</span><span class="pista"><i style="--w:77.5"></i><span class="vl num">$57,057</span></span></div>
+            <div class="br" style="--k:1"><span class="nm">MidPoint Urban Hub</span><span class="pista"><i style="--w:77.9"></i><span class="vl num">$57,300</span></span></div>
+            <div class="br dz" style="--k:2"><span class="nm">Proyecto Dzityá</span><span class="pista"><i style="--w:87.6"></i><span class="vl num">$64,500</span></span></div>
+            <div class="br" style="--k:3"><span class="nm">Urban District</span><span class="pista"><i style="--w:95.6"></i><span class="vl num">$70,388</span></span></div>
+            <div class="br" style="--k:4"><span class="nm">Montalma</span><span class="pista"><i style="--w:100.0"></i><span class="vl num">$73,591</span></span></div>
+          </div>
+        </div>
+        <p class="lectura">Departamentos quedan 7 % arriba del promedio y comercial prácticamente en el promedio. Seremos tiene el precio más bajo en comercial, con locales de solo 46 m².</p>
+      </div>
+    </div>
+    <p class="nota">Fuente: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento. Precios por m² vendible.</p>
+  </div>
+</section>
+
+<!-- Lámina 4 · De dónde sale el precio -->
+<section class="lamina" id="precio" data-sec="mercado" aria-labelledby="t-precio">
+  <div class="caja">
+    <div class="cabeza">
+      <h2 class="h2" id="t-precio">De dónde sale el precio de venta<b>.</b></h2>
+    </div>
+    <div class="soft precio-t">
+      <div class="pr cab" aria-hidden="true"><span></span><span>Promedio del mercado</span><span>Precio base del modelo</span><span></span><span>Precio del proyecto</span></div>
+      <div class="pr c-com">
+        <span class="nm"><span class="punto"></span>Comercial</span>
+        <div class="pc"><small class="solo-tel">Promedio del mercado</small><b class="num">$64,584</b><em>por m²</em></div>
+        <div class="pc"><small class="solo-tel">Precio base del modelo</small><b class="num">$60,000</b><em>por m²</em></div>
+        <span class="mas num"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>+7.5 %</span>
+        <div class="pc final"><small class="solo-tel">Precio del proyecto</small><b class="num">$64,500</b><em>por m²</em></div>
+      </div>
+      <div class="pr c-depto">
+        <span class="nm"><span class="punto"></span>Departamentos</span>
+        <div class="pc"><small class="solo-tel">Promedio del mercado</small><b class="num">$35,108</b><em>por m²</em></div>
+        <div class="pc"><small class="solo-tel">Precio base del modelo</small><b class="num">$35,000</b><em>por m²</em></div>
+        <span class="mas num"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>+7.5 %</span>
+        <div class="pc final"><small class="solo-tel">Precio del proyecto</small><b class="num">$37,625</b><em>por m²</em></div>
+      </div>
+      <div class="pr c-casa">
+        <span class="nm"><span class="punto"></span>Casas</span>
+        <div class="pc"><small class="solo-tel">Promedio del mercado</small><b class="num">$24,977</b><em>por m²</em></div>
+        <div class="pc"><small class="solo-tel">Precio base del modelo</small><b class="num">$25,000</b><em>por m²</em></div>
+        <span class="mas num"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>+7.5 %</span>
+        <div class="pc final"><small class="solo-tel">Precio del proyecto</small><b class="num">$26,875</b><em>por m²</em></div>
+      </div>
+    </div>
+    <p class="nota">Fuente: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento. El 7.5 % es un incremento conservador; en comercial partimos de un precio base debajo del promedio.</p>
+  </div>
+</section>
+
+<!-- El proyecto toma forma -->
+<section id="proyecto" data-sec="proyecto" aria-labelledby="t-proyecto">
+  <div class="caja" style="padding-top:clamp(64px,8vw,104px);padding-bottom:clamp(24px,4vw,48px)">
+    <div class="cabeza" style="margin-bottom:0">
+      <h2 class="h2" id="t-proyecto">El proyecto toma forma<b>.</b></h2>
+      <p class="lead">Comercio al frente, departamentos y casas detrás, unidos por una avenida. Baje para verlo crecer.</p>
+    </div>
+  </div>
+
+  <div class="historia">
+    <div class="escena" id="escena" data-foco="">
+      <div class="marco" id="marco">
+        <div class="plato" id="plato">
+          <!-- Maqueta simple, calcada sobre el render (mismo encuadre 2000 × 1116) -->
+          <svg class="maqueta" viewBox="0 0 2000 1116" preserveAspectRatio="none" aria-hidden="true">
+            <rect width="2000" height="1116" fill="#DCE6CF"/>
+            <g fill="#EFE7D6">
+              <polygon points="0,395 200,300 300,250 192,350 192,402 500,400 312,697 262,700 138,870 130,990 0,1000"/>
+              <polygon points="1515,365 1995,345 2000,700 1900,640 1780,560"/>
+              <polygon points="1000,232 1100,185 1060,250 1012,262"/>
+            </g>
+            <path d="M0 400 L200 300 L545 72" fill="none" stroke="#E6DCC6" stroke-width="26" stroke-linecap="round"/>
+            <path d="M560 58 C 800 92, 1000 118, 1150 158 S 1700 236, 2010 298" fill="none" stroke="#D6DAE0" stroke-width="30"/>
+            <path d="M760 228 L835 112" fill="none" stroke="#E6DCC6" stroke-width="22" stroke-linecap="round"/>
+            <!-- carretera -->
+            <rect x="0" y="972" width="2000" height="20" fill="#ECEAE6"/>
+            <rect x="0" y="990" width="2000" height="126" fill="#CDD1D7"/>
+            <path d="M0 1052 H2000" stroke="#fff" stroke-width="4" stroke-dasharray="40 34" opacity=".8"/>
+            <!-- el conjunto -->
+            <polygon class="lote" points="130,1018 130,988 138,870 262,700 312,697 500,400 192,402 192,350 245,318 290,290 470,250 545,226 1000,230 1100,185 1125,160 1185,160 1180,175 1250,172 1500,215 1950,288 1995,312 1995,345 1515,365 1760,690 1952,838 1964,1004" fill="#F4EFE6"/>
+            <!-- trazo: avenida, calles, estacionamientos, jardines -->
+            <g class="tz" style="--i:0"><polygon points="912,995 918,720 930,520 960,400 1000,320 1050,250 1100,185 1125,160 1185,160 1160,230 1110,330 1095,430 1100,560 1115,700 1148,995" fill="#D3D7DD"/></g>
+            <g class="tz" style="--i:1"><polygon points="1000,958 1050,958 1046,720 1040,560 1042,430 1060,340 1095,262 1140,190 1128,188 1080,252 1040,330 1018,430 1012,560 1006,720" fill="#BFDDB0"/></g>
+            <g class="tz" style="--i:2" fill="#DDE0E5">
+              <polygon points="470,400 522,400 372,700 318,700"/>
+              <polygon points="150,840 905,836 905,975 150,978"/>
+              <polygon points="1160,818 1830,822 1890,962 1160,975"/>
+              <polygon points="1225,330 1300,330 1365,640 1265,640"/>
+              <polygon points="1500,380 1560,380 1700,640 1640,640"/>
+              <polygon points="560,300 1000,300 1000,318 560,318"/>
+            </g>
+            <g class="tz" style="--i:3" fill="#CFE5BF">
+              <polygon points="440,668 890,668 890,700 440,700"/>
+              <polygon points="1270,400 1330,400 1350,540 1290,540"/>
+              <polygon points="215,385 480,385 480,400 215,400"/>
+              <polygon points="1240,350 1990,350 1990,362 1515,365"/>
+            </g>
+            <!-- paso 1: zonificación en plano (trazo indicativo) -->
+            <g class="zonas">
+              <polygon points="130,1018 130,988 138,870 262,700 312,697 500,400 192,402 192,350 245,318 290,290 470,250 545,226 1000,230 1100,185 1125,160 1185,160 1180,175 1250,172 1500,215 1950,288 1995,312 1995,345 1515,365 1760,690 1952,838 1964,1004" fill="#C4E8E1"/>
+              <polygon points="912,995 918,720 930,520 960,400 1000,320 1050,250 1100,185 1125,160 1185,160 1160,230 1110,330 1095,430 1100,560 1115,700 1148,995" fill="#86D0C4"/>
+              <polygon points="138,870 262,700 585,697 628,694 888,692 914,700 914,935 900,965 880,990 138,990" fill="#F2A9B5"/>
+              <polygon points="1152,692 1730,688 1952,838 1952,975 1180,988 1150,950" fill="#F2A9B5"/>
+              <polygon points="500,400 562,352 912,350 917,690 885,697 312,697" fill="#C6B7F3"/>
+              <polygon points="192,402 192,350 245,318 290,290 470,250 545,226 1000,230 1012,262 1003,340 950,378 912,352 562,352 500,400" fill="#EED08A"/>
+              <polygon points="1180,175 1250,172 1500,215 1950,288 1995,312 1995,345 1515,365 1760,690 1120,698 1108,450 1125,300 1165,232" fill="#EED08A"/>
+            </g>
+            <polygon class="lote-borde" points="130,1018 130,988 138,870 262,700 312,697 500,400 192,402 192,350 245,318 290,290 470,250 545,226 1000,230 1100,185 1125,160 1185,160 1180,175 1250,172 1500,215 1950,288 1995,312 1995,345 1515,365 1760,690 1952,838 1964,1004"/>
+
+            <!-- volúmenes: de atrás hacia adelante -->
+            <g class="vol v-casa" style="--i:0"><polygon class="techo" points="1185,176 1500,213 1945,276 1945,290 1500,228 1185,192"/><polygon class="muro" points="1185,192 1500,228 1945,290 1945,302 1500,246 1185,210"/></g>
+            <g class="vol v-casa" style="--i:1"><polygon class="techo" points="520,230 1000,238 1000,254 520,248"/><polygon class="muro" points="520,248 1000,254 1000,280 520,274"/></g>
+            <g class="vol v-casa" style="--i:2"><polygon class="techo" points="1400,240 1700,262 1700,278 1400,256"/><polygon class="muro" points="1400,256 1700,278 1700,296 1400,274"/></g>
+            <g class="vol v-casa" style="--i:3"><polygon class="techo" points="282,292 520,236 528,252 290,310"/><polygon class="muro" points="290,310 528,252 530,272 294,330"/></g>
+            <g class="vol v-casa" style="--i:4"><polygon class="techo" points="540,280 735,280 735,296 540,296"/><polygon class="muro" points="540,296 735,296 735,320 540,320"/></g>
+            <g class="vol v-casa" style="--i:5"><polygon class="techo" points="905,288 995,290 995,312 905,312"/><polygon class="muro" points="905,312 995,312 995,334 905,334"/></g>
+            <g class="vol v-casa" style="--i:6"><polygon class="techo" points="1230,293 1945,300 1945,318 1230,315"/><polygon class="muro" points="1230,315 1945,318 1945,345 1230,342"/></g>
+            <g class="vol v-casa" style="--i:7"><polygon class="techo" points="512,318 940,320 940,338 512,338"/><polygon class="muro" points="512,338 940,338 940,350 512,350"/></g>
+            <g class="vol v-casa" style="--i:8"><polygon class="techo" points="245,322 482,322 482,345 245,347"/><polygon class="muro" points="245,347 482,345 482,382 245,385"/></g>
+            <g class="vol v-depto" style="--i:9"><polygon class="techo" points="568,348 910,348 910,378 565,380"/><polygon class="muro" points="565,380 910,378 910,402 565,404"/></g>
+            <g class="vol v-casa" style="--i:10"><polygon class="techo" points="1125,305 1215,305 1215,445 1125,445"/><polygon class="techo" points="1105,445 1218,445 1218,492 1105,492"/><polygon class="muro" points="1105,492 1218,492 1218,505 1105,505"/></g>
+            <g class="vol v-casa" style="--i:11"><polygon class="techo" points="1425,345 1505,345 1755,632 1755,648 1690,648 1440,380"/><polygon class="muro" points="1440,380 1690,648 1690,668 1440,404"/></g>
+            <g class="vol v-depto" style="--i:12"><polygon class="techo" points="530,405 905,405 905,440 527,442"/><polygon class="muro" points="527,442 905,440 905,472 527,474"/></g>
+            <g class="vol v-casa" style="--i:13"><polygon class="techo" points="1335,415 1400,415 1495,555 1495,578 1360,578 1332,470"/><polygon class="muro" points="1360,578 1495,578 1495,604 1360,604"/></g>
+            <g class="vol v-depto" style="--i:14"><polygon class="techo" points="490,470 897,470 897,508 486,510"/><polygon class="muro" points="486,510 897,508 897,546 486,548"/></g>
+            <g class="vol v-depto" style="--i:15"><polygon class="techo" points="440,545 888,545 888,590 433,592"/><polygon class="muro" points="433,592 888,590 888,665 437,667"/></g>
+            <g class="vol v-casa" style="--i:16"><polygon class="techo" points="1115,505 1238,505 1255,628 1130,628"/><polygon class="muro" points="1130,628 1255,628 1255,648 1130,648"/></g>
+            <g class="vol v-casa" style="--i:17"><polygon class="techo" points="1180,626 1745,626 1745,652 1180,652"/><polygon class="muro" points="1180,652 1745,652 1745,690 1180,690"/></g>
+            <g class="vol v-com" style="--i:18"><polygon class="techo" points="262,700 580,697 582,765 350,766 205,895 145,868"/><polygon class="muro" points="350,766 582,765 582,832 350,834"/><polygon class="muro" points="350,766 350,834 215,958 205,895"/><polygon class="muro" points="145,868 205,895 215,958 152,945"/><polygon class="techo" points="580,735 630,735 630,752 580,752"/><polygon class="muro" points="580,752 630,752 630,832 580,832"/></g>
+            <g class="vol v-com" style="--i:19"><polygon class="techo" points="628,697 888,694 888,748 628,750"/><polygon class="muro" points="628,750 888,748 888,830 628,832"/></g>
+            <g class="vol v-com" style="--i:20"><polygon class="techo" points="1158,692 1420,692 1422,755 1160,757"/><polygon class="muro" points="1160,757 1422,755 1422,822 1160,824"/><polygon class="techo" points="1420,715 1470,715 1470,752 1420,752"/><polygon class="muro" points="1420,752 1470,752 1470,822 1420,822"/></g>
+            <g class="vol v-com" style="--i:21"><polygon class="techo" points="1468,688 1750,688 1950,838 1950,862 1832,872 1712,752 1470,752"/><polygon class="muro" points="1470,752 1712,752 1712,822 1470,822"/><polygon class="muro" points="1712,752 1832,872 1832,950 1712,822"/><polygon class="muro" points="1832,872 1950,862 1950,945 1832,950"/></g>
+            <!-- árboles del camellón y jardines -->
+            <g fill="#9CC98A">
+              <circle class="arb" style="--i:0" cx="1022" cy="735" r="34"/>
+              <circle class="arb" style="--i:1" cx="1012" cy="588" r="30"/>
+              <circle class="arb" style="--i:2" cx="1012" cy="508" r="22"/>
+              <circle class="arb" style="--i:3" cx="1018" cy="452" r="20"/>
+              <circle class="arb" style="--i:4" cx="1026" cy="400" r="18"/>
+              <circle class="arb" style="--i:5" cx="1042" cy="345" r="16"/>
+              <circle class="arb" style="--i:6" cx="1064" cy="300" r="14"/>
+              <circle class="arb" style="--i:7" cx="1088" cy="255" r="12"/>
+              <circle class="arb" style="--i:8" cx="490" cy="660" r="34"/>
+              <circle class="arb" style="--i:9" cx="590" cy="664" r="30"/>
+              <circle class="arb" style="--i:10" cx="820" cy="664" r="26"/>
+              <circle class="arb" style="--i:11" cx="1300" cy="380" r="26"/>
+              <circle class="arb" style="--i:12" cx="1440" cy="600" r="20"/>
+              <circle class="arb" style="--i:13" cx="500" cy="292" r="24"/>
+              <circle class="arb" style="--i:14" cx="760" cy="262" r="24"/>
+            </g>
+          </svg>
+
+          <img class="render" src="assets/render-aereo.jpg" width="2000" height="1116" alt="Vista aérea conceptual del conjunto: dos edificios comerciales al frente de la carretera, una avenida central con camellón, edificios de departamentos a la izquierda y casas en privadas arriba y a la derecha.">
+
+          <svg class="capa" viewBox="0 0 2000 1116" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <filter id="suave" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="2.2"/></filter>
+              <mask id="luz" maskUnits="userSpaceOnUse" x="0" y="0" width="2000" height="1116">
+                <rect width="2000" height="1116" fill="black"/>
+                <g fill="white" filter="url(#suave)">
+                  <g class="lit lit-com">
+                    <polygon points="138,870 262,700 585,697 628,694 888,692 914,700 914,935 900,965 880,990 138,990"/>
+                    <polygon points="1152,692 1730,688 1952,838 1952,975 1180,988 1150,950"/>
+                  </g>
+                  <polygon class="lit lit-depto" points="500,400 562,352 912,350 917,690 885,697 312,697"/>
+                  <g class="lit lit-casa">
+                    <polygon points="192,402 192,350 245,318 290,290 470,250 545,226 1000,230 1012,262 1003,340 950,378 912,352 562,352 500,400"/>
+                    <polygon points="1180,175 1250,172 1500,215 1950,288 1995,312 1995,345 1515,365 1760,690 1120,698 1108,450 1125,300 1165,232"/>
+                  </g>
+                  <polygon class="lit lit-comun" points="912,995 918,720 930,520 960,400 1000,320 1050,250 1100,185 1125,160 1185,160 1160,230 1110,330 1095,430 1100,560 1115,700 1148,995"/>
+                </g>
+              </mask>
+            </defs>
+            <image href="assets/render-aereo.jpg" x="0" y="0" width="2000" height="1116" mask="url(#luz)" preserveAspectRatio="none"/>
+            <g class="tinte t-com"><polygon points="138,870 262,700 585,697 628,694 888,692 914,700 914,935 900,965 880,990 138,990"/><polygon points="1152,692 1730,688 1952,838 1952,975 1180,988 1150,950"/></g>
+            <polygon class="tinte t-depto" points="500,400 562,352 912,350 917,690 885,697 312,697"/>
+            <g class="tinte t-casa"><polygon points="192,402 192,350 245,318 290,290 470,250 545,226 1000,230 1012,262 1003,340 950,378 912,352 562,352 500,400"/><polygon points="1180,175 1250,172 1500,215 1950,288 1995,312 1995,345 1515,365 1760,690 1120,698 1108,450 1125,300 1165,232"/></g>
+            <polygon class="tinte t-comun" points="912,995 918,720 930,520 960,400 1000,320 1050,250 1100,185 1125,160 1185,160 1160,230 1110,330 1095,430 1100,560 1115,700 1148,995"/>
+            <g class="borde b-com"><polygon points="138,870 262,700 585,697 628,694 888,692 914,700 914,935 900,965 880,990 138,990"/><polygon points="1152,692 1730,688 1952,838 1952,975 1180,988 1150,950"/></g>
+            <polygon class="borde b-depto" points="500,400 562,352 912,350 917,690 885,697 312,697"/>
+            <g class="borde b-casa"><polygon points="192,402 192,350 245,318 290,290 470,250 545,226 1000,230 1012,262 1003,340 950,378 912,352 562,352 500,400"/><polygon points="1180,175 1250,172 1500,215 1950,288 1995,312 1995,345 1515,365 1760,690 1120,698 1108,450 1125,300 1165,232"/></g>
+            <polygon class="borde b-comun" points="912,995 918,720 930,520 960,400 1000,320 1050,250 1100,185 1125,160 1185,160 1160,230 1110,330 1095,430 1100,560 1115,700 1148,995"/>
+          </svg>
+
+          <svg class="don" viewBox="0 0 2000 1116" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <pattern id="raya-don" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="18" height="18" fill="#FCE9D2"/><rect width="7" height="18" fill="#D9822B"/>
+              </pattern>
+            </defs>
+            <polygon points="130,988 1962,972 1964,1004 130,1018"/>
+            <polygon points="192,402 192,350 245,318 290,290 352,402"/>
+          </svg>
+
+          <div class="marcas" aria-hidden="true">
+            <span class="marca-tipo mt-com c-com" style="--x:30%;--xm:37%;top:71%"><span class="chip tipo"><i></i>Comercio</span></span>
+            <span class="marca-tipo mt-com c-com" style="--x:71%;--xm:63%;top:67%"><span class="chip tipo"><i></i>Comercio</span></span>
+            <span class="marca-tipo mt-depto c-depto" style="--x:33.5%;--xm:38%;top:44%"><span class="chip tipo"><i></i>Departamentos</span></span>
+            <span class="marca-tipo mt-casa c-casa" style="--x:30%;--xm:36%;top:28%"><span class="chip tipo"><i></i>Casas</span></span>
+            <span class="marca-tipo mt-casa c-casa" style="--x:68%;--xm:64%;top:40%"><span class="chip tipo"><i></i>Casas</span></span>
+            <span class="marca-tipo mt-comun c-comun" style="--x:51.5%;--xm:51.5%;top:58%"><span class="chip tipo"><i></i>Vialidades, áreas verdes y amenidades</span></span>
+            <span class="marca-tipo mt-calle" style="--x:68%;--xm:62%;top:93.5%">Carretera a Dzityá</span>
+            <span class="marca-tipo mz c-com" style="--x:30%;--xm:37%;top:73%"><span class="chip tipo"><i></i>Comercio <b>8 %</b></span></span>
+            <span class="marca-tipo mz c-com" style="--x:64%;--xm:64%;top:75%"><span class="chip tipo"><i></i>Comercio <b>8 %</b></span></span>
+            <span class="marca-tipo mz c-depto" style="--x:34%;--xm:39%;top:46%"><span class="chip tipo"><i></i>Departamentos <b>10 %</b></span></span>
+            <span class="marca-tipo mz c-casa" style="--x:36%;--xm:38%;top:27%"><span class="chip tipo"><i></i>Casas <b>37 %</b></span></span>
+            <span class="marca-tipo mz c-casa" style="--x:63%;--xm:64%;top:33%"><span class="chip tipo"><i></i>Casas <b>37 %</b></span></span>
+            <span class="marca-tipo mz c-comun" style="--x:51.5%;--xm:51.5%;top:57%"><span class="chip tipo"><i></i>Vialidades, áreas verdes y amenidades <b>38 %</b></span></span>
+            <span class="marca-tipo mt-don c-don" style="--x:18%;--xm:34%;top:87.5%"><span class="chip tipo"><i></i>Donación <b>7 %</b></span></span>
+            <span class="marca-tipo mt-don c-don solo-esc" style="--x:17.5%;--xm:17.5%;top:25%"><span class="chip tipo"><i></i>Donación</span></span>
+          </div>
+        </div>
+      </div>
+      <span class="leyenda-escena">Imagen conceptual</span>
+    </div>
+
+    <div class="pasos" id="pasos">
+      <div class="paso-h" id="paso-1" data-paso="1" data-zonas data-fx=".56" data-fxm=".5" data-lado="der" style="--top:8svh">
+        <article class="tarjeta areas">
+          <span class="chip">Trazo indicativo</span>
+          <h3 class="h3" style="margin-top:12px">Cómo se aprovecha el terreno<b>.</b></h3>
+          <div class="barra" role="img" aria-label="No vendible 45 %: vialidades, áreas verdes y amenidades 38 % y donación 7 %. Área vendible 55 %: comercial 8 %, departamentos 10 % y casas 37 %.">
+            <span class="c-comun" style="width:38%"></span><span class="c-don" style="width:7%"></span><span class="c-com" style="width:8%"></span><span class="c-depto" style="width:10%"></span><span class="c-casa" style="width:37%"></span>
+          </div>
+          <div class="barra-etq"><span>45 % no vendible</span><span class="vend">55 % área vendible</span></div>
+          <table class="tabla-a">
+            <tbody>
+              <tr class="c-com"><td><span class="sw"></span><span>Comercial<span class="u">≈ 160 locales de 40 m²</span></span></td><td class="num">6,407 m²</td><td class="num">8 %</td></tr>
+              <tr class="c-depto"><td><span class="sw"></span><span>Departamentos<span class="u">≈ 123 departamentos de 65 m²</span></span></td><td class="num">8,009 m²</td><td class="num">10 %</td></tr>
+              <tr class="c-casa"><td><span class="sw"></span><span>Casas<span class="u">≈ 185 casas de 160 m²</span></span></td><td class="num">29,633 m²</td><td class="num">37 %</td></tr>
+              <tr class="c-comun"><td><span class="sw"></span><span>Vialidades, áreas verdes y amenidades</span></td><td class="num">30,434 m²</td><td class="num">38 %</td></tr>
+              <tr class="c-don"><td><span class="sw"></span><span>Donación<span class="u">afectación vial</span></span></td><td class="num">5,606 m²</td><td class="num">7 %</td></tr>
+            </tbody>
+            <tfoot><tr><td>Terreno total</td><td class="num">80,089 m²</td><td class="num">100 %</td></tr></tfoot>
+          </table>
+          <p class="nota" style="margin-top:10px;font-size:13px">Locales y departamentos se construyen en dos o más niveles; por eso todo el 55 % vendible se considera área de venta.</p>
+          <div class="indica"><svg width="12" height="16" viewBox="0 0 12 16" aria-hidden="true"><path d="M6 1v12M1.5 8.5 6 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Siga bajando</div>
+        </article>
+      </div>
+      <div class="paso-h" id="paso-2" data-paso="2" data-fx=".5" style="--top:12svh">
+        <article class="tarjeta">
+          <h3 class="h3">Luego, los volúmenes<b>.</b></h3>
+          <p>Comercio al frente, departamentos junto a la avenida y casas en privadas al fondo.</p>
+          <div class="mini">
+            <div class="c-com"><small><span class="sw"></span> Comercio</small><b class="num">≈ 160 <em>locales</em></b></div>
+            <div class="c-depto"><small><span class="sw"></span> Departamentos</small><b class="num">≈ 123</b></div>
+            <div class="c-casa ancha"><small><span class="sw"></span> Casas</small><b class="num">≈ 185</b></div>
+          </div>
+        </article>
+      </div>
+      <div class="paso-h" id="paso-3" data-paso="3" data-fx=".5" style="--top:12svh">
+        <article class="tarjeta">
+          <h3 class="h3">Y así se vería<b>.</b></h3>
+          <p>Un barrio completo sobre sus cuatro tablajes, con todo lo que la gente busca a un paso de su casa.</p>
+        </article>
+      </div>
+      <div class="paso-h c-com" id="paso-4" data-paso="4" data-foco="comercio" data-fx=".5" style="--top:9svh">
+        <article class="tarjeta">
+          <span class="chip tipo"><i></i>Comercio</span>
+          <h3 class="h3" style="margin-top:12px">Comercio al frente<b>.</b></h3>
+          <p>Locales de cara a la Carretera a Dzityá, a los dos lados de la entrada.</p>
+          <div class="mini">
+            <div><small>Terreno</small><b class="num">6,407 <em>m² · 8 %</em></b></div>
+            <div><small>Locales</small><b class="num">≈ 160 <em>de 40 m²</em></b></div>
+            <div><small>Precio por m²</small><b class="num">$64,500</b></div>
+            <div><small>Cada local</small><b class="num">$2.58M</b></div>
+          </div>
+        </article>
+      </div>
+      <div class="paso-h c-depto" id="paso-5" data-paso="5" data-foco="deptos" data-fx=".36" data-lado="der" style="--top:12svh">
+        <article class="tarjeta">
+          <span class="chip tipo"><i></i>Departamentos</span>
+          <h3 class="h3" style="margin-top:12px">Departamentos<b>.</b></h3>
+          <p>Edificios de varios niveles junto a la avenida, con jardines entre ellos.</p>
+          <div class="mini">
+            <div><small>Terreno</small><b class="num">8,009 <em>m² · 10 %</em></b></div>
+            <div><small>Departamentos</small><b class="num">≈ 123 <em>de 65 m²</em></b></div>
+            <div><small>Precio por m²</small><b class="num">$37,625</b></div>
+            <div><small>Cada uno</small><b class="num">$2.45M</b></div>
+          </div>
+        </article>
+      </div>
+      <div class="paso-h c-casa" id="paso-6" data-paso="6" data-foco="casas" data-fx=".66" data-bajo>
+        <article class="tarjeta">
+          <span class="chip tipo"><i></i>Casas</span>
+          <h3 class="h3" style="margin-top:12px">Casas en privadas<b>.</b></h3>
+          <p>Casas agrupadas en privadas, con su calle interior y sus áreas verdes.</p>
+          <div class="mini">
+            <div><small>Terreno</small><b class="num">29,633 <em>m² · 37 %</em></b></div>
+            <div><small>Casas</small><b class="num">≈ 185 <em>de 160 m²</em></b></div>
+            <div><small>Precio por m²</small><b class="num">$26,875</b></div>
+            <div><small>Cada casa</small><b class="num">$4.30M</b></div>
+          </div>
+        </article>
+      </div>
+      <div class="paso-h c-comun" id="paso-7" data-paso="7" data-foco="comunes" data-fx=".52" data-lado="der" data-bajo>
+        <article class="tarjeta">
+          <span class="chip tipo"><i></i>Vialidades, áreas verdes y amenidades</span>
+          <h3 class="h3" style="margin-top:12px">Lo que no se vende<b>.</b></h3>
+          <p>La avenida, las calles, las áreas verdes y las amenidades. No se venden: le dan valor a todo lo que sí se vende.</p>
+          <div class="mini">
+            <div class="ancha c-comun"><small><span class="sw"></span> Del terreno</small><b class="num">30,434 <em>m² · 38 %</em></b></div>
+            <div class="ancha c-don"><small><span class="sw"></span> Donación (afectación vial)</small><b class="num">5,606 <em>m² · 7 %</em></b></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lámina 7 · Ventas -->
+<section class="lamina" id="ventas" data-sec="numeros" aria-labelledby="t-ventas">
+  <div class="caja">
+    <div class="cabeza">
+      <h2 class="h2" id="t-ventas">Ventas estimadas: <span class="num">$1,511.0M</span><b>.</b></h2>
+    </div>
+    <div class="barra-v" role="img" aria-label="Casas 53 %, departamentos 20 %, comercial 27 % de las ventas">
+      <span class="c-casa num" style="width:53%">53 %</span><span class="c-depto num" style="width:20%">20 %</span><span class="c-com num" style="width:27%">27 %</span>
+    </div>
+    <div class="tres">
+      <div class="soft vt c-casa"><span class="q"><span class="punto"></span>Casas</span><b class="m num">$796.4M</b><span class="d num">185 casas de $4.30M</span></div>
+      <div class="soft vt c-depto"><span class="q"><span class="punto"></span>Departamentos</span><b class="m num">$301.3M</b><span class="d num">123 departamentos de $2.45M</span></div>
+      <div class="soft vt c-com"><span class="q"><span class="punto"></span>Comercial</span><b class="m num">$413.3M</b><span class="d num">160 locales de $2.58M</span></div>
+    </div>
+    <p class="nota num">Precios por m² del proyecto: casas $26,875 · departamentos $37,625 · comercial $64,500.</p>
+  </div>
+</section>
+
+<!-- Lámina 8 · Los números del proyecto -->
+<section class="lamina" id="numeros" data-sec="numeros" aria-labelledby="t-numeros">
+  <div class="caja">
+    <div class="cabeza">
+      <h2 class="h2" id="t-numeros">Cómo se ven los números del proyecto<b>.</b></h2>
+    </div>
+    <div class="soft cascada" id="cascada">
+      <div class="cols">
+        <div class="cf grande" style="--b:0;--h:100;--k:0"><div class="area"><span class="seg"></span><span class="m num">$1,511.0M</span></div><span class="n">Ventas</span></div>
+        <div class="cf" style="--b:93.04;--h:6.96;--k:1"><div class="area"><span class="seg"></span><span class="m num">−$105.2M</span></div><span class="n">Comisiones</span></div>
+        <div class="cf suyo" style="--b:78.04;--h:15;--k:2"><div class="area"><span class="seg"></span><span class="m num">−$226.6M</span></div><span class="n">Terreno (15 %)</span></div>
+        <div class="cf" style="--b:28.43;--h:49.61;--k:3"><div class="area"><span class="seg"></span><span class="m num">−$749.6M</span></div><span class="n">Construcción y urbanización</span></div>
+        <div class="cf" style="--b:24.63;--h:3.8;--k:4"><div class="area"><span class="seg"></span><span class="m num">−$57.4M</span></div><span class="n">Gastos indirectos</span></div>
+        <div class="cf" style="--b:19.64;--h:5;--k:5"><div class="area"><span class="seg"></span><span class="m num">−$75.5M</span></div><span class="n">Administración (5 %)</span></div>
+        <div class="cf" style="--b:14.64;--h:5;--k:6"><div class="area"><span class="seg"></span><span class="m num">−$75.5M</span></div><span class="n">Financiamiento (5 %)</span></div>
+        <div class="cf utilidad" style="--b:0;--h:14.63;--k:7"><div class="area"><span class="seg"></span><span class="m num">$221.0M</span></div><span class="n">Utilidad neta</span></div>
+      </div>
+      <div class="supuestos">
+        <p><b>Construcción:</b> 50 % del precio en casas y departamentos, 40 % en comercial, urbanización de $350/m² y gerencia de obra (1 %). <b>Gastos indirectos:</b> permisos, proyecto ejecutivo, marketing, régimen en condominio, postventa e imprevistos.</p>
+        <p><b>Comisiones:</b> 6 % + IVA. <b>Administración:</b> honorario de Acento. Utilidad antes de ISR.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lámina 9 · Su participación -->
+<section class="lamina" id="participacion" data-sec="parte" aria-labelledby="t-part">
+  <div class="caja">
+    <div class="cabeza">
+      <h2 class="h2" id="t-part">Su participación estimada: <span class="num">$265.5M</span><b>.</b></h2>
+    </div>
+    <div class="part">
+      <div class="soft pt-c"><span class="pc-k ventas"><b class="num">15 %</b>de las ventas</span><span class="m num">$226.6M</span><p>Pago por el terreno, sobre las ventas totales del proyecto</p></div>
+      <div class="soft pt-c"><span class="pc-k util"><b class="num">17.6 %</b>de la utilidad</span><span class="m num">$38.8M</span><p>Su parte de la utilidad neta de <span class="num">$221.0M</span>, proporcional a lo que aporta</p></div>
+      <div class="pt-c pase"><span class="pc-k">Total estimado</span><span class="m num">$265.5M</span><p class="num">$3,315 por m² de terreno</p></div>
+    </div>
+    <div class="soft valor"><span class="k">Valor de su terreno:</span><span><b class="num">$2,830</b> por m² con el 15 % de las ventas</span><span class="sep" aria-hidden="true">·</span><span><b class="num">$3,315</b> por m² sumando su parte de la utilidad</span></div>
+    <p class="nota">Monto variable: depende de las ventas, precios y costos reales. Utilidad estimada antes de impuestos (ISR).</p>
+  </div>
+</section>
+
+<!-- Lámina 10 · Proporción -->
+<section class="lamina" id="proporcion" data-sec="parte" aria-labelledby="t-prop">
+  <div class="caja">
+    <div class="cabeza">
+      <h2 class="h2" id="t-prop">Su parte de la utilidad es proporcional a lo que aporta<b>.</b></h2>
+    </div>
+    <div class="prop-grid">
+      <div>
+        <div class="pp"><span class="k">1</span><span class="t">Inversión total del proyecto<small>Comisiones, terreno, construcción, gastos indirectos, administración y financiamiento</small></span><span class="v num">$1,289.9M</span></div>
+        <div class="pp"><span class="k">2</span><span class="t">Su terreno dentro de esa inversión<small class="num">$226.6M de $1,289.9M</small></span><span class="v num">17.6 %</span></div>
+        <div class="pp util"><span class="k">3</span><span class="t">Su parte de la utilidad neta<small class="num">17.6 % × $221.0M de utilidad neta</small></span><span class="v num">$38.8M</span></div>
+      </div>
+      <div class="soft prop-g" role="img" aria-label="Su terreno es el 17.6 % de la inversión total de 1,289.9 millones; le toca el mismo 17.6 % de la utilidad neta de 221.0 millones, es decir 38.8 millones.">
+        <div class="pb"><div class="et num">Inversión total · $1,289.9M</div><div class="bb"><span class="nar"></span><span style="flex:1"></span></div><div class="pie num">Terreno 17.6 %</div></div>
+        <div class="pb u"><div class="et num">Utilidad neta · $221.0M</div><div class="bb"><span class="vd"></span><span style="flex:1"></span></div><div class="pie num">Para usted 17.6 % = $38.8M</div></div>
+      </div>
+    </div>
+    <p class="nota">Si los costos o las ventas cambian, la proporción y la utilidad se recalculan con las cifras reales.</p>
+  </div>
+</section>
+
+<!-- Lámina 11 · Cierre -->
+<section class="cierre oscura" id="cierre" data-sec="parte" aria-labelledby="t-cierre">
+  <div class="caja">
+    <div class="marca"><img src="assets/marca/logo-acento-blanco.png" alt="Acento Desarrollos" width="1200" height="395"></div>
+    <h2 class="h2" id="t-cierre">Su terreno: <span class="monto-c num">≈ $265.5M</span><b>.</b></h2>
+    <p class="suma num"><b>$226.6M</b> por el 15 % de las ventas + <b>$38.8M</b> por su parte de la utilidad (17.6 %).</p>
+    <p class="eq num">Equivale a <b>$3,315</b> por m² de terreno.</p>
+    <div class="letra">
+      <p>Cifras estimadas; el monto final depende de las ventas, precios y costos reales.</p>
+      <p>Utilidad estimada antes de impuestos (ISR).</p>
+      <p>Precios: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento, más un incremento de 7.5 %.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="pie-pag">
+  <div class="caja">
+    <div class="marca"><img src="assets/marca/logo-acento-negro.png" alt="Acento Desarrollos" width="1200" height="395"></div>
+    <p>Imagen aérea y maqueta: conceptuales, con fines ilustrativos.</p>
+    <ul class="creditos" aria-label="Créditos de las imágenes de la zona">
+      <li><b>Arena</b> · Arena</li>
+      <li><b>Townhouse</b> · Viva Residencial vía Pincali</li>
+      <li><b>Fulgora</b> · Acento Desarrollos vía Pincali</li>
+      <li><b>Alera</b> · OREMA vía Pincali</li>
+      <li><b>Seremos</b> · folleto de Seremos vía Pincali</li>
+      <li><b>Seremos comercial</b> · Permanecer · Seremos</li>
+      <li><b>Campocielo Loft Elite</b> · Royal Inmobiliaria vía Grupo BCI</li>
+      <li><b>Tam18</b> · Hallivis</li>
+      <li><b>Inicial Real Montejo</b> · sitio oficial</li>
+      <li><b>Alian Alba</b> · Alí Desarrollos vía JM Group</li>
+      <li><b>Seremos Kima</b> · City Yucatán Brokers</li>
+      <li><b>Galatha</b> · desarrollador vía Grupo BCI</li>
+      <li><b>Senda Viva</b> · Edifor vía Goodlers</li>
+      <li><b>Plantar</b> · Mudarse a Mérida</li>
+      <li><b>MidPoint Urban Hub</b> · anuncio en Pincali</li>
+      <li><b>Urban District</b> · anuncio en Pincali</li>
+      <li><b>Montalma</b> · Meld Group vía Pincali</li>
+    </ul>
+    <p style="margin-top:14px">Imágenes de terceros, con crédito a sus titulares; muchas son renders.</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  root.classList.add('js');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const esTel = () => matchMedia('(max-width: 860px)').matches;
+
+  /* Píldora de secciones */
+  const menu = document.getElementById('menu');
+  const velo = document.getElementById('velo');
+  const links = [...menu.querySelectorAll('a')];
+  const marcar = id => links.forEach(a => a.dataset.sec === id ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current'));
+  const ioSec = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) marcar(e.target.dataset.sec); }), { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('main section[data-sec]').forEach(s => ioSec.observe(s));
+  const portada = document.getElementById('portada');
+  const cierre = document.getElementById('cierre');
+  const visibles = new Set();
+  new IntersectionObserver(es => {
+    es.forEach(e => e.isIntersecting ? visibles.add(e.target) : visibles.delete(e.target));
+    menu.classList.toggle('oculto', visibles.has(portada));
+    velo.classList.toggle('oculto', visibles.has(portada) || visibles.has(cierre));
+  }, { threshold: .35 }).observe(portada);
+  new IntersectionObserver(([e]) => {
+    e.isIntersecting ? visibles.add(cierre) : visibles.delete(cierre);
+    velo.classList.toggle('oculto', visibles.has(portada) || visibles.has(cierre));
+  }, { rootMargin: '0px 0px -60% 0px' }).observe(cierre);
+
+  /* Gráficas que crecen al entrar (una sola vez) */
+  const crecer = el => {
+    if (reduce) { el.classList.add('vista'); return; }
+    new IntersectionObserver(([e], o) => { if (e.isIntersecting) { el.classList.add('vista'); o.disconnect(); } }, { threshold: .3 }).observe(el);
+  };
+  document.querySelectorAll('.cascada, .crece').forEach(crecer);
+
+  /* Escena fija: zonificación → volúmenes → render → tipos */
+  const escena = document.getElementById('escena');
+  const marco = document.getElementById('marco');
+  const plato = document.getElementById('plato');
+  const pasos = [...document.querySelectorAll('.paso-h')];
+  let actual = null, fx = .5;
+
+  const encuadre = () => {
+    const fw = marco.clientWidth, fh = marco.clientHeight;
+    const s = Math.max(fw / 2000, fh / 1116);
+    const pw = 2000 * s, ph = 1116 * s;
+    let tx = fw / 2 - fx * pw; tx = Math.min(0, Math.max(fw - pw, tx));
+    let ty = fh / 2 - .56 * ph; ty = Math.min(0, Math.max(fh - ph, ty));
+    plato.style.transform = `translate(${tx.toFixed(1)}px,${ty.toFixed(1)}px) scale(${s.toFixed(4)})`;
+    plato.style.setProperty('--s', s.toFixed(4));
+  };
+
+  /* Un solo lugar decide qué se ve en cada paso:
+     1 = zonificación (con donación) · 2 = volúmenes · 3 en adelante = render fijo */
+  const activar = paso => {
+    if (paso === actual) return;
+    actual = paso;
+    const n = +paso.dataset.paso;
+    escena.classList.toggle('ver-trazo', n >= 1);
+    escena.classList.toggle('ver-zonas', n === 1);
+    escena.classList.toggle('ver-vol', n >= 2);
+    escena.classList.toggle('ver-render', n >= 3);
+    escena.dataset.foco = paso.dataset.foco || '';
+    fx = +((esTel() && paso.dataset.fxm) || paso.dataset.fx || .5);
+    pasos.forEach(p => p.classList.toggle('activo', p === paso));
+    encuadre();
+  };
+
+  let io;
+  const observar = () => {
+    io && io.disconnect();
+    io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) activar(e.target); }), { rootMargin: esTel() ? '-72% 0px -27% 0px' : '-50% 0px -49% 0px' });
+    pasos.forEach(p => io.observe(p));
+  };
+  observar();
+  matchMedia('(max-width: 860px)').addEventListener('change', observar);
+  addEventListener('resize', encuadre);
+  new ResizeObserver(encuadre).observe(marco);
+  encuadre();
+
+  /* ?ir=<id> abre directo en una lámina (?ir=precio) o en un paso de «toma forma» (?ir=1 … ?ir=7) */
+  const ir = new URLSearchParams(location.search).get('ir');
+  if (ir) {
+    const t = document.getElementById(ir) || document.querySelector(`.paso-h[data-paso="${CSS.escape(ir)}"]`);
+    if (t) {
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      const go = () => {
+        const top = t.getBoundingClientRect().top + scrollY;
+        const y = !t.classList.contains('paso-h') ? top : esTel() ? top - escena.offsetHeight - 16 : top + t.offsetHeight * .5 - innerHeight * .5;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
+      };
+      (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => setTimeout(go, 50));
+    }
+  }
+})();
+</script>
+</body>
+</html>
