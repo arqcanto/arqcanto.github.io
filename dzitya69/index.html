@@ -179,6 +179,10 @@ section{position:relative}
 .escena[data-foco="comercio"] .b-com,.escena[data-foco="deptos"] .b-depto,.escena[data-foco="casas"] .b-casa,.escena[data-foco="comunes"] .b-comun{opacity:1}
 .t-com{fill:var(--com)}.t-depto{fill:var(--depto)}.t-casa{fill:var(--casa)}.t-comun{fill:var(--comun)}
 .b-com,.b-depto,.b-casa,.b-comun{stroke:#fff}
+/* contorno: línea punteada blanca que avanza («hormigas») */
+.capa .borde{stroke-width:calc(3px / var(--s,1));stroke-dasharray:calc(11px / var(--s,1)) calc(8px / var(--s,1));stroke-linecap:round;animation:hormigas 1.2s linear infinite;filter:drop-shadow(0 0 calc(2px / var(--s,1)) rgba(0,0,0,.45))}
+@keyframes hormigas{to{stroke-dashoffset:calc(-19px / var(--s,1))}}
+
 .marcas{position:absolute;inset:0;pointer-events:none}
 .marca-tipo{position:absolute;left:var(--x);transform:translate(-50%,-50%) scale(.92);opacity:0;transition:opacity .45s var(--ease),transform .45s var(--ease)}
 .marca-tipo .chip{height:calc(32px / var(--s,1));padding:0 calc(13px / var(--s,1));gap:calc(7px / var(--s,1));font-size:calc(14px / var(--s,1));box-shadow:0 calc(8px / var(--s,1)) calc(18px / var(--s,1)) calc(-8px / var(--s,1)) rgba(22,18,15,.35)}
@@ -292,6 +296,36 @@ section{position:relative}
 .vt .q{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:800}
 .vt .m{display:block;font-size:clamp(36px,4.2vw,50px);font-weight:800;letter-spacing:-.035em;line-height:1;margin-top:clamp(16px,2.4vw,26px)}
 .vt .d{display:block;font-size:15px;color:var(--gris);margin-top:10px}
+
+/* ——— 8b. Cronograma de ventas ——— */
+.crono{padding:clamp(20px,2.8vw,32px)}
+.cr-fila{display:grid;grid-template-columns:minmax(150px,190px) minmax(0,1fr);gap:16px;align-items:center}
+.cr-fila+.cr-fila{margin-top:14px}
+.cr-nm{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:800;letter-spacing:-.01em}
+.cr-nm small{display:block;font-size:13px;color:var(--gris);font-weight:600;letter-spacing:0}
+.cr-pista{position:relative;height:52px;border-radius:12px;background:repeating-linear-gradient(to right,transparent 0 calc(10% - 1px),#E6E1DA calc(10% - 1px) 10%)}
+.cr-seg{position:absolute;top:0;bottom:0;left:calc(var(--a) / 120 * 100%);width:calc(var(--d) / 120 * 100% - 3px);border-radius:10px;background:var(--c);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:0 12px;overflow:hidden;white-space:nowrap;transform-origin:left;transition:transform .9s var(--ease) calc(var(--k,0) * 120ms)}
+.cr-seg b{font-size:14px;font-weight:800;line-height:1.15}
+.cr-seg span{font-size:12px;font-weight:600;opacity:.92;line-height:1.2}
+.cr-seg.lic{background:var(--apagado);color:var(--tinta);padding:0;align-items:center}
+.js .crono:not(.vista) .cr-seg{transform:scaleX(0)}
+.cr-eje{display:grid;grid-template-columns:minmax(150px,190px) minmax(0,1fr);gap:16px;margin-top:10px}
+.cr-eje .t{position:relative;height:18px;font-size:12px;font-weight:700;color:var(--gris)}
+.cr-eje .t span{position:absolute;left:calc(var(--m) / 120 * 100%);transform:translateX(-50%)}
+.cr-eje .t span:first-child{transform:none}
+.cr-capa{position:absolute;inset:0;pointer-events:none}
+.cr-fin{position:absolute;top:0;bottom:-6px;left:calc(111 / 120 * 100%);border-left:2px dashed var(--nar)}
+.cr-fin em{position:absolute;top:0;right:8px;font-style:normal;font-size:13px;font-weight:800;color:var(--nar-texto);white-space:nowrap;background:var(--nar-tinte);padding:3px 10px;border-radius:var(--r-redondo)}
+.cr-cuerpo{position:relative;padding-top:34px}
+.cr-cuerpo .cr-capa{left:calc(min(190px,100%) + 16px)}
+.c-terreno{--c:var(--nar);--t:var(--nar-tinte);--tx:var(--nar-texto)}
+.cr-pie{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:22px}
+.cr-pie div{background:var(--hundido);border-radius:var(--r-pieza);padding:12px 14px}
+.cr-pie small{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--gris);font-weight:600}
+.cr-pie b{display:block;font-size:20px;font-weight:800;letter-spacing:-.02em;margin-top:2px}
+.cr-pie .fin{background:var(--carbon);color:#fff;box-shadow:var(--sombra-pase)}
+.cr-pie .fin small{color:var(--pase-suave)}
+.cr-pie .fin b{color:var(--nar)}
 
 /* ——— 9. Cascada (vertical en escritorio) ——— */
 .cascada{padding:clamp(20px,3vw,34px)}
@@ -409,6 +443,18 @@ section{position:relative}
   .valor{flex-direction:column;gap:2px}
   .valor .sep{display:none}
   .creditos{grid-template-columns:1fr}
+  /* cronograma: nombre arriba, pista a todo lo ancho */
+  .cr-fila,.cr-eje{grid-template-columns:1fr;gap:6px}
+  .cr-fila+.cr-fila{margin-top:16px}
+  .cr-eje>span:first-child{display:none}
+  .cr-nm{font-size:15px}.cr-nm>span:last-child{display:flex;gap:8px;align-items:baseline}
+  .cr-pista{height:34px;border-radius:8px}
+  .cr-seg{padding:0 6px;border-radius:7px;align-items:center}
+  .cr-seg b{font-size:12px}.cr-seg span,.cr-seg.lic b{display:none}
+  .cr-cuerpo .cr-capa{left:0}
+  .cr-eje .t span:nth-child(even){display:none}
+  .cr-pie{grid-template-columns:1fr 1fr;gap:8px}
+  .cr-pie b{font-size:17px}
   /* escena: imagen arriba, tarjeta abajo */
   .escena{height:54svh;z-index:3}
   .marco{border-radius:0 0 var(--r-pase) var(--r-pase);box-shadow:0 12px 24px -16px rgba(22,18,15,.35)}
@@ -614,7 +660,7 @@ section{position:relative}
 <section class="lamina" id="casas" data-sec="mercado" aria-labelledby="t-casas">
   <div class="caja">
     <div class="cabeza">
-      <h2 class="h2" id="t-casas">Casas: 9 % abajo de Seremos<b>.</b></h2>
+      <h2 class="h2" id="t-casas">Casas: 16 % abajo de Seremos por m²<b>.</b></h2>
     </div>
     <div class="casas-grid">
       <div class="soft graf">
@@ -623,59 +669,82 @@ section{position:relative}
           <div class="br" style="--k:0"><span class="nm">Arena</span><span class="pista"><i style="--w:75.7"></i><span class="vl num">$22,416</span></span></div>
           <div class="br" style="--k:1"><span class="nm">Townhouse</span><span class="pista"><i style="--w:80.0"></i><span class="vl num">$23,684</span></span></div>
           <div class="br" style="--k:2"><span class="nm">Fulgora</span><span class="pista"><i style="--w:80.0"></i><span class="vl num">$23,688</span></span></div>
-          <div class="br" style="--k:3"><span class="nm">Alera</span><span class="pista"><i style="--w:86.1"></i><span class="vl num">$25,484</span></span></div>
-          <div class="br dz" style="--k:4"><span class="nm">Proyecto Dzityá</span><span class="pista"><i style="--w:90.8"></i><span class="vl num">$26,875</span></span></div>
+          <div class="br dz" style="--k:3"><span class="nm">Proyecto Dzityá</span><span class="pista"><i style="--w:84.4"></i><span class="vl num">$25,000</span></span></div>
+          <div class="br" style="--k:4"><span class="nm">Alera</span><span class="pista"><i style="--w:86.1"></i><span class="vl num">$25,484</span></span></div>
           <div class="br rival" style="--k:5"><span class="nm">Seremos</span><span class="pista"><i style="--w:100.0"></i><span class="vl num">$29,613</span></span></div>
         </div>
       </div>
       <div class="soft prom-casa">
-        <h3 class="h3">Casa promedio<b>.</b></h3>
-        <div class="pcasa dz"><span class="q">Proyecto Dzityá<small class="num">160 m²</small></span><span class="v num">$4.30M</span></div>
+        <h3 class="h3">Casa de salida<b>.</b></h3>
+        <div class="pcasa dz"><span class="q">Proyecto Dzityá<small class="num">160 m²</small></span><span class="v num">$4.00M</span></div>
         <div class="pcasa"><span class="q">Seremos<small class="num">155 m²</small></span><span class="v num">$4.59M</span></div>
         <div class="pcasa prom"><span class="q">Promedio mercado<small class="num">156 m²</small></span><span class="v num">$3.89M</span></div>
-        <div class="menos"><b class="num">−9 %</b><span>por m² frente a Seremos</span></div>
+        <div class="menos"><b class="num">−13 %</b><span>de precio frente a Seremos</span></div>
       </div>
     </div>
-    <p class="nota">Fuente: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento. Promedio de los 5 proyectos: $24,977 por m².</p>
+    <p class="nota">Fuente: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento. Promedio de los 5 proyectos: $24,977 por m². Proyecto Dzityá a precio de salida (primera etapa).</p>
   </div>
 </section>
 
-<!-- Lámina 6 · Departamentos y comercial -->
-<section class="lamina" id="deptos-comercial" data-sec="mercado" aria-labelledby="t-dc">
+<!-- Lámina 6 · Departamentos -->
+<section class="lamina" id="deptos" data-sec="mercado" aria-labelledby="t-deptos">
   <div class="caja">
     <div class="cabeza">
-      <h2 class="h2" id="t-dc">Departamentos y comercial, en línea con el mercado<b>.</b></h2>
+      <h2 class="h2" id="t-deptos">Departamentos: 4 % arriba de Seremos Kima por m²<b>.</b></h2>
     </div>
-    <div class="dos-graf">
+    <div class="casas-grid">
       <div class="soft graf c-depto">
-        <p class="sub-g"><span class="chip tipo"><i></i>Departamentos</span> &nbsp;promedio <b class="num">$35,108</b> por m²</p>
+        <p class="sub-g">Precio por m² de departamentos en la zona · <b>Seremos Kima es nuestro principal competidor</b></p>
         <div class="barras crece">
           <div class="br" style="--k:0"><span class="nm">Campocielo Loft Elite</span><span class="pista"><i style="--w:65.3"></i><span class="vl num">$26,456</span></span></div>
           <div class="br" style="--k:1"><span class="nm">Tam18</span><span class="pista"><i style="--w:65.8"></i><span class="vl num">$26,683</span></span></div>
           <div class="br" style="--k:2"><span class="nm">Inicial Real Montejo B</span><span class="pista"><i style="--w:71.4"></i><span class="vl num">$28,947</span></span></div>
           <div class="br" style="--k:3"><span class="nm">Alian Alba</span><span class="pista"><i style="--w:83.0"></i><span class="vl num">$33,662</span></span></div>
           <div class="br rival" style="--k:4"><span class="nm">Seremos Kima</span><span class="pista"><i style="--w:83.2"></i><span class="vl num">$33,749</span></span></div>
-          <div class="br" style="--k:5"><span class="nm">Galatha</span><span class="pista"><i style="--w:86.5"></i><span class="vl num">$35,074</span></span></div>
-          <div class="br dz" style="--k:6"><span class="nm">Proyecto Dzityá</span><span class="pista"><i style="--w:92.8"></i><span class="vl num">$37,625</span></span></div>
+          <div class="br dz" style="--k:5"><span class="nm">Proyecto Dzityá</span><span class="pista"><i style="--w:86.3"></i><span class="vl num">$35,000</span></span></div>
+          <div class="br" style="--k:6"><span class="nm">Galatha</span><span class="pista"><i style="--w:86.5"></i><span class="vl num">$35,074</span></span></div>
           <div class="br" style="--k:7"><span class="nm">Senda Viva</span><span class="pista"><i style="--w:94.1"></i><span class="vl num">$38,154</span></span></div>
           <div class="br" style="--k:8"><span class="nm">Plantar</span><span class="pista"><i style="--w:100.0"></i><span class="vl num">$40,540</span></span></div>
         </div>
       </div>
-      <div>
-        <div class="soft graf c-com">
-          <p class="sub-g"><span class="chip tipo"><i></i>Comercial</span> &nbsp;promedio <b class="num">$64,584</b> por m²</p>
-          <div class="barras crece">
-            <div class="br rival" style="--k:0"><span class="nm">Seremos</span><span class="pista"><i style="--w:77.5"></i><span class="vl num">$57,057</span></span></div>
-            <div class="br" style="--k:1"><span class="nm">MidPoint Urban Hub</span><span class="pista"><i style="--w:77.9"></i><span class="vl num">$57,300</span></span></div>
-            <div class="br dz" style="--k:2"><span class="nm">Proyecto Dzityá</span><span class="pista"><i style="--w:87.6"></i><span class="vl num">$64,500</span></span></div>
-            <div class="br" style="--k:3"><span class="nm">Urban District</span><span class="pista"><i style="--w:95.6"></i><span class="vl num">$70,388</span></span></div>
-            <div class="br" style="--k:4"><span class="nm">Montalma</span><span class="pista"><i style="--w:100.0"></i><span class="vl num">$73,591</span></span></div>
-          </div>
-        </div>
-        <p class="lectura">Departamentos quedan 7 % arriba del promedio y comercial prácticamente en el promedio. Seremos tiene el precio más bajo en comercial, con locales de solo 46 m².</p>
+      <div class="soft prom-casa">
+        <h3 class="h3">Departamento de salida<b>.</b></h3>
+        <div class="pcasa dz"><span class="q">Proyecto Dzityá<small class="num">65 m²</small></span><span class="v num">$2.28M</span></div>
+        <div class="pcasa"><span class="q">Seremos Kima<small class="num">70 m²</small></span><span class="v num">$2.40M</span></div>
+        <div class="pcasa prom"><span class="q">Promedio mercado<small class="num">73 m²</small></span><span class="v num">$2.57M</span></div>
+        <div class="menos"><b class="num">−5 %</b><span>de precio frente a Seremos Kima</span></div>
       </div>
     </div>
-    <p class="nota">Fuente: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento. Precios por m² vendible.</p>
+    <p class="nota">Fuente: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento. Promedio de los 8 proyectos: $35,108 por m². Proyecto Dzityá a precio de salida (primera etapa).</p>
+  </div>
+</section>
+
+<!-- Lámina 6b · Comercial -->
+<section class="lamina" id="comercial" data-sec="mercado" aria-labelledby="t-comercial">
+  <div class="caja">
+    <div class="cabeza">
+      <h2 class="h2" id="t-comercial">Comercial: 5 % arriba de Renacer por m²<b>.</b></h2>
+    </div>
+    <div class="casas-grid">
+      <div class="soft graf c-com">
+        <p class="sub-g">Precio por m² de locales en la zona · <b>Renacer (Seremos) es nuestro principal competidor</b></p>
+        <div class="barras crece">
+          <div class="br rival" style="--k:0"><span class="nm">Renacer (Seremos)</span><span class="pista"><i style="--w:77.5"></i><span class="vl num">$57,057</span></span></div>
+          <div class="br" style="--k:1"><span class="nm">MidPoint Urban Hub</span><span class="pista"><i style="--w:77.9"></i><span class="vl num">$57,300</span></span></div>
+          <div class="br dz" style="--k:2"><span class="nm">Proyecto Dzityá</span><span class="pista"><i style="--w:81.5"></i><span class="vl num">$60,000</span></span></div>
+          <div class="br" style="--k:3"><span class="nm">Urban District</span><span class="pista"><i style="--w:95.6"></i><span class="vl num">$70,388</span></span></div>
+          <div class="br" style="--k:4"><span class="nm">Montalma</span><span class="pista"><i style="--w:100.0"></i><span class="vl num">$73,591</span></span></div>
+        </div>
+      </div>
+      <div class="soft prom-casa">
+        <h3 class="h3">Local de salida<b>.</b></h3>
+        <div class="pcasa dz"><span class="q">Proyecto Dzityá<small class="num">40 m²</small></span><span class="v num">$2.40M</span></div>
+        <div class="pcasa"><span class="q">Renacer (Seremos)<small class="num">46 m²</small></span><span class="v num">$2.62M</span></div>
+        <div class="pcasa prom"><span class="q">Promedio mercado<small class="num">51 m²</small></span><span class="v num">$3.28M</span></div>
+        <div class="menos"><b class="num">−9 %</b><span>de precio frente a Renacer</span></div>
+      </div>
+    </div>
+    <p class="nota">Fuente: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento. Promedio de los 4 proyectos: $64,584 por m². Proyecto Dzityá a precio de salida (primera etapa).</p>
   </div>
 </section>
 
@@ -686,30 +755,30 @@ section{position:relative}
       <h2 class="h2" id="t-precio">De dónde sale el precio de venta<b>.</b></h2>
     </div>
     <div class="soft precio-t">
-      <div class="pr cab" aria-hidden="true"><span></span><span>Promedio del mercado</span><span>Precio base del modelo</span><span></span><span>Precio del proyecto</span></div>
+      <div class="pr cab" aria-hidden="true"><span></span><span>Promedio del mercado</span><span>Precio de salida</span><span></span><span>Precio promedio del proyecto</span></div>
       <div class="pr c-com">
         <span class="nm"><span class="punto"></span>Comercial</span>
         <div class="pc"><small class="solo-tel">Promedio del mercado</small><b class="num">$64,584</b><em>por m²</em></div>
-        <div class="pc"><small class="solo-tel">Precio base del modelo</small><b class="num">$60,000</b><em>por m²</em></div>
+        <div class="pc"><small class="solo-tel">Precio de salida</small><b class="num">$60,000</b><em>por m²</em></div>
         <span class="mas num"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>+7.5 %</span>
-        <div class="pc final"><small class="solo-tel">Precio del proyecto</small><b class="num">$64,500</b><em>por m²</em></div>
+        <div class="pc final"><small class="solo-tel">Precio promedio del proyecto</small><b class="num">$64,500</b><em>por m²</em></div>
       </div>
       <div class="pr c-depto">
         <span class="nm"><span class="punto"></span>Departamentos</span>
         <div class="pc"><small class="solo-tel">Promedio del mercado</small><b class="num">$35,108</b><em>por m²</em></div>
-        <div class="pc"><small class="solo-tel">Precio base del modelo</small><b class="num">$35,000</b><em>por m²</em></div>
-        <span class="mas num"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>+7.5 %</span>
-        <div class="pc final"><small class="solo-tel">Precio del proyecto</small><b class="num">$37,625</b><em>por m²</em></div>
+        <div class="pc"><small class="solo-tel">Precio de salida</small><b class="num">$35,000</b><em>por m²</em></div>
+        <span class="mas num"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>+5 %</span>
+        <div class="pc final"><small class="solo-tel">Precio promedio del proyecto</small><b class="num">$36,750</b><em>por m²</em></div>
       </div>
       <div class="pr c-casa">
         <span class="nm"><span class="punto"></span>Casas</span>
         <div class="pc"><small class="solo-tel">Promedio del mercado</small><b class="num">$24,977</b><em>por m²</em></div>
-        <div class="pc"><small class="solo-tel">Precio base del modelo</small><b class="num">$25,000</b><em>por m²</em></div>
-        <span class="mas num"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>+7.5 %</span>
-        <div class="pc final"><small class="solo-tel">Precio del proyecto</small><b class="num">$26,875</b><em>por m²</em></div>
+        <div class="pc"><small class="solo-tel">Precio de salida</small><b class="num">$25,000</b><em>por m²</em></div>
+        <span class="mas num"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>+10 %</span>
+        <div class="pc final"><small class="solo-tel">Precio promedio del proyecto</small><b class="num">$27,500</b><em>por m²</em></div>
       </div>
     </div>
-    <p class="nota">Fuente: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento. El 7.5 % es un incremento conservador; en comercial partimos de un precio base debajo del promedio.</p>
+    <p class="nota">Fuente: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento. El incremento es el promedio a lo largo de las etapas del proyecto; en comercial salimos debajo del promedio del mercado.</p>
   </div>
 </section>
 
@@ -824,27 +893,27 @@ section{position:relative}
                 <rect width="2000" height="1116" fill="black"/>
                 <g fill="white" filter="url(#suave)">
                   <g class="lit lit-com">
-                    <polygon points="138,870 262,700 585,697 628,694 888,692 914,700 914,935 900,965 880,990 138,990"/>
-                    <polygon points="1152,692 1730,688 1952,838 1952,975 1180,988 1150,950"/>
+                    <polygon points="123,899 278,701 585,697 628,694 888,692 894,696 863,986 630,991 290,994 146,998"/>
+                    <polygon points="1138,693 1791,682 1977,894 1952,975 1199,986 1180,902"/>
                   </g>
-                  <polygon class="lit lit-depto" points="500,400 562,352 912,350 917,690 885,697 312,697"/>
+                  <polygon class="lit lit-depto" points="500,400 525,352 931,345 894,693 703,694 302,701"/>
                   <g class="lit lit-casa">
-                    <polygon points="192,402 192,350 245,318 290,290 470,250 545,226 1000,230 1012,262 1003,340 950,378 912,352 562,352 500,400"/>
-                    <polygon points="1180,175 1250,172 1500,215 1950,288 1995,312 1995,345 1515,365 1760,690 1120,698 1108,450 1125,300 1165,232"/>
+                    <polygon points="187,407 185,391 225,345 290,290 442,252 545,226 1010,242 1038,267 989,330 952,379 916,379 913,342 565,350 564,392"/>
+                    <polygon points="1187,197 1225,167 1500,215 1912,284 1968,322 1997,356 1510,375 1752,683 1572,686 1304,689 1226,693 1137,693 1090,410 1125,300 1165,232"/>
                   </g>
-                  <polygon class="lit lit-comun" points="912,995 918,720 930,520 960,400 1000,320 1050,250 1100,185 1125,160 1185,160 1160,230 1110,330 1095,430 1100,560 1115,700 1148,995"/>
+                  <polygon class="lit lit-comun" points="862,988 870,922 874,874 883,828 918,496 925,406 947,375 982,330 1009,302 1050,250 1100,185 1113,153 1222,166 1164,234 1138,272 1118,335 1102,364 1092,399 1102,470 1106,503 1115,565 1148,733 1188,945 1199,986 1165,987 1123,988 1073,990 1007,988 936,988 889,986"/>
                 </g>
               </mask>
             </defs>
             <image href="assets/render-aereo.jpg" x="0" y="0" width="2000" height="1116" mask="url(#luz)" preserveAspectRatio="none"/>
-            <g class="tinte t-com"><polygon points="138,870 262,700 585,697 628,694 888,692 914,700 914,935 900,965 880,990 138,990"/><polygon points="1152,692 1730,688 1952,838 1952,975 1180,988 1150,950"/></g>
-            <polygon class="tinte t-depto" points="500,400 562,352 912,350 917,690 885,697 312,697"/>
-            <g class="tinte t-casa"><polygon points="192,402 192,350 245,318 290,290 470,250 545,226 1000,230 1012,262 1003,340 950,378 912,352 562,352 500,400"/><polygon points="1180,175 1250,172 1500,215 1950,288 1995,312 1995,345 1515,365 1760,690 1120,698 1108,450 1125,300 1165,232"/></g>
-            <polygon class="tinte t-comun" points="912,995 918,720 930,520 960,400 1000,320 1050,250 1100,185 1125,160 1185,160 1160,230 1110,330 1095,430 1100,560 1115,700 1148,995"/>
-            <g class="borde b-com"><polygon points="138,870 262,700 585,697 628,694 888,692 914,700 914,935 900,965 880,990 138,990"/><polygon points="1152,692 1730,688 1952,838 1952,975 1180,988 1150,950"/></g>
-            <polygon class="borde b-depto" points="500,400 562,352 912,350 917,690 885,697 312,697"/>
-            <g class="borde b-casa"><polygon points="192,402 192,350 245,318 290,290 470,250 545,226 1000,230 1012,262 1003,340 950,378 912,352 562,352 500,400"/><polygon points="1180,175 1250,172 1500,215 1950,288 1995,312 1995,345 1515,365 1760,690 1120,698 1108,450 1125,300 1165,232"/></g>
-            <polygon class="borde b-comun" points="912,995 918,720 930,520 960,400 1000,320 1050,250 1100,185 1125,160 1185,160 1160,230 1110,330 1095,430 1100,560 1115,700 1148,995"/>
+            <g class="tinte t-com"><polygon points="123,899 278,701 585,697 628,694 888,692 894,696 863,986 630,991 290,994 146,998"/><polygon points="1138,693 1791,682 1977,894 1952,975 1199,986 1180,902"/></g>
+            <polygon class="tinte t-depto" points="500,400 525,352 931,345 894,693 703,694 302,701"/>
+            <g class="tinte t-casa"><polygon points="187,407 185,391 225,345 290,290 442,252 545,226 1010,242 1038,267 989,330 952,379 916,379 913,342 565,350 564,392"/><polygon points="1187,197 1225,167 1500,215 1912,284 1968,322 1997,356 1510,375 1752,683 1572,686 1304,689 1226,693 1137,693 1090,410 1125,300 1165,232"/></g>
+            <polygon class="tinte t-comun" points="862,988 870,922 874,874 883,828 918,496 925,406 947,375 982,330 1009,302 1050,250 1100,185 1113,153 1222,166 1164,234 1138,272 1118,335 1102,364 1092,399 1102,470 1106,503 1115,565 1148,733 1188,945 1199,986 1165,987 1123,988 1073,990 1007,988 936,988 889,986"/>
+            <g class="borde b-com"><polygon points="123,899 278,701 585,697 628,694 888,692 894,696 863,986 630,991 290,994 146,998"/><polygon points="1138,693 1791,682 1977,894 1952,975 1199,986 1180,902"/></g>
+            <polygon class="borde b-depto" points="500,400 525,352 931,345 894,693 703,694 302,701"/>
+            <g class="borde b-casa"><polygon points="187,407 185,391 225,345 290,290 442,252 545,226 1010,242 1038,267 989,330 952,379 916,379 913,342 565,350 564,392"/><polygon points="1187,197 1225,167 1500,215 1912,284 1968,322 1997,356 1510,375 1752,683 1572,686 1304,689 1226,693 1137,693 1090,410 1125,300 1165,232"/></g>
+            <polygon class="borde b-comun" points="862,988 870,922 874,874 883,828 918,496 925,406 947,375 982,330 1009,302 1050,250 1100,185 1113,153 1222,166 1164,234 1138,272 1118,335 1102,364 1092,399 1102,470 1106,503 1115,565 1148,733 1188,945 1199,986 1165,987 1123,988 1073,990 1007,988 936,988 889,986"/>
           </svg>
 
           <svg class="don" viewBox="0 0 2000 1116" preserveAspectRatio="none" aria-hidden="true">
@@ -867,9 +936,9 @@ section{position:relative}
             <span class="marca-tipo mt-calle" style="--x:68%;--xm:62%;top:93.5%">Carretera a Dzityá</span>
             <span class="marca-tipo mz c-com" style="--x:30%;--xm:37%;top:73%"><span class="chip tipo"><i></i>Comercio <b>8 %</b></span></span>
             <span class="marca-tipo mz c-com" style="--x:64%;--xm:64%;top:75%"><span class="chip tipo"><i></i>Comercio <b>8 %</b></span></span>
-            <span class="marca-tipo mz c-depto" style="--x:34%;--xm:39%;top:46%"><span class="chip tipo"><i></i>Departamentos <b>10 %</b></span></span>
-            <span class="marca-tipo mz c-casa" style="--x:36%;--xm:38%;top:27%"><span class="chip tipo"><i></i>Casas <b>37 %</b></span></span>
-            <span class="marca-tipo mz c-casa" style="--x:63%;--xm:64%;top:33%"><span class="chip tipo"><i></i>Casas <b>37 %</b></span></span>
+            <span class="marca-tipo mz c-depto" style="--x:34%;--xm:39%;top:46%"><span class="chip tipo"><i></i>Departamentos <b>5 %</b></span></span>
+            <span class="marca-tipo mz c-casa" style="--x:36%;--xm:38%;top:27%"><span class="chip tipo"><i></i>Casas <b>42 %</b></span></span>
+            <span class="marca-tipo mz c-casa" style="--x:63%;--xm:64%;top:33%"><span class="chip tipo"><i></i>Casas <b>42 %</b></span></span>
             <span class="marca-tipo mz c-comun" style="--x:51.5%;--xm:51.5%;top:57%"><span class="chip tipo"><i></i>Vialidades, áreas verdes y amenidades <b>38 %</b></span></span>
             <span class="marca-tipo mt-don c-don" style="--x:18%;--xm:34%;top:87.5%"><span class="chip tipo"><i></i>Donación <b>7 %</b></span></span>
             <span class="marca-tipo mt-don c-don solo-esc" style="--x:17.5%;--xm:17.5%;top:25%"><span class="chip tipo"><i></i>Donación</span></span>
@@ -884,15 +953,15 @@ section{position:relative}
         <article class="tarjeta areas">
           <span class="chip">Trazo indicativo</span>
           <h3 class="h3" style="margin-top:12px">Cómo se aprovecha el terreno<b>.</b></h3>
-          <div class="barra" role="img" aria-label="No vendible 45 %: vialidades, áreas verdes y amenidades 38 % y donación 7 %. Área vendible 55 %: comercial 8 %, departamentos 10 % y casas 37 %.">
-            <span class="c-comun" style="width:38%"></span><span class="c-don" style="width:7%"></span><span class="c-com" style="width:8%"></span><span class="c-depto" style="width:10%"></span><span class="c-casa" style="width:37%"></span>
+          <div class="barra" role="img" aria-label="No vendible 45 %: vialidades, áreas verdes y amenidades 38 % y donación 7 %. Área vendible 55 %: comercial 8 %, departamentos 5 % y casas 42 %.">
+            <span class="c-comun" style="width:38%"></span><span class="c-don" style="width:7%"></span><span class="c-com" style="width:8%"></span><span class="c-depto" style="width:5%"></span><span class="c-casa" style="width:42%"></span>
           </div>
           <div class="barra-etq"><span>45 % no vendible</span><span class="vend">55 % área vendible</span></div>
           <table class="tabla-a">
             <tbody>
               <tr class="c-com"><td><span class="sw"></span><span>Comercial<span class="u">≈ 160 locales de 40 m²</span></span></td><td class="num">6,407 m²</td><td class="num">8 %</td></tr>
-              <tr class="c-depto"><td><span class="sw"></span><span>Departamentos<span class="u">≈ 123 departamentos de 65 m²</span></span></td><td class="num">8,009 m²</td><td class="num">10 %</td></tr>
-              <tr class="c-casa"><td><span class="sw"></span><span>Casas<span class="u">≈ 185 casas de 160 m²</span></span></td><td class="num">29,633 m²</td><td class="num">37 %</td></tr>
+              <tr class="c-depto"><td><span class="sw"></span><span>Departamentos<span class="u">≈ 62 departamentos de 65 m²</span></span></td><td class="num">4,004 m²</td><td class="num">5 %</td></tr>
+              <tr class="c-casa"><td><span class="sw"></span><span>Casas<span class="u">≈ 210 casas de 160 m²</span></span></td><td class="num">33,638 m²</td><td class="num">42 %</td></tr>
               <tr class="c-comun"><td><span class="sw"></span><span>Vialidades, áreas verdes y amenidades</span></td><td class="num">30,434 m²</td><td class="num">38 %</td></tr>
               <tr class="c-don"><td><span class="sw"></span><span>Donación<span class="u">afectación vial</span></span></td><td class="num">5,606 m²</td><td class="num">7 %</td></tr>
             </tbody>
@@ -908,8 +977,8 @@ section{position:relative}
           <p>Comercio al frente, departamentos junto a la avenida y casas en privadas al fondo.</p>
           <div class="mini">
             <div class="c-com"><small><span class="sw"></span> Comercio</small><b class="num">≈ 160 <em>locales</em></b></div>
-            <div class="c-depto"><small><span class="sw"></span> Departamentos</small><b class="num">≈ 123</b></div>
-            <div class="c-casa ancha"><small><span class="sw"></span> Casas</small><b class="num">≈ 185</b></div>
+            <div class="c-depto"><small><span class="sw"></span> Departamentos</small><b class="num">≈ 62</b></div>
+            <div class="c-casa ancha"><small><span class="sw"></span> Casas</small><b class="num">≈ 210</b></div>
           </div>
         </article>
       </div>
@@ -938,10 +1007,10 @@ section{position:relative}
           <h3 class="h3" style="margin-top:12px">Departamentos<b>.</b></h3>
           <p>Edificios de varios niveles junto a la avenida, con jardines entre ellos.</p>
           <div class="mini">
-            <div><small>Terreno</small><b class="num">8,009 <em>m² · 10 %</em></b></div>
-            <div><small>Departamentos</small><b class="num">≈ 123 <em>de 65 m²</em></b></div>
-            <div><small>Precio por m²</small><b class="num">$37,625</b></div>
-            <div><small>Cada uno</small><b class="num">$2.45M</b></div>
+            <div><small>Terreno</small><b class="num">4,004 <em>m² · 5 %</em></b></div>
+            <div><small>Departamentos</small><b class="num">≈ 62 <em>de 65 m²</em></b></div>
+            <div><small>Precio por m²</small><b class="num">$36,750</b></div>
+            <div><small>Cada uno</small><b class="num">$2.39M</b></div>
           </div>
         </article>
       </div>
@@ -951,10 +1020,10 @@ section{position:relative}
           <h3 class="h3" style="margin-top:12px">Casas en privadas<b>.</b></h3>
           <p>Casas agrupadas en privadas, con su calle interior y sus áreas verdes.</p>
           <div class="mini">
-            <div><small>Terreno</small><b class="num">29,633 <em>m² · 37 %</em></b></div>
-            <div><small>Casas</small><b class="num">≈ 185 <em>de 160 m²</em></b></div>
-            <div><small>Precio por m²</small><b class="num">$26,875</b></div>
-            <div><small>Cada casa</small><b class="num">$4.30M</b></div>
+            <div><small>Terreno</small><b class="num">33,638 <em>m² · 42 %</em></b></div>
+            <div><small>Casas</small><b class="num">≈ 210 <em>de 160 m²</em></b></div>
+            <div><small>Precio por m²</small><b class="num">$27,500</b></div>
+            <div><small>Cada casa</small><b class="num">$4.40M</b></div>
           </div>
         </article>
       </div>
@@ -977,17 +1046,64 @@ section{position:relative}
 <section class="lamina" id="ventas" data-sec="numeros" aria-labelledby="t-ventas">
   <div class="caja">
     <div class="cabeza">
-      <h2 class="h2" id="t-ventas">Ventas estimadas: <span class="num">$1,511.0M</span><b>.</b></h2>
+      <h2 class="h2" id="t-ventas">Ventas estimadas: <span class="num">$1,485.5M</span><b>.</b></h2>
     </div>
-    <div class="barra-v" role="img" aria-label="Casas 53 %, departamentos 20 %, comercial 27 % de las ventas">
-      <span class="c-casa num" style="width:53%">53 %</span><span class="c-depto num" style="width:20%">20 %</span><span class="c-com num" style="width:27%">27 %</span>
+    <div class="barra-v" role="img" aria-label="Casas 62 %, departamentos 10 %, comercial 28 % de las ventas">
+      <span class="c-casa num" style="width:62%">62 %</span><span class="c-depto num" style="width:10%">10 %</span><span class="c-com num" style="width:28%">28 %</span>
     </div>
     <div class="tres">
-      <div class="soft vt c-casa"><span class="q"><span class="punto"></span>Casas</span><b class="m num">$796.4M</b><span class="d num">185 casas de $4.30M</span></div>
-      <div class="soft vt c-depto"><span class="q"><span class="punto"></span>Departamentos</span><b class="m num">$301.3M</b><span class="d num">123 departamentos de $2.45M</span></div>
+      <div class="soft vt c-casa"><span class="q"><span class="punto"></span>Casas</span><b class="m num">$925.0M</b><span class="d num">210 casas de $4.40M</span></div>
+      <div class="soft vt c-depto"><span class="q"><span class="punto"></span>Departamentos</span><b class="m num">$147.2M</b><span class="d num">62 departamentos de $2.39M</span></div>
       <div class="soft vt c-com"><span class="q"><span class="punto"></span>Comercial</span><b class="m num">$413.3M</b><span class="d num">160 locales de $2.58M</span></div>
     </div>
-    <p class="nota num">Precios por m² del proyecto: casas $26,875 · departamentos $37,625 · comercial $64,500.</p>
+    <p class="nota num">Precios promedio por m² del proyecto: casas $27,500 · departamentos $36,750 · comercial $64,500.</p>
+  </div>
+</section>
+
+<!-- Lámina 7b · Cronograma de ventas -->
+<section class="lamina" id="calendario" data-sec="numeros" aria-labelledby="t-cal">
+  <div class="caja">
+    <div class="cabeza">
+      <h2 class="h2" id="t-cal">El proyecto se vende en <span class="num">9 años y 3 meses</span><b>.</b></h2>
+      <p class="lead">La venta arranca en el mes 6, mientras se terminan el proyecto y las licencias, y sigue sin pausa. Cada fase arranca cuando se agota la anterior.</p>
+    </div>
+    <div class="soft crono" id="crono" role="img" aria-label="Cronograma: proyecto y licencias del mes 0 al 18; la venta arranca en el mes 6. Casas en 3 fases de 70, a 2 por mes, del mes 6 al 111. Comercial en 2 fases de 80, a 2 por mes, del mes 6 al 86. Departamentos en 2 fases de 31, a 1 por mes, del mes 41 al 103. Las ventas terminan en el mes 111. El pago del terreno va del año 4 al año 10.">
+      <div class="cr-cuerpo">
+        <div class="cr-fila">
+          <span class="cr-nm"><span class="sw" style="background:var(--apagado)"></span><span>Proyecto y licencias<small>1.5 años</small></span></span>
+          <div class="cr-pista"><span class="cr-seg lic" style="--a:0;--d:18;--k:0"><b>18 meses</b></span></div>
+        </div>
+        <div class="cr-fila c-casa">
+          <span class="cr-nm"><span class="sw"></span><span>Casas<small class="num">210 · 2 al mes</small></span></span>
+          <div class="cr-pista">
+            <span class="cr-seg" style="--a:6;--d:35;--k:1"><b>Fase 1</b><span class="num">70 casas · 35 meses</span></span>
+            <span class="cr-seg" style="--a:41;--d:35;--k:2"><b>Fase 2</b><span class="num">70 casas · 35 meses</span></span>
+            <span class="cr-seg" style="--a:76;--d:35;--k:3"><b>Fase 3</b><span class="num">70 casas · 35 meses</span></span>
+          </div>
+        </div>
+        <div class="cr-fila c-com">
+          <span class="cr-nm"><span class="sw"></span><span>Comercial<small class="num">160 · 2 al mes</small></span></span>
+          <div class="cr-pista">
+            <span class="cr-seg" style="--a:6;--d:40;--k:1"><b>Fase 1</b><span class="num">80 locales · 40 meses</span></span>
+            <span class="cr-seg" style="--a:46;--d:40;--k:2"><b>Fase 2</b><span class="num">80 locales · 40 meses</span></span>
+          </div>
+        </div>
+        <div class="cr-fila c-depto">
+          <span class="cr-nm"><span class="sw"></span><span>Departamentos<small class="num">62 · 1 al mes</small></span></span>
+          <div class="cr-pista">
+            <span class="cr-seg" style="--a:41;--d:31;--k:3"><b>Fase 1</b><span class="num">31 deptos · 31 meses</span></span>
+            <span class="cr-seg" style="--a:72;--d:31;--k:4"><b>Fase 2</b><span class="num">31 deptos · 31 meses</span></span>
+          </div>
+        </div>
+        <div class="cr-fila c-terreno">
+          <span class="cr-nm"><span class="sw"></span><span>Pago del terreno<small>6 años</small></span></span>
+          <div class="cr-pista"><span class="cr-seg" style="--a:48;--d:72;--k:5"><b>Del año 4 al año 10</b></span></div>
+        </div>
+        <div class="cr-capa"><span class="cr-fin"><em class="num">Fin de ventas · mes 111</em></span></div>
+      </div>
+      <div class="cr-eje" aria-hidden="true"><span></span><div class="t num"><span style="--m:0">Firma</span><span style="--m:12">Año 1</span><span style="--m:24">2</span><span style="--m:36">3</span><span style="--m:48">4</span><span style="--m:60">5</span><span style="--m:72">6</span><span style="--m:84">7</span><span style="--m:96">8</span><span style="--m:108">9</span><span style="--m:120">10</span></div></div>
+    </div>
+    <p class="nota">Los departamentos arrancan en el mes 41, al agotarse la primera fase de casas. Velocidades estimadas: casas y comercial, 2 por mes; departamentos, 1 por mes. Inventario ajustado: la mitad del área de departamentos pasa a casas.</p>
   </div>
 </section>
 
@@ -999,14 +1115,14 @@ section{position:relative}
     </div>
     <div class="soft cascada" id="cascada">
       <div class="cols">
-        <div class="cf grande" style="--b:0;--h:100;--k:0"><div class="area"><span class="seg"></span><span class="m num">$1,511.0M</span></div><span class="n">Ventas</span></div>
-        <div class="cf" style="--b:93.04;--h:6.96;--k:1"><div class="area"><span class="seg"></span><span class="m num">−$105.2M</span></div><span class="n">Comisiones</span></div>
-        <div class="cf suyo" style="--b:78.04;--h:15;--k:2"><div class="area"><span class="seg"></span><span class="m num">−$226.6M</span></div><span class="n">Terreno (15 %)</span></div>
-        <div class="cf" style="--b:28.43;--h:49.61;--k:3"><div class="area"><span class="seg"></span><span class="m num">−$749.6M</span></div><span class="n">Construcción y urbanización</span></div>
-        <div class="cf" style="--b:24.63;--h:3.8;--k:4"><div class="area"><span class="seg"></span><span class="m num">−$57.4M</span></div><span class="n">Gastos indirectos</span></div>
-        <div class="cf" style="--b:19.64;--h:5;--k:5"><div class="area"><span class="seg"></span><span class="m num">−$75.5M</span></div><span class="n">Administración (5 %)</span></div>
-        <div class="cf" style="--b:14.64;--h:5;--k:6"><div class="area"><span class="seg"></span><span class="m num">−$75.5M</span></div><span class="n">Financiamiento (5 %)</span></div>
-        <div class="cf utilidad" style="--b:0;--h:14.63;--k:7"><div class="area"><span class="seg"></span><span class="m num">$221.0M</span></div><span class="n">Utilidad neta</span></div>
+        <div class="cf grande" style="--b:0;--h:100;--k:0"><div class="area"><span class="seg"></span><span class="m num">$1,485.5M</span></div><span class="n">Ventas</span></div>
+        <div class="cf" style="--b:93.04;--h:6.96;--k:1"><div class="area"><span class="seg"></span><span class="m num">−$103.4M</span></div><span class="n">Comisiones</span></div>
+        <div class="cf suyo" style="--b:78.04;--h:15;--k:2"><div class="area"><span class="seg"></span><span class="m num">−$222.8M</span></div><span class="n">Terreno (15 %)</span></div>
+        <div class="cf" style="--b:28.45;--h:49.59;--k:3"><div class="area"><span class="seg"></span><span class="m num">−$736.7M</span></div><span class="n">Construcción y urbanización</span></div>
+        <div class="cf" style="--b:24.65;--h:3.8;--k:4"><div class="area"><span class="seg"></span><span class="m num">−$56.4M</span></div><span class="n">Gastos indirectos</span></div>
+        <div class="cf" style="--b:19.65;--h:5;--k:5"><div class="area"><span class="seg"></span><span class="m num">−$74.3M</span></div><span class="n">Administración (5 %)</span></div>
+        <div class="cf" style="--b:14.65;--h:5;--k:6"><div class="area"><span class="seg"></span><span class="m num">−$74.3M</span></div><span class="n">Financiamiento (5 %)</span></div>
+        <div class="cf utilidad" style="--b:0;--h:14.65;--k:7"><div class="area"><span class="seg"></span><span class="m num">$217.5M</span></div><span class="n">Utilidad neta</span></div>
       </div>
       <div class="supuestos">
         <p><b>Construcción:</b> 50 % del precio en casas y departamentos, 40 % en comercial, urbanización de $350/m² y gerencia de obra (1 %). <b>Gastos indirectos:</b> permisos, proyecto ejecutivo, marketing, régimen en condominio, postventa e imprevistos.</p>
@@ -1020,14 +1136,14 @@ section{position:relative}
 <section class="lamina" id="participacion" data-sec="parte" aria-labelledby="t-part">
   <div class="caja">
     <div class="cabeza">
-      <h2 class="h2" id="t-part">Su participación estimada: <span class="num">$265.5M</span><b>.</b></h2>
+      <h2 class="h2" id="t-part">Su participación estimada: <span class="num">$261.0M</span><b>.</b></h2>
     </div>
     <div class="part">
-      <div class="soft pt-c"><span class="pc-k ventas"><b class="num">15 %</b>de las ventas</span><span class="m num">$226.6M</span><p>Pago por el terreno, sobre las ventas totales del proyecto</p></div>
-      <div class="soft pt-c"><span class="pc-k util"><b class="num">17.6 %</b>de la utilidad</span><span class="m num">$38.8M</span><p>Su parte de la utilidad neta de <span class="num">$221.0M</span>, proporcional a lo que aporta</p></div>
-      <div class="pt-c pase"><span class="pc-k">Total estimado</span><span class="m num">$265.5M</span><p class="num">$3,315 por m² de terreno</p></div>
+      <div class="soft pt-c"><span class="pc-k ventas"><b class="num">15 %</b>de las ventas</span><span class="m num">$222.8M</span><p>Pago por el terreno, sobre las ventas totales del proyecto</p></div>
+      <div class="soft pt-c"><span class="pc-k util"><b class="num">17.6 %</b>de la utilidad</span><span class="m num">$38.2M</span><p>Su parte de la utilidad neta de <span class="num">$217.5M</span>, proporcional a lo que aporta</p></div>
+      <div class="pt-c pase"><span class="pc-k">Total estimado</span><span class="m num">$261.0M</span><p class="num">$3,259 por m² de terreno</p></div>
     </div>
-    <div class="soft valor"><span class="k">Valor de su terreno:</span><span><b class="num">$2,830</b> por m² con el 15 % de las ventas</span><span class="sep" aria-hidden="true">·</span><span><b class="num">$3,315</b> por m² sumando su parte de la utilidad</span></div>
+    <div class="soft valor"><span class="k">Valor de su terreno:</span><span><b class="num">$2,782</b> por m² con el 15 % de las ventas</span><span class="sep" aria-hidden="true">·</span><span><b class="num">$3,259</b> por m² sumando su parte de la utilidad</span></div>
     <p class="nota">Monto variable: depende de las ventas, precios y costos reales. Utilidad estimada antes de impuestos (ISR).</p>
   </div>
 </section>
@@ -1040,13 +1156,13 @@ section{position:relative}
     </div>
     <div class="prop-grid">
       <div>
-        <div class="pp"><span class="k">1</span><span class="t">Inversión total del proyecto<small>Comisiones, terreno, construcción, gastos indirectos, administración y financiamiento</small></span><span class="v num">$1,289.9M</span></div>
-        <div class="pp"><span class="k">2</span><span class="t">Su terreno dentro de esa inversión<small class="num">$226.6M de $1,289.9M</small></span><span class="v num">17.6 %</span></div>
-        <div class="pp util"><span class="k">3</span><span class="t">Su parte de la utilidad neta<small class="num">17.6 % × $221.0M de utilidad neta</small></span><span class="v num">$38.8M</span></div>
+        <div class="pp"><span class="k">1</span><span class="t">Inversión total del proyecto<small>Comisiones, terreno, construcción, gastos indirectos, administración y financiamiento</small></span><span class="v num">$1,267.9M</span></div>
+        <div class="pp"><span class="k">2</span><span class="t">Su terreno dentro de esa inversión<small class="num">$222.8M de $1,267.9M</small></span><span class="v num">17.6 %</span></div>
+        <div class="pp util"><span class="k">3</span><span class="t">Su parte de la utilidad neta<small class="num">17.6 % × $217.5M de utilidad neta</small></span><span class="v num">$38.2M</span></div>
       </div>
-      <div class="soft prop-g" role="img" aria-label="Su terreno es el 17.6 % de la inversión total de 1,289.9 millones; le toca el mismo 17.6 % de la utilidad neta de 221.0 millones, es decir 38.8 millones.">
-        <div class="pb"><div class="et num">Inversión total · $1,289.9M</div><div class="bb"><span class="nar"></span><span style="flex:1"></span></div><div class="pie num">Terreno 17.6 %</div></div>
-        <div class="pb u"><div class="et num">Utilidad neta · $221.0M</div><div class="bb"><span class="vd"></span><span style="flex:1"></span></div><div class="pie num">Para usted 17.6 % = $38.8M</div></div>
+      <div class="soft prop-g" role="img" aria-label="Su terreno es el 17.6 % de la inversión total de 1,267.9 millones; le toca el mismo 17.6 % de la utilidad neta de 217.5 millones, es decir 38.2 millones.">
+        <div class="pb"><div class="et num">Inversión total · $1,267.9M</div><div class="bb"><span class="nar"></span><span style="flex:1"></span></div><div class="pie num">Terreno 17.6 %</div></div>
+        <div class="pb u"><div class="et num">Utilidad neta · $217.5M</div><div class="bb"><span class="vd"></span><span style="flex:1"></span></div><div class="pie num">Para usted 17.6 % = $38.2M</div></div>
       </div>
     </div>
     <p class="nota">Si los costos o las ventas cambian, la proporción y la utilidad se recalculan con las cifras reales.</p>
@@ -1057,13 +1173,13 @@ section{position:relative}
 <section class="cierre oscura" id="cierre" data-sec="parte" aria-labelledby="t-cierre">
   <div class="caja">
     <div class="marca"><img src="assets/marca/logo-acento-blanco.png" alt="Acento Desarrollos" width="1200" height="395"></div>
-    <h2 class="h2" id="t-cierre">Su terreno: <span class="monto-c num">≈ $265.5M</span><b>.</b></h2>
-    <p class="suma num"><b>$226.6M</b> por el 15 % de las ventas + <b>$38.8M</b> por su parte de la utilidad (17.6 %).</p>
-    <p class="eq num">Equivale a <b>$3,315</b> por m² de terreno.</p>
+    <h2 class="h2" id="t-cierre">Su terreno: <span class="monto-c num">≈ $261.0M</span><b>.</b></h2>
+    <p class="suma num"><b>$222.8M</b> por el 15 % de las ventas + <b>$38.2M</b> por su parte de la utilidad (17.6 %).</p>
+    <p class="eq num">Equivale a <b>$3,259</b> por m² de terreno.</p>
     <div class="letra">
       <p>Cifras estimadas; el monto final depende de las ventas, precios y costos reales.</p>
       <p>Utilidad estimada antes de impuestos (ISR).</p>
-      <p>Precios: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento, más un incremento de 7.5 %.</p>
+      <p>Precios: estudio de mercado 4S, consulta de mercado y benchmark propio de Acento, más un incremento promedio a lo largo de las etapas: 10 % en casas, 5 % en departamentos y 7.5 % en comercial.</p>
     </div>
   </div>
 </section>
@@ -1129,7 +1245,7 @@ section{position:relative}
     if (reduce) { el.classList.add('vista'); return; }
     new IntersectionObserver(([e], o) => { if (e.isIntersecting) { el.classList.add('vista'); o.disconnect(); } }, { threshold: .3 }).observe(el);
   };
-  document.querySelectorAll('.cascada, .crece').forEach(crecer);
+  document.querySelectorAll('.cascada, .crece, .crono').forEach(crecer);
 
   /* Escena fija: zonificación → volúmenes → render → tipos */
   const escena = document.getElementById('escena');
