@@ -304,7 +304,25 @@ strong{font-weight:800}
 .art{margin-top:10px;font-size:.8125rem;color:var(--tinta-2)}
 .pie-tabla{margin-top:14px}
 
-/* 18 · Qué sigue */
+/* 7 · una sola tarjeta */
+.aviso-solo{padding:24px 24px 22px}
+.aviso-solo h3{font-size:clamp(1.4rem,5.6vw,1.9rem);line-height:1.2;margin:0}
+.sup-linea{margin-top:18px}
+
+/* 18 · Preguntas frecuentes */
+.faqs{display:grid;border-top:1px solid var(--filete)}
+.faq{border-bottom:1px solid var(--filete)}
+.faq summary{list-style:none;display:grid;grid-template-columns:28px 1fr 22px;gap:12px;align-items:center;min-height:56px;padding:12px 2px;cursor:pointer;font-weight:800;font-size:1.0625rem;line-height:1.3;border-radius:4px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover .faq-q{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.2em}
+.faq-n{width:28px;height:28px;border-radius:5px;background:var(--jade);color:#fff;display:grid;place-items:center;font-size:.875rem}
+.chev{width:20px;height:20px;color:var(--jade);transition:transform .3s var(--ease)}
+@media (prefers-color-scheme:dark){.chev{color:#5fb895}}
+.faq[open] .chev-v{opacity:0}
+.faq[open] .chev{transform:rotate(180deg)}
+.faq p{padding:0 4px 18px 42px;color:var(--tinta-2);max-width:60ch;text-wrap:pretty}
+
+/* 19 · Qué sigue */
 .cuenta-dato{display:block}.copiable{user-select:all;-webkit-user-select:all;font-variant-numeric:tabular-nums;letter-spacing:.02em;font-size:1.0625rem}
 .cuenta{margin-top:10px;padding:14px 16px;border:2px dashed var(--tinta-2);border-radius:6px;font-weight:600;font-size:1.0625rem;color:var(--tinta);word-break:break-word;background:var(--fondo-2)}
 .firma{margin-top:44px;padding:22px 24px 20px;display:grid;gap:2px}
@@ -336,7 +354,7 @@ strong{font-weight:800}
     <span class="cab-nombre">Marenta</span>
     <span class="cab-sep" aria-hidden="true"></span>
     <span class="cab-parte" id="cab-parte"><span><span class="n" id="cab-n">Parte 1</span><span id="cab-t">La basura</span></span></span>
-    <span class="cab-lam"><span id="cab-lam">2</span> <small>de 18</small></span>
+    <span class="cab-lam"><span id="cab-lam">2</span> <small>de 19</small></span>
   </div>
 </header>
 
@@ -401,7 +419,7 @@ strong{font-weight:800}
         <ul class="tareas">
           <li>
             <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h11l6 6v18H8z"/><path d="M19 4v6h6"/><path d="M12 16h9M12 21h9"/></svg>
-            <div><h3>Tramitar por escrito la terminación del contrato con Sana</h3><p>Y pedirle su estado de cuenta mes por mes.</p></div>
+            <div><h3>Tramitar por escrito la terminación del contrato con Sana</h3><p>Para no seguir acumulando deuda. Y pedirle su estado de cuenta mes por mes.</p></div>
           </li>
           <li>
             <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="12" r="4"/><circle cx="22" cy="13" r="3"/><path d="M4 26c.8-4.5 3.5-7 7-7s6.2 2.5 7 7"/><path d="M19 20.5c.9-.4 1.9-.5 3-.5 3 0 5.2 2 6 6"/></svg>
@@ -427,6 +445,7 @@ strong{font-weight:800}
     <h2>Sana suspendió la recolección de basura por adeudo.</h2>
     <span class="cifra" data-cifra="deuda_sana"></span>
     <p class="lead">es lo que Sana dice que le debemos.</p>
+    <p class="nota sup-linea">Sara tiene un contrato en lo particular con Sana, y suponemos que la empresa no exigirá su saldo por otra vía.</p>
   </div>
 </section>
 
@@ -461,7 +480,7 @@ strong{font-weight:800}
   <div class="col">
     <h2>Qué pasa desde el lunes 23</h2>
     <ol class="ruta numerada">
-      <li><span class="parada">1</span><div><h3>Mientras tanto</h3><p>Una persona se encarga de la basura. La paga Sara, sin costo para la privada.</p></div></li>
+      <li><span class="parada">1</span><div><h3>Mientras tanto</h3><p>Una persona se encarga de la basura. La paga Sara, sin costo para la privada.</p><p>Y Sara tramita por escrito la terminación del contrato con Sana, para no seguir acumulando deuda.</p></div></li>
       <li><span class="parada">2</span><div><h3>Un proveedor privado</h3><p><span data-cifra="tarifa_privado"></span> al mes, que se le pagan el día 15.</p></div></li>
       <li><span class="parada">3</span><div><h3>Después, decidimos</h3><p>Regresar con Sana con un acuerdo nuevo, o quedarnos con el nuevo proveedor.</p></div></li>
     </ol>
@@ -478,30 +497,18 @@ strong{font-weight:800}
     </div>
     <span class="cifra" data-cifra="ahorro_anual"></span>
     <p class="lead">de ahorro al año.</p>
+    <p class="nota sup-linea">Supone un acuerdo de servicio de un año con el recolector privado. El recolector no es una empresa ni un proveedor formal: el precio y las condiciones pueden cambiar.</p>
   </div>
 </section>
 
 <!-- 6 -->
 <section class="lamina" id="te-pedimos" data-lamina="7" data-parte="1">
-  <div class="col ancho">
+  <div class="col">
     <h2>Lo que te pedimos</h2>
-    <ul class="avisos">
-      <li class="panel aviso dias">
-        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10h20"/><path d="M12 10V7h8v3"/><path d="M8.5 10l1.6 16h11.8l1.6-16"/><path d="M14 15v7M18 15v7"/></svg>
-        <h3>Saca la basura lunes, miércoles y viernes</h3>
-        <p>Afuera de tu casa, antes de las 7:40 am.</p>
-      </li>
-      <li class="panel aviso">
-        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8h20v13H14l-6 5v-5H6z"/><path d="M12.5 12.5l7 5M19.5 12.5l-7 5"/></svg>
-        <h3>No contactes a Sana</h3>
-        <p>Una sola voz negocia por todos.</p>
-      </li>
-      <li class="panel aviso">
-        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6"/><path d="m11.5 20 3 3 6-6"/></svg>
-        <h3>Ponte al corriente</h3>
-        <p>Antes del <span data-cifra="fecha_limite" data-fmt="texto"></span>.</p>
-      </li>
-    </ul>
+    <div class="panel aviso aviso-solo">
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="7" width="22" height="20" rx="2"/><path d="M5 13h22M11 4v6M21 4v6"/><path d="m11.5 20 3 3 6-6"/></svg>
+      <h3>Si tienes un adeudo pendiente, ponte al corriente antes del <span data-cifra="fecha_limite" data-fmt="texto"></span>.</h3>
+    </div>
   </div>
 </section>
 
@@ -554,8 +561,9 @@ strong{font-weight:800}
       <li>Vigilancia <span data-cifra="supuesto_vigilancia_pct" data-fmt="pct"></span> desde marzo de 2027.</li>
       <li><span data-cifra="mora_pct" data-fmt="pctsimple"></span> de casas que se atrasan.</li>
       <li>Mantenimiento recurrente de <span data-cifra="conceptos_2027.@Mantenimiento.mensual_2027"></span> al mes; el portón y las luminarias van al fondo de reserva.</li>
-      <li>Registrar ante notario el acta de la asamblea de 2027 no entra en la cuota: si hace falta, va como extraordinaria.</li>
       <li>Sin aguinaldo de vigilancia.</li>
+      <li>Sara tiene un contrato en lo particular con Sana, y la empresa no exigirá su saldo por otra vía.</li>
+      <li>El ahorro de <span data-cifra="ahorro_anual"></span> supone un acuerdo de servicio de un año con el recolector privado. El recolector no es una empresa ni un proveedor formal: el precio y las condiciones pueden cambiar.</li>
       <li>La app de administración opera desde diciembre de 2026 y cobra <span data-cifra="app_mensual"></span> al mes desde noviembre de 2027.</li>
     </ul>
     <p class="remate">Si cambia alguno de estos supuestos, cambia la cuota.</p>
@@ -650,8 +658,32 @@ strong{font-weight:800}
   </div>
 </section>
 
-<!-- 16 -->
-<section class="lamina" id="que-sigue" data-lamina="18" data-parte="4">
+<!-- 18 -->
+<section class="lamina" id="preguntas" data-lamina="18" data-parte="f">
+  <div class="col">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faqs">
+      <details class="faq"><summary><span class="faq-n">1</span><span class="faq-q">¿Qué tengo que hacer si estoy al corriente?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Asistir a la Asamblea del <span data-cifra="asamblea_fecha" data-fmt="texto"></span> y pagar la cuota extraordinaria de <span data-cifra="extraordinaria"></span> a más tardar el <span data-cifra="fecha_limite" data-fmt="texto"></span>.</p></details>
+      <details class="faq"><summary><span class="faq-n">2</span><span class="faq-q">¿Cómo sé cuánto debo?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Sara le manda a cada casa su saldo antes del <span data-cifra="fecha_limite" data-fmt="texto"></span>.</p></details>
+      <details class="faq"><summary><span class="faq-n">3</span><span class="faq-q">¿Por qué tengo que pagar por los que no pagan?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Siempre hay una parte de las cuotas que no llega a tiempo, y a los proveedores no se les puede dejar de pagar sin que se corte el servicio para todos. Por eso la cuota considera un porcentaje extra. A cambio, proponemos en la Asamblea un interés moratorio para las casas que se atrasan, como pena por el perjuicio que causan a las demás.</p></details>
+      <details class="faq"><summary><span class="faq-n">4</span><span class="faq-q">¿Por qué se reparte entre <span data-cifra="casas_extraordinaria" data-fmt="num"></span> casas si somos <span data-cifra="casas" data-fmt="num"></span>?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Una casa tiene un adeudo en cobranza; su parte se le reclama en ese proceso.</p></details>
+      <details class="faq"><summary><span class="faq-n">5</span><span class="faq-q">¿Puedo pagar en partes?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>No: un solo pago a más tardar el <span data-cifra="fecha_limite" data-fmt="texto"></span>, porque en diciembre se paga la vigilancia vencida.</p></details>
+      <details class="faq"><summary><span class="faq-n">6</span><span class="faq-q">¿Cómo hemos pagado los servicios si la cuota de 2026 no alcanzaba?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Se fueron dejando pagos pendientes a los proveedores. Por eso hoy la privada debe cerca de <span data-cifra="deuda_proveedores_aprox"></span> (basura y vigilancia).</p></details>
+      <details class="faq"><summary><span class="faq-n">7</span><span class="faq-q">¿No es mucho <span data-cifra="cuota_total"></span> para una privada sin amenidades?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>La cuota no sube desde julio de 2025 y ya no alcanza para los gastos de la privada; la vigilancia sola es más de la mitad.</p></details>
+      <details class="faq"><summary><span class="faq-n">8</span><span class="faq-q">¿Qué pasa si no hay fondo de reserva?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Cada imprevisto (el portón, las bombas de riego, que se han tenido que cambiar cada año) tendría que esperar a una junta y a que todos paguen. Con el fondo se atiende rápido.</p></details>
+      <details class="faq"><summary><span class="faq-n">9</span><span class="faq-q">¿Qué pasa si queremos cambiar algún proveedor?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Se puede, siempre que quede dentro del presupuesto del año, para no subir la cuota.</p></details>
+      <details class="faq"><summary><span class="faq-n">10</span><span class="faq-q">¿Vamos a pagarle a Sana los <span data-cifra="deuda_sana"></span>?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Esta cuota no lo incluye. Cuando Sana nos busque, la Asamblea decide. Mientras, nadie la contacta por su cuenta.</p></details>
+      <details class="faq"><summary><span class="faq-n">11</span><span class="faq-q">¿Es confiable el nuevo proveedor de basura?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Es para ganar tiempo; cada pago lleva recibo firmado y después se decide si se queda.</p></details>
+      <details class="faq"><summary><span class="faq-n">12</span><span class="faq-q">¿Qué pasa si saco la basura tarde?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Se queda hasta el siguiente día de recolección: lunes, miércoles o viernes, antes de las 7:40 am.</p></details>
+      <details class="faq"><summary><span class="faq-n">13</span><span class="faq-q">¿Por qué una demanda?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Para recuperar lo que se debe, sin nombrar a nadie. Lo que se recupere regresa a la caja y puede bajar futuras cuotas extraordinarias.</p></details>
+      <details class="faq"><summary><span class="faq-n">14</span><span class="faq-q">¿Por qué hay que registrar el acta ante notario (protocolizarla)?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>La ley pide una Asamblea al año, y el registro le da la formalidad necesaria para cobrar por la vía legal. Además, hoy la privada opera con acuerdos que no están en los estatutos (la cuota, el servicio de basura, el comité); hay que ponerlos por escrito, fijar un interés por atraso y preparar la cuenta bancaria propia del condominio.</p></details>
+      <details class="faq"><summary><span class="faq-n">15</span><span class="faq-q">¿En qué nos ayuda una cuenta bancaria propia del condominio?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Hoy las cuotas se reciben, con toda confianza, en la cuenta personal de la Administradora, que también tiene movimientos ajenos a la privada. Una cuenta a nombre del condominio da independencia y transparencia. Para abrirla hace falta constituir una figura legal sin fines de lucro que lleve su propia contabilidad; se propondrá en la Asamblea.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 19 -->
+<section class="lamina" id="que-sigue" data-lamina="19" data-parte="4">
   <div class="col">
     <h2>Qué sigue</h2>
     <ol class="ruta numerada">
@@ -669,7 +701,7 @@ strong{font-weight:800}
 
 </main>
 
-<script type="application/json" id="cifras">{"fecha":"21 de noviembre de 2026","deuda_sana":144900,"tarifa_sana":6900,"tarifa_privado":3000,"tarifa_previa":200,"ahorro_anual":46800,"pago_parcial":6000,"cierre_grafica":148000,"diferencia_abonos":3100,"meses_sin_pago":13,"pico_grafica":{"mes":"2026-03","acumulado":176700},"serie_sana":[{"mes":"2023-03","tarifa":6900,"pagado":0,"acumulado":6500},{"mes":"2023-04","tarifa":6900,"pagado":0,"acumulado":13400},{"mes":"2023-05","tarifa":6900,"pagado":0,"acumulado":20300},{"mes":"2023-06","tarifa":6900,"pagado":0,"acumulado":27200},{"mes":"2023-07","tarifa":6900,"pagado":0,"acumulado":34100},{"mes":"2023-08","tarifa":6900,"pagado":0,"acumulado":41000},{"mes":"2023-09","tarifa":6900,"pagado":0,"acumulado":47900},{"mes":"2023-10","tarifa":6900,"pagado":0,"acumulado":54800},{"mes":"2023-11","tarifa":6900,"pagado":0,"acumulado":61700},{"mes":"2023-12","tarifa":6900,"pagado":0,"acumulado":68600},{"mes":"2024-01","tarifa":6900,"pagado":0,"acumulado":75500},{"mes":"2024-02","tarifa":6900,"pagado":0,"acumulado":82400},{"mes":"2024-03","tarifa":6900,"pagado":0,"acumulado":89300},{"mes":"2024-04","tarifa":6900,"pagado":6000,"acumulado":90200},{"mes":"2024-05","tarifa":6900,"pagado":0,"acumulado":97100},{"mes":"2024-06","tarifa":6900,"pagado":0,"acumulado":104000},{"mes":"2024-07","tarifa":6900,"pagado":0,"acumulado":110900},{"mes":"2024-08","tarifa":6900,"pagado":6000,"acumulado":111800},{"mes":"2024-09","tarifa":6900,"pagado":0,"acumulado":118700},{"mes":"2024-10","tarifa":6900,"pagado":0,"acumulado":125600},{"mes":"2024-11","tarifa":6900,"pagado":0,"acumulado":132500},{"mes":"2024-12","tarifa":6900,"pagado":0,"acumulado":139400},{"mes":"2025-01","tarifa":6900,"pagado":6000,"acumulado":140300},{"mes":"2025-02","tarifa":6900,"pagado":0,"acumulado":147200},{"mes":"2025-03","tarifa":6900,"pagado":6000,"acumulado":148100},{"mes":"2025-04","tarifa":6900,"pagado":6000,"acumulado":149000},{"mes":"2025-05","tarifa":6900,"pagado":6000,"acumulado":149900},{"mes":"2025-06","tarifa":6900,"pagado":0,"acumulado":156800},{"mes":"2025-07","tarifa":6900,"pagado":6000,"acumulado":157700},{"mes":"2025-08","tarifa":6900,"pagado":0,"acumulado":164600},{"mes":"2025-09","tarifa":6900,"pagado":6000,"acumulado":165500},{"mes":"2025-10","tarifa":6900,"pagado":6000,"acumulado":166400},{"mes":"2025-11","tarifa":6900,"pagado":6000,"acumulado":167300},{"mes":"2025-12","tarifa":6900,"pagado":6200,"acumulado":168000},{"mes":"2026-01","tarifa":6900,"pagado":0,"acumulado":174900},{"mes":"2026-02","tarifa":6900,"pagado":6000,"acumulado":175800},{"mes":"2026-03","tarifa":6900,"pagado":6000,"acumulado":176700},{"mes":"2026-04","tarifa":6900,"pagado":6900,"acumulado":176700},{"mes":"2026-05","tarifa":6900,"pagado":6900,"acumulado":176700},{"mes":"2026-06","tarifa":6900,"pagado":27600,"acumulado":156000},{"mes":"2026-07","tarifa":6900,"pagado":20700,"acumulado":142200},{"mes":"2026-08","tarifa":6900,"pagado":2000,"acumulado":147100},{"mes":"2026-09","tarifa":6900,"pagado":3000,"acumulado":151000},{"mes":"2026-10","tarifa":6900,"pagado":9900,"acumulado":148000}],"vigilancia_vencida":55660,"vigilancia_mensual":27830,"cierre_2026":[{"concepto":"Noviembre: falta de limpieza","monto":-800.0},{"concepto":"Diciembre: cuotas (26 casas) y atrasos por cobrar","monto":45580.5},{"concepto":"Diciembre: operación (vigilancia del mes, basura, jardín, administración, limpieza, servicios)","monto":-44390.0},{"concepto":"Vigilancia vencida (2 meses)","monto":-55660},{"concepto":"Inicio del proceso de cobranza (demanda)","monto":-6000.0},{"concepto":"Registrar el acta de la Asamblea ante notario","monto":-14000.0}],"faltante":-75269.5,"casas_extraordinaria":30,"extraordinaria":2510,"fecha_limite":"10 de diciembre","casas":31,"cuota_actual":1447,"ingreso_mensual":44857,"gasto_2026_mensual":51631,"cobrado_2026_mensual":44951,"faltan_mes":6680,"conceptos_2027":[{"concepto":"Vigilancia","mensual_2026":27386.6,"mensual_2027":30149.17,"pct":10.1},{"concepto":"Basura","mensual_2026":8718.18,"mensual_2027":3000.0,"pct":-65.6},{"concepto":"Jardinería","mensual_2026":5058.62,"mensual_2027":5200.0,"pct":2.8},{"concepto":"Administración","mensual_2026":4000.0,"mensual_2027":4000.0,"pct":0.0},{"concepto":"Limpieza","mensual_2026":2495.45,"mensual_2027":3300.0,"pct":32.2},{"concepto":"Mantenimiento","mensual_2026":3077.42,"mensual_2027":3000.0,"pct":-2.5},{"concepto":"Consumibles","mensual_2026":588.48,"mensual_2027":700.0,"pct":19.0},{"concepto":"Internet","mensual_2026":660.0,"mensual_2027":660.0,"pct":0.0},{"concepto":"CFE y agua","mensual_2026":83.82,"mensual_2027":150.0,"pct":79.0},{"concepto":"App de administración","mensual_2026":0,"mensual_2027":166.5,"pct":null,"nuevo":true,"nota":"$999 en noviembre y diciembre"}],"total_2026":52068.57,"total_2027":50325.67,"pct_total":-3.3,"anual_2027":603908,"cuota_sin_mora":1623,"mora_pct":5,"cuota_con_mora":1710,"aumento_mora":87,"fondo":100,"porton":11550,"luminarias":12027,"no_recurrentes":23577,"extra_por_casa_aprox":800,"ahorro_fondo_aprox":11800,"casas_en_cobranza":1,"casas_adelantadas":4,"casas_diciembre":26,"cuenta":{"banco":"HSBC","titular":"Sara Alejandra Ruiz Aguilera","numero":"6450053826","clabe":"021910064500538268","clabe_grupos":"0219 1006 4500 5382 68"},"supuesto_vigilancia_pct":10,"aviso_asamblea_dias":5,"asamblea_fecha":"jueves 3 de diciembre","aviso_asamblea_limite":"27 de noviembre","app_mensual":999,"app_meses_2027":2,"app_anual_2027":1998,"cuota_total":1810,"pct_vs_hoy":25.1,"escena_barra":[1447,1623,1710,1810]}</script>
+<script type="application/json" id="cifras">{"fecha":"21 de noviembre de 2026","deuda_sana":144900,"tarifa_sana":6900,"tarifa_privado":3000,"tarifa_previa":200,"ahorro_anual":46800,"pago_parcial":6000,"cierre_grafica":148000,"diferencia_abonos":3100,"meses_sin_pago":13,"pico_grafica":{"mes":"2026-03","acumulado":176700},"serie_sana":[{"mes":"2023-03","tarifa":6900,"pagado":0,"acumulado":6500},{"mes":"2023-04","tarifa":6900,"pagado":0,"acumulado":13400},{"mes":"2023-05","tarifa":6900,"pagado":0,"acumulado":20300},{"mes":"2023-06","tarifa":6900,"pagado":0,"acumulado":27200},{"mes":"2023-07","tarifa":6900,"pagado":0,"acumulado":34100},{"mes":"2023-08","tarifa":6900,"pagado":0,"acumulado":41000},{"mes":"2023-09","tarifa":6900,"pagado":0,"acumulado":47900},{"mes":"2023-10","tarifa":6900,"pagado":0,"acumulado":54800},{"mes":"2023-11","tarifa":6900,"pagado":0,"acumulado":61700},{"mes":"2023-12","tarifa":6900,"pagado":0,"acumulado":68600},{"mes":"2024-01","tarifa":6900,"pagado":0,"acumulado":75500},{"mes":"2024-02","tarifa":6900,"pagado":0,"acumulado":82400},{"mes":"2024-03","tarifa":6900,"pagado":0,"acumulado":89300},{"mes":"2024-04","tarifa":6900,"pagado":6000,"acumulado":90200},{"mes":"2024-05","tarifa":6900,"pagado":0,"acumulado":97100},{"mes":"2024-06","tarifa":6900,"pagado":0,"acumulado":104000},{"mes":"2024-07","tarifa":6900,"pagado":0,"acumulado":110900},{"mes":"2024-08","tarifa":6900,"pagado":6000,"acumulado":111800},{"mes":"2024-09","tarifa":6900,"pagado":0,"acumulado":118700},{"mes":"2024-10","tarifa":6900,"pagado":0,"acumulado":125600},{"mes":"2024-11","tarifa":6900,"pagado":0,"acumulado":132500},{"mes":"2024-12","tarifa":6900,"pagado":0,"acumulado":139400},{"mes":"2025-01","tarifa":6900,"pagado":6000,"acumulado":140300},{"mes":"2025-02","tarifa":6900,"pagado":0,"acumulado":147200},{"mes":"2025-03","tarifa":6900,"pagado":6000,"acumulado":148100},{"mes":"2025-04","tarifa":6900,"pagado":6000,"acumulado":149000},{"mes":"2025-05","tarifa":6900,"pagado":6000,"acumulado":149900},{"mes":"2025-06","tarifa":6900,"pagado":0,"acumulado":156800},{"mes":"2025-07","tarifa":6900,"pagado":6000,"acumulado":157700},{"mes":"2025-08","tarifa":6900,"pagado":0,"acumulado":164600},{"mes":"2025-09","tarifa":6900,"pagado":6000,"acumulado":165500},{"mes":"2025-10","tarifa":6900,"pagado":6000,"acumulado":166400},{"mes":"2025-11","tarifa":6900,"pagado":6000,"acumulado":167300},{"mes":"2025-12","tarifa":6900,"pagado":6200,"acumulado":168000},{"mes":"2026-01","tarifa":6900,"pagado":0,"acumulado":174900},{"mes":"2026-02","tarifa":6900,"pagado":6000,"acumulado":175800},{"mes":"2026-03","tarifa":6900,"pagado":6000,"acumulado":176700},{"mes":"2026-04","tarifa":6900,"pagado":6900,"acumulado":176700},{"mes":"2026-05","tarifa":6900,"pagado":6900,"acumulado":176700},{"mes":"2026-06","tarifa":6900,"pagado":27600,"acumulado":156000},{"mes":"2026-07","tarifa":6900,"pagado":20700,"acumulado":142200},{"mes":"2026-08","tarifa":6900,"pagado":2000,"acumulado":147100},{"mes":"2026-09","tarifa":6900,"pagado":3000,"acumulado":151000},{"mes":"2026-10","tarifa":6900,"pagado":9900,"acumulado":148000}],"vigilancia_vencida":55660,"vigilancia_mensual":27830,"cierre_2026":[{"concepto":"Noviembre: falta de limpieza","monto":-800.0},{"concepto":"Diciembre: cuotas (26 casas) y atrasos por cobrar","monto":45580.5},{"concepto":"Diciembre: operación (vigilancia del mes, basura, jardín, administración, limpieza, servicios)","monto":-44390.0},{"concepto":"Vigilancia vencida (2 meses)","monto":-55660},{"concepto":"Inicio del proceso de cobranza (demanda)","monto":-6000.0},{"concepto":"Registrar el acta de la Asamblea ante notario","monto":-14000.0}],"faltante":-75269.5,"casas_extraordinaria":30,"extraordinaria":2510,"fecha_limite":"10 de diciembre","casas":31,"cuota_actual":1447,"ingreso_mensual":44857,"gasto_2026_mensual":51631,"cobrado_2026_mensual":44951,"faltan_mes":6680,"conceptos_2027":[{"concepto":"Vigilancia","mensual_2026":27386.6,"mensual_2027":30149.17,"pct":10.1},{"concepto":"Basura","mensual_2026":8718.18,"mensual_2027":3000.0,"pct":-65.6},{"concepto":"Jardinería","mensual_2026":5058.62,"mensual_2027":5200.0,"pct":2.8},{"concepto":"Administración","mensual_2026":4000.0,"mensual_2027":4000.0,"pct":0.0},{"concepto":"Limpieza","mensual_2026":2495.45,"mensual_2027":3300.0,"pct":32.2},{"concepto":"Mantenimiento","mensual_2026":3077.42,"mensual_2027":3000.0,"pct":-2.5},{"concepto":"Consumibles","mensual_2026":588.48,"mensual_2027":700.0,"pct":19.0},{"concepto":"Internet","mensual_2026":660.0,"mensual_2027":660.0,"pct":0.0},{"concepto":"CFE y agua","mensual_2026":83.82,"mensual_2027":150.0,"pct":79.0},{"concepto":"App de administración","mensual_2026":0,"mensual_2027":166.5,"pct":null,"nuevo":true,"nota":"$999 en noviembre y diciembre"}],"total_2026":52068.57,"total_2027":50325.67,"pct_total":-3.3,"anual_2027":603908,"cuota_sin_mora":1623,"mora_pct":5,"cuota_con_mora":1710,"aumento_mora":87,"fondo":100,"porton":11550,"luminarias":12027,"no_recurrentes":23577,"extra_por_casa_aprox":800,"ahorro_fondo_aprox":11800,"casas_en_cobranza":1,"casas_adelantadas":4,"casas_diciembre":26,"cuenta":{"banco":"HSBC","titular":"Sara Alejandra Ruiz Aguilera","numero":"6450053826","clabe":"021910064500538268","clabe_grupos":"0219 1006 4500 5382 68"},"deuda_proveedores_aprox":200000,"cuota_estatutos":1000,"supuesto_vigilancia_pct":10,"aviso_asamblea_dias":5,"asamblea_fecha":"jueves 3 de diciembre","aviso_asamblea_limite":"27 de noviembre","app_mensual":999,"app_meses_2027":2,"app_anual_2027":1998,"cuota_total":1810,"pct_vs_hoy":25.1,"escena_barra":[1447,1623,1710,1810]}</script>
 <script>
 (() => {
   const root = document.documentElement;
@@ -827,7 +859,7 @@ strong{font-weight:800}
   new ResizeObserver(() => { if (caja.clientWidth !== ancho) { ancho = caja.clientWidth; dibujar(); } }).observe(caja);
 
   /* Cabecera: parte y lámina en curso */
-  const PARTES = { h: ['', 'Lo que hay que hacer'], 1: ['Parte 1', 'La basura'], 2: ['Parte 2', 'La caja hoy'], 3: ['Parte 3', 'La cuota 2027'], 4: ['', 'Qué sigue'] };
+  const PARTES = { h: ['', 'Lo que hay que hacer'], f: ['', 'Preguntas'], 1: ['Parte 1', 'La basura'], 2: ['Parte 2', 'La caja hoy'], 3: ['Parte 3', 'La cuota 2027'], 4: ['', 'Qué sigue'] };
   const cab = document.getElementById('cabecera');
   const cabParte = document.getElementById('cab-parte');
   const cabN = document.getElementById('cab-n'), cabT = document.getElementById('cab-t'), cabLam = document.getElementById('cab-lam');
