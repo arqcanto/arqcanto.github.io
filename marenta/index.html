@@ -7,158 +7,198 @@
 <title>Marenta · Dónde estamos y qué sigue</title>
 <meta name="description" content="Comité de Vigilancia Marenta: la basura, la caja y la cuota 2027, explicadas paso a paso.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f2f1ec" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1613" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F8FAFC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1124" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="Marenta · Dónde estamos y qué sigue">
 <meta property="og:description" content="Comité de Vigilancia Marenta">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Overpass:wght@600;800&display=swap" rel="stylesheet">
 <style>
 @font-face{font-family:"Punto medio";src:local("Helvetica Neue"),local("Helvetica"),local("Arial"),local("Roboto"),local("Segoe UI");unicode-range:U+00B7}
+/* «Casa cálida»: campo claro, superficies blancas con sombra en lugar de borde.
+   Noche = placas para orientarse (señalética). Azul = lo que te toca hacer o pagar.
+   Éxito = pagado o a la baja. Peligro = lo que se debe y faltantes. */
 :root{
-  --fondo:#f2f1ec;
-  --fondo-2:#e8e7e0;
-  --tinta:#13221d;
-  --tinta-2:#46554f;
-  --filete:#cfd2c9;
-  --jade:#1f5c4a;
-  --jade-tinte:rgb(31 92 74 / .1);
-  --sobre-jade:#ffffff;
-  --amarillo:#f2b630;
-  --sobre-amarillo:#17140a;
-  --falta:#9b3b26;
-  --sube:#9b3b26;
-  --baja:#1f6b52;
-  --hoy-c:#9aa49f;
+  --fondo:#F8FAFC;
+  --hundido:#F1F5F9;
+  --superficie:#FFFFFF;
+  --linea:#E2E8F0;
+  --tinta:#1D1B26;
+  --gris:#67615A;
+  --placa:#0F1338;
+  --sobre-placa:#FFFFFF;
+  --placa-suave:#BAC3EC;
+  --azul:#2251F4;
+  --azul-hondo:#1A3FD0;
+  --azul-tinte:#E5EBFE;
+  --azul-texto:#1B44D6;
+  --sobre-azul:#FFFFFF;
+  --azul-suave:#DCE4FF;
+  --trazo:#2251F4;
+  --trazo-tinte:rgb(34 81 244 / .1);
+  --ok:#04704F;
+  --ok-relleno:#04704F;
+  --peligro:#9F1239;
+  --peligro-relleno:#9F1239;
+  --aviso:#8A3D0C;
+  --lila:#5E35B8;
+  --hoy-c:#A39C93;
+  --falta:var(--peligro);
+  --sube:var(--peligro);
+  --baja:var(--ok);
+  --sombra:0 1px 2px rgb(15 23 42 / .05),0 10px 24px -12px rgb(15 23 42 / .16);
+  --sombra-chica:0 1px 2px rgb(15 23 42 / .05),0 8px 18px -10px rgb(15 23 42 / .18);
+  --sombra-placa:0 2px 4px rgb(15 19 56 / .14),0 22px 44px -22px rgb(15 19 56 / .55);
+  --sombra-menu:0 4px 10px rgb(27 33 80 / .18),0 20px 36px -14px rgb(27 33 80 / .5);
+  --r-pieza:14px;
+  --r-tarjeta:20px;
+  --r-pase:28px;
   --cab:56px;
   --ease:cubic-bezier(.16,1,.3,1);
-  --letra:"Punto medio","Overpass",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --letra:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --rotulo:"Punto medio","Overpass","Inter",system-ui,sans-serif;
   color-scheme:light dark;
 }
 @media (prefers-color-scheme:dark){
   :root{
-    --fondo:#0e1613;
-    --fondo-2:#16211d;
-    --tinta:#e7ece8;
-    --tinta-2:#a7b4ae;
-    --filete:#2b3833;
-    --jade:#226650;
-    --jade-tinte:rgb(86 170 140 / .14);
-    --hoy-c:#56635d;
-    --falta:#ef9a80;
-    --sube:#ef9a80;
-    --baja:#7fd0b0;
+    --fondo:#0E1124;
+    --hundido:#181C35;
+    --superficie:#1A1E3B;
+    --linea:#2B3052;
+    --tinta:#F1EFF5;
+    --gris:#B7B0A8;
+    --placa:#262E7E;
+    --placa-suave:#C9D0F2;
+    --azul-tinte:#1E2758;
+    --azul-texto:#8FA7FF;
+    --trazo:#8FA7FF;
+    --trazo-tinte:rgb(143 167 255 / .14);
+    --ok:#5FD4A4;
+    --peligro:#FF8FA9;
+    --peligro-relleno:#E4557A;
+    --aviso:#F2A766;
+    --lila:#B49BF5;
+    --hoy-c:#4E5474;
+    --sombra:0 1px 2px rgb(0 0 0 / .3),0 12px 26px -12px rgb(0 0 0 / .6);
+    --sombra-chica:0 1px 2px rgb(0 0 0 / .3),0 8px 18px -10px rgb(0 0 0 / .6);
+    --sombra-placa:0 2px 4px rgb(0 0 0 / .35),0 22px 44px -20px rgb(0 0 0 / .75);
+    --sombra-menu:0 4px 10px rgb(0 0 0 / .35),0 20px 36px -14px rgb(0 0 0 / .7);
   }
 }
 *,*::before,*::after{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scrollbar-color:var(--jade) var(--fondo)}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scrollbar-color:var(--trazo) var(--fondo)}
 body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--letra);font-size:1.0625rem;line-height:1.5;font-variant-numeric:tabular-nums lining-nums;overflow-x:clip;-webkit-font-smoothing:antialiased}
-::selection{background:var(--amarillo);color:var(--sobre-amarillo)}
-:focus-visible{outline:3px solid var(--amarillo);outline-offset:3px;border-radius:4px}
+::selection{background:var(--azul-tinte);color:var(--azul-texto)}
+:focus-visible{outline:3px solid var(--trazo);outline-offset:3px;border-radius:6px}
 a{color:inherit;text-decoration-thickness:1.5px;text-underline-offset:.2em}
 h1,h2,h3,p,ol,ul,figure,table{margin:0}
 ol,ul{padding:0;list-style:none}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* La placa: campo jade con filete interior, como la nomenclatura de una esquina */
-.placa{position:relative;background:var(--jade);color:var(--sobre-jade);border-radius:8px}
-.placa::after{content:"";position:absolute;inset:5px;border:1.5px solid rgb(255 255 255 / .78);border-radius:4px;pointer-events:none}
-.panel{position:relative;background:var(--amarillo);color:var(--sobre-amarillo);border-radius:8px}
-.panel::after{content:"";position:absolute;inset:5px;border:1.5px solid rgb(23 20 10 / .55);border-radius:4px;pointer-events:none}
+/* La placa: campo noche con filete interior, como una placa de nomenclatura */
+.placa{position:relative;background:var(--placa);color:var(--sobre-placa);border-radius:var(--r-tarjeta);font-family:var(--rotulo);box-shadow:var(--sombra-placa)}
+.placa::after{content:"";position:absolute;inset:6px;border:1.5px solid rgb(255 255 255 / .82);border-radius:calc(var(--r-tarjeta) - 6px);pointer-events:none}
+/* El panel: lo que al vecino le toca hacer o pagar, en azul */
+.panel{position:relative;background:var(--azul);color:var(--sobre-azul);border-radius:var(--r-tarjeta);box-shadow:0 2px 4px rgb(34 81 244 / .12),0 18px 36px -18px rgb(27 33 80 / .45)}
+.panel::after{content:"";position:absolute;inset:6px;border:1.5px solid rgb(255 255 255 / .7);border-radius:calc(var(--r-tarjeta) - 6px);pointer-events:none}
 
 /* Cabecera fija */
 .cabecera{position:fixed;inset:0 0 auto;z-index:20;height:var(--cab);padding:8px max(12px,env(safe-area-inset-left)) 0;pointer-events:none;transition:transform .5s var(--ease),opacity .4s var(--ease)}
 .cabecera.oculta{transform:translateY(-110%);opacity:0}
-.cabecera .placa{pointer-events:auto;display:flex;align-items:center;gap:12px;height:44px;max-width:980px;margin:0 auto;padding:0 18px;box-shadow:0 1px 2px rgb(0 0 0 / .12),0 10px 24px -14px rgb(0 0 0 / .45)}
+.cabecera .placa{pointer-events:auto;display:flex;align-items:center;gap:12px;height:44px;max-width:980px;margin:0 auto;padding:0 18px;border-radius:var(--r-pieza);box-shadow:var(--sombra-menu)}
+.cabecera .placa::after{inset:4px;border-radius:calc(var(--r-pieza) - 4px)}
 .cab-nombre{font-weight:800;letter-spacing:.01em}
-.cab-sep{width:1.5px;height:18px;background:rgb(255 255 255 / .5)}
+.cab-sep{width:1.5px;height:18px;background:rgb(255 255 255 / .4)}
 .cab-parte{flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-weight:600}
 .cab-parte span{display:inline-block}
-.cab-parte .n{opacity:.75;font-weight:400;margin-right:.4em}
+.cab-parte .n{font-weight:800;font-size:.8125rem;letter-spacing:.01em;line-height:1;background:var(--azul);color:var(--sobre-azul);border-radius:6px;padding:5px 8px 3px;margin-right:.7em;vertical-align:.1em}
+.cab-parte .n[hidden]{display:none}
 .cab-parte.cambia span{animation:repinta .5s var(--ease)}
 @keyframes repinta{from{transform:translateY(60%);opacity:0}to{transform:none;opacity:1}}
 .cab-lam{font-weight:600;white-space:nowrap}
-.cab-lam small{font-size:inherit;opacity:.75;font-weight:400}
+.cab-lam small{font-size:inherit;color:var(--placa-suave);font-weight:400}
 
 /* Lámina */
 .lamina{min-height:100svh;display:grid;align-content:center;padding:calc(var(--cab) + 40px) max(20px,env(safe-area-inset-left)) 64px}
 .col{width:100%;max-width:38rem;margin:0 auto}
 .ancho{max-width:64rem}
-.lamina + .lamina{border-top:1px solid var(--filete)}
-h2{font-size:clamp(1.75rem,6.4vw,2.75rem);line-height:1.08;font-weight:800;letter-spacing:-.02em;text-wrap:balance;margin-bottom:.6em}
-.lead{font-size:clamp(1.2rem,4.6vw,1.5rem);line-height:1.35;text-wrap:pretty;max-width:34ch}
-.nota{color:var(--tinta-2);font-size:1rem;max-width:44ch;text-wrap:pretty}
-.cifra{display:block;font-weight:800;font-size:clamp(3.4rem,17vw,5.75rem);line-height:.95;letter-spacing:-.035em;margin:.12em 0 .18em}
+.lamina + .lamina{border-top:1px solid var(--linea)}
+h2{font-size:clamp(1.75rem,6.4vw,2.75rem);line-height:1.08;font-weight:800;letter-spacing:-.03em;text-wrap:balance;margin-bottom:.6em}
+.lead{font-size:clamp(1.2rem,4.6vw,1.5rem);line-height:1.35;text-wrap:pretty;max-width:34ch;letter-spacing:-.01em}
+.nota{color:var(--gris);font-size:1rem;max-width:44ch;text-wrap:pretty}
+.cifra{display:block;font-weight:800;font-size:clamp(3.4rem,17vw,5.75rem);line-height:.95;letter-spacing:-.04em;margin:.12em 0 .18em}
 .cifra-media{font-weight:800;font-size:clamp(2.4rem,11vw,3.75rem);line-height:1;letter-spacing:-.03em}
 .etq{font-weight:600;font-size:1.0625rem}
 .falta{color:var(--falta)}
 p + p{margin-top:.8em}
 strong{font-weight:800}
 
-/* 1 · Portada */
+/* 1 · Portada: la placa de la calle */
 #portada{place-content:center;text-align:center;padding-top:40px}
-.portada-placa{width:min(32rem,100%);margin:0 auto;padding:40px 28px 34px}
-.portada-placa .chico{display:block;font-weight:600;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;opacity:.9}
-.portada-placa h1{font-size:clamp(3.6rem,19vw,6rem);font-weight:800;letter-spacing:-.035em;line-height:.95;margin:.12em 0 .16em}
-.portada-placa .tema{display:block;font-size:clamp(1.25rem,5.2vw,1.6rem);font-weight:600;line-height:1.2}
-.portada-pie{margin-top:28px;display:grid;gap:4px;color:var(--tinta-2)}
+.portada-placa{width:min(34rem,100%);margin:0 auto;padding:clamp(30px,8vw,46px) clamp(26px,7vw,56px) clamp(28px,7.5vw,44px);border-radius:var(--r-pase)}
+.portada-placa::after{inset:10px;border-width:2.5px;border-color:rgb(255 255 255 / .9);border-radius:calc(var(--r-pase) - 10px)}
+.portada-placa::before{content:"";position:absolute;inset:20px;pointer-events:none;
+  --remache:radial-gradient(circle at 50% 50%,rgb(255 255 255 / .55) 0 2.2px,rgb(255 255 255 / .16) 2.6px 3.6px,transparent 4px);
+  background:var(--remache) left top/8px 8px no-repeat,var(--remache) right top/8px 8px no-repeat,var(--remache) left bottom/8px 8px no-repeat,var(--remache) right bottom/8px 8px no-repeat}
+.portada-placa .chico{display:block;font-weight:600;font-size:clamp(.875rem,3.4vw,1.0625rem);letter-spacing:.2em;text-transform:uppercase;color:var(--placa-suave);padding-left:.2em}
+.portada-placa h1{font-family:var(--rotulo);font-size:clamp(3.4rem,17.5vw,6rem);font-weight:800;letter-spacing:0;line-height:1;margin:.1em 0 0;padding-top:.06em}
+.portada-tema{display:block;margin-top:34px;font-size:clamp(1.5rem,6vw,2.25rem);font-weight:800;letter-spacing:-.03em;line-height:1.1;text-wrap:balance}
+.portada-pie{margin-top:18px;display:grid;gap:4px;color:var(--gris);text-wrap:balance}
 .portada-pie b{color:var(--tinta);font-weight:800;font-size:1.125rem}
-.baja-ya{margin:40px auto 0;display:grid;justify-items:center;gap:6px;color:var(--tinta-2);font-size:.9375rem;text-decoration:none}
-.baja-ya svg{width:28px;height:28px;animation:asoma 2.4s var(--ease) infinite}
+.baja-ya{margin:40px auto 0;display:grid;justify-items:center;gap:6px;color:var(--gris);font-size:.9375rem;text-decoration:none}
+.baja-ya svg{width:28px;height:28px;color:var(--trazo);animation:asoma 2.4s var(--ease) infinite}
 @keyframes asoma{0%,60%,100%{transform:none}30%{transform:translateY(6px)}}
 
 /* Recorrido con paradas (láminas 3, 4 y 16) */
 .ruta{position:relative;display:grid;gap:20px;margin-top:8px}
-.ruta::before{content:"";position:absolute;left:15px;top:14px;bottom:14px;width:3px;background:var(--jade);border-radius:2px;opacity:.35}
+.ruta::before{content:"";position:absolute;left:15px;top:14px;bottom:14px;width:3px;background:var(--trazo);border-radius:2px;opacity:.3}
 .ruta li{position:relative;display:grid;grid-template-columns:32px 1fr;gap:14px;align-items:start}
-.parada{width:32px;height:32px;border-radius:50%;background:var(--fondo);border:3px solid var(--jade);display:grid;place-items:center;font-weight:800;font-size:.9375rem;color:var(--jade);position:relative;z-index:1}
-@media (prefers-color-scheme:dark){.parada{color:var(--tinta);border-color:#4fa385}}
-.ruta.numerada .parada{background:var(--jade);color:#fff;border-color:var(--jade)}
-.ruta h3{font-size:1.1875rem;font-weight:800;line-height:1.3;margin-bottom:2px}
-.ruta p{color:var(--tinta-2)}
+.parada{width:32px;height:32px;border-radius:50%;background:var(--fondo);border:3px solid var(--trazo);display:grid;place-items:center;font-family:var(--rotulo);font-weight:800;font-size:.9375rem;color:var(--trazo);position:relative;z-index:1}
+.ruta.numerada .parada{background:var(--placa);color:var(--sobre-placa);border-color:var(--placa)}
+.ruta h3{font-size:1.1875rem;font-weight:800;line-height:1.3;margin-bottom:2px;letter-spacing:-.01em}
+.ruta p{color:var(--gris)}
 .ruta p + p{margin-top:.3em}
-.ruta .fin .parada{background:var(--amarillo);border-color:var(--amarillo);color:var(--sobre-amarillo)}
+.ruta .fin .parada{background:var(--azul);border-color:var(--azul);color:var(--sobre-azul)}
 
 /* 3 · Gráfica */
 .dos{display:grid;gap:28px}
 @media (min-width:900px){.dos{grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:56px;align-items:center}}
 .grafica{margin-top:4px}
 .grafica svg{display:block;width:100%;height:auto;overflow:visible}
-.grafica text{font-family:var(--letra);fill:var(--tinta-2);font-size:13px}
-.grafica .rej{stroke:var(--filete);stroke-width:1}
-.grafica .area{fill:var(--jade-tinte)}
-.grafica .linea{fill:none;stroke:var(--jade);stroke-width:2.75;stroke-linejoin:round;stroke-linecap:round}
-@media (prefers-color-scheme:dark){.grafica .linea{stroke:#5fb895}}
+.grafica text{font-family:var(--letra);fill:var(--gris);font-size:13px}
+.grafica .rej{stroke:var(--linea);stroke-width:1}
+.grafica .area{fill:var(--trazo-tinte)}
+.grafica .linea{fill:none;stroke:var(--trazo);stroke-width:2.75;stroke-linejoin:round;stroke-linecap:round}
+.grafica .punto{fill:var(--trazo)}
 .grafica .tramo{fill:var(--falta);opacity:.09}
-.grafica .tramo-borde{stroke:var(--tinta-2);stroke-width:1;stroke-dasharray:2 3;opacity:.6}
+.grafica .tramo-borde{stroke:var(--gris);stroke-width:1;stroke-dasharray:2 3;opacity:.6}
 .grafica .t-tramo{fill:var(--tinta);font-weight:600;font-size:13.5px}
 .grafica .t-nota{fill:var(--tinta);font-weight:600;font-size:13px}
 .grafica .guia{stroke:var(--tinta);stroke-width:1.25}
-.grafica .b-pagado{fill:var(--jade)}
-.grafica .b-debe{fill:var(--falta)}
+.grafica .b-pagado{fill:var(--ok-relleno)}
+.grafica .b-debe{fill:var(--peligro-relleno)}
 .grafica .t-banda{fill:#fff;font-weight:800;font-size:14px}
-.grafica .t-debe{fill:var(--falta);font-weight:800;font-size:14px}
+.grafica .t-debe{fill:var(--peligro);font-weight:800;font-size:14px}
 .grafica .arco{fill:none;stroke:var(--tinta);stroke-width:1.75}
 .grafica .arco-punta{fill:none;stroke:var(--tinta);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
 .grafica .arco-ini{fill:var(--tinta)}
 .mayus-ini::first-letter{text-transform:uppercase}
-@media (prefers-color-scheme:dark){.grafica .punto{fill:#5fb895}}
 .grafica .t-fin{fill:var(--tinta);font-weight:800;font-size:16px}
-.grafica figcaption{margin-top:10px;font-size:.9375rem;color:var(--tinta-2)}
-.cuadre{margin-top:18px;padding:16px 18px;border:1.5px solid var(--filete);border-radius:8px;display:grid;gap:6px}
+.grafica figcaption{margin-top:10px;font-size:.9375rem;color:var(--gris)}
+.cuadre{margin-top:18px;padding:18px 20px;background:var(--superficie);border-radius:var(--r-tarjeta);box-shadow:var(--sombra);display:grid;gap:6px}
 .cuenta-sana{font-weight:600;font-size:clamp(1.15rem,4.6vw,1.35rem);line-height:1.3}
 .cuenta-sana b{font-weight:800;color:var(--falta);white-space:nowrap}
 .cuenta-sana-q{font-weight:600;margin-top:0}
-.ruta .hueco .parada{border-color:var(--falta)}
+.ruta .hueco .parada{border-color:var(--peligro-relleno)}
 
 /* 5 · Barras de comparación */
 .compara{display:grid;gap:14px;margin:22px 0 8px}
 .compara .renglon{display:grid;gap:6px}
 .compara .rotulo{display:flex;justify-content:space-between;gap:12px;font-weight:600}
-.compara .barra{height:22px;border-radius:4px;background:var(--fondo-2);overflow:hidden}
-.compara .barra i{display:block;height:100%;width:var(--w,0%);background:var(--tinta-2);border-radius:4px}
-.compara .nuevo .barra i{background:var(--jade)}
+.compara .barra{height:22px;border-radius:4px;background:var(--linea);overflow:hidden}
+.compara .barra i{display:block;height:100%;width:var(--w,0%);background:var(--gris);border-radius:4px}
+.compara .nuevo .barra i{background:var(--azul)}
 
 /* 6 · Avisos (lo que te toca) */
 .avisos{display:grid;gap:14px;margin-top:4px}
@@ -171,8 +211,8 @@ strong{font-weight:800}
 
 /* Tablas */
 .tabla{width:100%;border-collapse:collapse;font-size:1rem}
-.tabla td,.tabla th{padding:11px 0;border-bottom:1px solid var(--filete);vertical-align:baseline;text-align:left}
-.tabla th{font-weight:600;color:var(--tinta-2);font-size:.875rem}
+.tabla td,.tabla th{padding:11px 0;border-bottom:1px solid var(--linea);vertical-align:baseline;text-align:left}
+.tabla th{font-weight:600;color:var(--gris);font-size:.875rem}
 .tabla .m{text-align:right;white-space:nowrap;padding-left:16px;font-weight:600}
 .tabla .neg{color:var(--tinta)}
 .tabla .pos{color:var(--baja)}
@@ -180,71 +220,70 @@ strong{font-weight:800}
 .tabla tfoot .m{color:var(--falta);font-size:1.25rem}
 
 /* 9 · Panel de pago */
-.pago{display:inline-grid;gap:2px;padding:22px 26px 20px;margin:6px 0 18px}
+.pago{display:inline-grid;gap:2px;padding:24px 28px 22px;margin:6px 0 18px}
 .pago .cifra{margin:0}
 .pago .etq{font-size:1.125rem}
 
-/* Parte 3: escena fija */
-.parte3{position:relative;display:grid;border-top:1px solid var(--filete)}
-.escena{position:sticky;top:0;z-index:2;height:auto;padding:calc(var(--cab) + 8px) 16px 12px;background:var(--fondo);border-bottom:1px solid var(--filete);transition:background-color .6s var(--ease)}
+/* La propuesta, cuota 2027: escena fija */
+.parte3{position:relative;display:grid;border-top:1px solid var(--linea)}
+.escena{position:sticky;top:0;z-index:2;height:auto;padding:calc(var(--cab) + 8px) 16px 12px;background:var(--fondo);border-bottom:1px solid var(--linea);transition:background-color .6s var(--ease)}
 .tablero{display:grid;gap:10px;max-width:38rem;margin:0 auto}
 .lectura{display:flex;align-items:baseline;justify-content:space-between;gap:12px;min-height:3.1rem}
-.lectura .valor{font-weight:800;font-size:clamp(2.4rem,12vw,3.25rem);line-height:1;letter-spacing:-.03em;transition:color .4s var(--ease)}
-.lectura .que{font-weight:600;color:var(--tinta-2);text-align:right;font-size:.9375rem;line-height:1.2;max-width:14ch}
+.lectura .valor{font-weight:800;font-size:clamp(2.4rem,12vw,3.25rem);line-height:1;letter-spacing:-.04em;transition:color .4s var(--ease)}
+.lectura .que{font-weight:600;color:var(--gris);text-align:right;font-size:.9375rem;line-height:1.2;max-width:14ch;text-wrap:balance}
 .lectura .hoy{display:none}
-.carril{position:relative;display:flex;height:26px;border-radius:5px;background:var(--fondo-2);overflow:visible}
+.carril{position:relative;display:flex;height:26px;border-radius:5px;background:var(--linea);overflow:visible}
 .seg{flex:0 0 var(--w,0%);height:100%;transition:flex-basis .9s var(--ease);position:relative}
 .seg + .seg{box-shadow:inset 2px 0 0 var(--fondo)}
 .s0{background:var(--hoy-c);border-radius:5px 0 0 5px}
-.s1{background:var(--jade)}
-.s2{background:#3f8a6f}
-.s3{background:var(--amarillo);border-radius:0 5px 5px 0}
-.claves i.k2{background:#3f8a6f}
-@media (prefers-color-scheme:dark){.s2,.claves i.k2{background:#57a888}}
+.s1{background:var(--azul)}
+.s2{background:var(--aviso)}
+.s3{background:var(--lila);border-radius:0 5px 5px 0}
+.claves i.k2{background:var(--aviso)}
 .marca-hoy{position:absolute;top:-6px;bottom:-6px;left:var(--hoy,80%);width:2px;background:var(--tinta);transform:translateX(-1px)}
-.marca-hoy span{position:absolute;top:100%;left:50%;transform:translateX(-50%);font-size:.75rem;font-weight:600;color:var(--tinta-2);padding-top:2px;white-space:nowrap}
-.claves{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.8125rem;color:var(--tinta-2);padding-top:12px}
+.marca-hoy span{position:absolute;top:100%;left:50%;transform:translateX(-50%);font-size:.75rem;font-weight:600;color:var(--gris);padding-top:2px;white-space:nowrap}
+.claves{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:.8125rem;color:var(--gris);padding-top:12px}
 .claves li{display:flex;align-items:center;gap:6px;transition:opacity .4s var(--ease)}
-.claves i{width:10px;height:10px;border-radius:2px;display:block}
+.claves i{width:10px;height:10px;border-radius:3px;display:block}
 .claves li[hidden]{display:flex;opacity:.45}
 
 .pasos{display:grid}
 .paso{min-height:88svh;display:flex;align-items:flex-start;padding:28px 16px 0}
 .paso:last-child{min-height:92svh;padding-bottom:20svh}
-.tarjeta{width:100%;max-width:38rem;margin:0 auto;padding:22px 20px 20px;background:var(--fondo);border:1.5px solid var(--filete);border-radius:10px;transition:opacity .45s var(--ease),border-color .45s var(--ease)}
+.tarjeta{width:100%;max-width:38rem;margin:0 auto;padding:22px 20px 20px;background:var(--superficie);border-radius:var(--r-tarjeta);box-shadow:var(--sombra);transition:opacity .45s var(--ease),box-shadow .45s var(--ease)}
 .js .paso:not(.activo) .tarjeta{opacity:.38}
-.paso.activo .tarjeta{border-color:var(--jade)}
+.paso.activo .tarjeta{box-shadow:0 0 0 2px var(--azul),var(--sombra)}
 .tarjeta h2{font-size:clamp(1.5rem,6vw,2.25rem);display:flex;gap:12px;align-items:flex-start;margin-bottom:.5em}
-.num{flex:none;display:grid;place-items:center;width:1.45em;height:1.45em;margin-top:-.08em;border-radius:6px;background:var(--jade);color:#fff;font-size:.72em;letter-spacing:0;position:relative}
-.num::after{content:"";position:absolute;inset:3px;border:1px solid rgb(255 255 255 / .7);border-radius:3px}
+.num{flex:none;display:grid;place-items:center;width:1.45em;height:1.45em;margin-top:-.08em;border-radius:50%;background:var(--placa);color:var(--sobre-placa);font-family:var(--rotulo);font-size:.72em;letter-spacing:0;position:relative;padding-top:.08em}
+.num::after{content:"";position:absolute;inset:3px;border:1px solid rgb(255 255 255 / .7);border-radius:50%}
 .tarjeta .lead{font-size:clamp(1.125rem,4.4vw,1.375rem)}
 .tarjeta .cifra{font-size:clamp(3rem,15vw,4.75rem)}
-.redondeo{display:inline-block;font-size:.8125rem;font-weight:600;color:var(--tinta-2);border:1px solid var(--filete);border-radius:4px;padding:1px 6px;vertical-align:.9em;margin-left:6px;letter-spacing:0}
+.redondeo{display:inline-block;font-size:.8125rem;font-weight:600;color:var(--gris);background:var(--hundido);border-radius:999px;padding:2px 9px;vertical-align:.9em;margin-left:6px;letter-spacing:0}
 .flecha{width:16px;height:16px;display:inline-block;vertical-align:-2px;margin-right:6px}
 .tabla .sube{color:var(--sube)}
 .tabla .baja{color:var(--baja)}
-.tabla .igual{color:var(--tinta-2)}
+.tabla .igual{color:var(--gris)}
 .tabla .nota-c{white-space:normal;font-weight:600;font-size:.875rem;max-width:12rem}
 .tarjeta .tabla td{padding:8px 0}
 .tarjeta .tabla tfoot td{padding-top:10px}
 .tarjeta .tabla tfoot .m{color:var(--baja)}
 .cierre-tarjeta .suma{font-size:clamp(1.25rem,4.8vw,1.5rem);font-weight:600;line-height:1.3}
-.cierre-tarjeta .hoy-chico{margin-top:10px;color:var(--tinta-2);font-size:1rem}
+.cierre-tarjeta .hoy-chico{margin-top:10px;color:var(--gris);font-size:1rem}
 
-/* Clímax: la escena se vuelve panel */
-.escena.es-cierre{background:var(--amarillo);border-bottom-color:transparent}
-.escena.es-cierre .lectura .valor{color:var(--sobre-amarillo)}
-.escena.es-cierre .lectura .que,.escena.es-cierre .claves,.escena.es-cierre .marca-hoy span{color:rgb(23 20 10 / .78)}
-.escena.es-cierre .s3{background:var(--sobre-amarillo)}
-.escena.es-cierre .marca-hoy{background:var(--sobre-amarillo)}
-.escena.es-cierre .claves i.k3{background:var(--sobre-amarillo)!important}
+/* Clímax: la escena se vuelve el panel azul de lo que te toca */
+.escena.es-cierre{background:var(--azul);border-bottom-color:transparent}
+.escena.es-cierre .lectura .valor{color:var(--sobre-azul)}
+.escena.es-cierre .lectura .que,.escena.es-cierre .claves,.escena.es-cierre .marca-hoy span{color:var(--azul-suave)}
+.escena.es-cierre .marca-hoy{background:var(--sobre-azul)}
+.escena.es-cierre .claves i.k3{background:var(--sobre-azul)!important}
 .escena.es-cierre .lectura .hoy{display:block}
 .escena.es-cierre .lectura .valor{font-size:clamp(3.8rem,19vw,5.75rem)}
 .escena.es-cierre .claves{visibility:hidden}
-.escena.es-cierre .carril{background:rgb(255 255 255 / .35)}
-.escena.es-cierre .s0{background:rgb(23 20 10 / .22)}
-.escena.es-cierre .s1,.escena.es-cierre .s2{background:rgb(23 20 10 / .5)}
-.escena.es-cierre .s3{background:var(--sobre-amarillo)}
+.escena.es-cierre .carril{background:rgb(255 255 255 / .16)}
+.escena.es-cierre .seg + .seg{box-shadow:inset 2px 0 0 var(--azul)}
+.escena.es-cierre .s0{background:rgb(255 255 255 / .3)}
+.escena.es-cierre .s1,.escena.es-cierre .s2{background:rgb(255 255 255 / .58)}
+.escena.es-cierre .s3{background:var(--sobre-azul)}
 .lectura .pila{display:grid;gap:4px;justify-items:end}
 
 @media (min-width:900px){
@@ -258,6 +297,7 @@ strong{font-weight:800}
   .carril{flex-direction:column-reverse;width:84px;height:100%;grid-column:1;grid-row:1}
   .seg{flex-basis:var(--w,0%);width:100%;height:auto;transition-property:flex-basis}
   .seg + .seg{box-shadow:inset 0 -2px 0 var(--fondo)}
+  .escena.es-cierre .seg + .seg{box-shadow:inset 0 -2px 0 var(--azul)}
   .s0{border-radius:0 0 5px 5px}
   .s3{border-radius:5px 5px 0 0}
   .marca-hoy{top:auto;bottom:var(--hoy,80%);left:-10px;right:-10px;width:auto;height:2px;transform:translateY(1px)}
@@ -281,35 +321,34 @@ strong{font-weight:800}
 .quien{display:grid;gap:28px}
 @media (min-width:900px){.quien{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}}
 .grupo{display:grid;gap:6px}
-.plazo{display:grid;padding:20px 22px 18px}
-.quien-nombre{font-weight:800;font-size:1.0625rem;letter-spacing:.06em;text-transform:uppercase}
-.plazo-de{font-weight:600;font-size:1.0625rem;margin-top:8px}
-.plazo-fecha{font-weight:800;font-size:clamp(2.6rem,12.5vw,3.75rem);line-height:1;letter-spacing:-.03em}
-.resp{display:flex;align-items:baseline;gap:10px;padding:16px 22px 14px;flex-wrap:wrap}
-.resp-cargo{font-weight:600;opacity:.92}
+.plazo{display:grid;padding:22px 24px 20px}
+.quien-nombre{font-family:var(--rotulo);font-weight:800;font-size:1.0625rem;letter-spacing:.08em;text-transform:uppercase}
+.plazo-de{font-weight:600;font-size:1.0625rem;margin-top:8px;color:var(--azul-suave)}
+.plazo-fecha{font-weight:800;font-size:clamp(2.6rem,12.5vw,3.75rem);line-height:1;letter-spacing:-.035em}
+.resp{display:flex;align-items:baseline;gap:10px;padding:18px 24px 16px;flex-wrap:wrap}
+.resp-cargo{font-weight:600;color:var(--placa-suave)}
 .tareas{display:grid}
-.tareas li{display:grid;grid-template-columns:30px 1fr;gap:14px;padding:16px 4px 16px 6px;border-bottom:1px solid var(--filete)}
+.tareas li{display:grid;grid-template-columns:30px 1fr;gap:14px;padding:16px 4px 16px 6px;border-bottom:1px solid var(--linea)}
 .tareas li:last-child{border-bottom:0}
-.tareas svg{width:28px;height:28px;color:var(--jade);margin-top:1px}
-@media (prefers-color-scheme:dark){.tareas svg{color:#5fb895}}
-.tareas h3{font-size:1.125rem;font-weight:800;line-height:1.3;text-wrap:pretty}
-.tareas p{color:var(--tinta-2);margin-top:3px;text-wrap:pretty}
+.tareas svg{width:28px;height:28px;color:var(--trazo);margin-top:1px}
+.tareas h3{font-size:1.125rem;font-weight:800;line-height:1.3;text-wrap:pretty;letter-spacing:-.01em}
+.tareas p{color:var(--gris);margin-top:3px;text-wrap:pretty}
 
 /* 11 · Supuestos */
-.principal{padding:22px 24px 20px;margin-bottom:22px}
+.principal{padding:24px 26px 22px;margin-bottom:22px}
 .principal h3{font-size:clamp(1.3rem,5vw,1.6rem);font-weight:800;line-height:1.2;margin-bottom:6px;text-wrap:balance}
-.principal p{opacity:.94}
+.principal p{color:var(--placa-suave);font-family:var(--letra)}
 .supuestos{display:grid}
-.supuestos li{position:relative;padding:12px 0 12px 26px;border-bottom:1px solid var(--filete);text-wrap:pretty}
-.supuestos li::before{content:"";position:absolute;left:4px;top:1.12em;width:9px;height:9px;border-radius:2px;background:var(--jade)}
-.remate{margin-top:22px;font-weight:800;font-size:clamp(1.2rem,4.6vw,1.4rem);line-height:1.3}
-.pie-sup{margin-top:18px;padding-top:12px;border-top:1px solid var(--filete);font-size:.875rem;color:var(--tinta-2)}
-.pie-sup a{font-weight:600;color:var(--tinta-2)}
+.supuestos li{position:relative;padding:12px 0 12px 26px;border-bottom:1px solid var(--linea);text-wrap:pretty}
+.supuestos li::before{content:"";position:absolute;left:4px;top:1.12em;width:9px;height:9px;border-radius:50%;background:var(--trazo)}
+.remate{margin-top:22px;font-weight:800;font-size:clamp(1.2rem,4.6vw,1.4rem);line-height:1.3;letter-spacing:-.01em}
+.pie-sup{margin-top:18px;padding-top:12px;border-top:1px solid var(--linea);font-size:.875rem;color:var(--gris)}
+.pie-sup a{font-weight:600;color:var(--azul-texto)}
 
 
 .plazo-asam{font-weight:800;font-size:clamp(1.35rem,5.6vw,1.75rem);line-height:1.1;margin-bottom:6px}
 .tareas .cuenta{margin-top:8px;font-size:1rem}
-.art{margin-top:10px;font-size:.8125rem;color:var(--tinta-2)}
+.art{margin-top:10px;font-size:.8125rem;color:var(--gris)}
 .pie-tabla{margin-top:14px}
 
 /* 7 · una sola tarjeta */
@@ -318,24 +357,55 @@ strong{font-weight:800}
 .sup-linea{margin-top:18px}
 
 /* 18 · Preguntas frecuentes */
-.faqs{display:grid;border-top:1px solid var(--filete)}
-.faq{border-bottom:1px solid var(--filete)}
-.faq summary{list-style:none;display:grid;grid-template-columns:28px 1fr 22px;gap:12px;align-items:center;min-height:56px;padding:12px 2px;cursor:pointer;font-weight:800;font-size:1.0625rem;line-height:1.3;border-radius:4px}
+.faqs{display:grid;border-top:1px solid var(--linea)}
+.faq{border-bottom:1px solid var(--linea)}
+.faq summary{list-style:none;display:grid;grid-template-columns:28px 1fr 22px;gap:12px;align-items:center;min-height:56px;padding:12px 2px;cursor:pointer;font-weight:800;font-size:1.0625rem;line-height:1.3;border-radius:6px;letter-spacing:-.01em}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary:hover .faq-q{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.2em}
-.faq-n{width:28px;height:28px;border-radius:5px;background:var(--jade);color:#fff;display:grid;place-items:center;font-size:.875rem}
-.chev{width:20px;height:20px;color:var(--jade);transition:transform .3s var(--ease)}
-@media (prefers-color-scheme:dark){.chev{color:#5fb895}}
+.faq-n{width:28px;height:28px;border-radius:50%;background:var(--placa);color:var(--sobre-placa);display:grid;place-items:center;font-family:var(--rotulo);font-size:.875rem;letter-spacing:0;padding-top:.1em}
+.chev{width:20px;height:20px;color:var(--trazo);transition:transform .3s var(--ease)}
 .faq[open] .chev-v{opacity:0}
 .faq[open] .chev{transform:rotate(180deg)}
-.faq p{padding:0 4px 18px 42px;color:var(--tinta-2);max-width:60ch;text-wrap:pretty}
+.faq p{padding:0 4px 18px 42px;color:var(--gris);max-width:60ch;text-wrap:pretty}
 
 /* 19 · Qué sigue */
 .cuenta-dato{display:block}.copiable{user-select:all;-webkit-user-select:all;font-variant-numeric:tabular-nums;letter-spacing:.02em;font-size:1.0625rem}
-.cuenta{margin-top:10px;padding:14px 16px;border:2px dashed var(--tinta-2);border-radius:6px;font-weight:600;font-size:1.0625rem;color:var(--tinta);word-break:break-word;background:var(--fondo-2)}
-.firma{margin-top:44px;padding:22px 24px 20px;display:grid;gap:2px}
+.cuenta{margin-top:10px;padding:14px 16px;background:var(--superficie);border-radius:var(--r-pieza);box-shadow:var(--sombra-chica);font-weight:600;font-size:1.0625rem;color:var(--tinta);word-break:break-word}
+.firma{margin-top:44px;padding:24px 26px 22px;display:grid;gap:2px}
 .firma b{font-size:1.25rem;font-weight:800}
-.firma span{opacity:.9}
+.firma span{color:var(--placa-suave)}
+
+/* 2 · El condominio debe: desglose y directorio de la presentación */
+.desglose{margin-top:4px}
+.caja-cero{margin-top:20px;font-weight:800}
+.directorio{padding:12px 10px 10px}
+.directorio h3{padding:14px 14px 12px;font-size:1.0625rem;font-weight:800;letter-spacing:.01em;color:var(--placa-suave)}
+.directorio a{display:grid;grid-template-columns:30px 1fr 22px;align-items:center;gap:14px;min-height:60px;padding:12px 14px;border-top:1px solid rgb(255 255 255 / .2);text-decoration:none;font-weight:800;font-size:1.125rem;line-height:1.3;border-radius:2px}
+.directorio a:hover .destino{text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:.2em}
+.directorio .propuesta-fila a{border-top-width:3px;border-top-color:rgb(255 255 255 / .8)}
+.escudo{width:30px;height:30px;border-radius:50%;background:var(--azul);color:var(--sobre-azul);display:grid;place-items:center;font-weight:800;font-size:1rem;line-height:1;padding-top:.1em}
+.propuesta-fila .escudo{background:var(--sobre-placa);color:var(--azul);padding-top:0}
+.escudo svg{width:18px;height:18px}
+.hacia{width:22px;height:22px;opacity:.85}
+@media (min-width:900px){.directorio{align-self:center}}
+
+/* 7 · La cifra manda; el subtítulo va debajo */
+.cifra-mayor{font-size:clamp(4rem,20vw,6rem);margin-bottom:.12em}
+h2.bajo-cifra{font-size:clamp(1.4rem,5.6vw,2rem);line-height:1.2;letter-spacing:-.02em;max-width:24ch;margin:0}
+
+/* 8 · Lo que cobramos contra lo que gastamos */
+.barra.con-hueco{display:flex}
+.barra.con-hueco i{flex:none;border-radius:4px 0 0 4px}
+.hueco-barra{flex:1;background:repeating-linear-gradient(135deg,var(--peligro-relleno) 0 2px,transparent 2px 7px);opacity:.6;border-radius:0 4px 4px 0}
+.compara .rotulo .falta{font-weight:800}
+.compara + .nota{margin-top:16px}
+
+/* 9 · Las dos vías */
+.vias{margin:22px 0 12px}
+.ruta .art{margin-top:4px}
+
+/* 13 · Transición */
+h2.frase{font-size:clamp(1.9rem,7.4vw,3.25rem);line-height:1.12;max-width:20ch;margin:0}
 
 @media (min-width:1100px){html{font-size:118.75%}}
 @media (min-width:1500px){html{font-size:131.25%}}
@@ -344,8 +414,12 @@ strong{font-weight:800}
   .cabecera .placa{padding:0 22px}
 }
 @media (max-width:420px){
-  .cab-parte .n{display:none}
-  .cabecera .placa{gap:10px;padding:0 14px}
+  .cab-nombre,.cab-sep{display:none}
+  .cab-parte{align-self:stretch;display:grid;align-content:center}
+  .cab-parte > span{display:grid;line-height:1.1}
+  .cab-parte .n{background:none;color:var(--placa-suave);border-radius:0;padding:0;margin:0 0 2px;font-size:.6875rem;letter-spacing:.02em}
+  #cab-t{overflow:hidden;text-overflow:ellipsis;font-size:.9375rem}
+  .cabecera .placa{gap:10px;padding:0 16px}
   body{font-size:1.0625rem}
 }
 @media (prefers-reduced-motion:reduce){
@@ -355,14 +429,14 @@ strong{font-weight:800}
 </style>
 </head>
 <body>
-<a class="sr" href="#hacer">Ir al contenido</a>
+<a class="sr" href="#deuda">Ir al contenido</a>
 
 <header class="cabecera oculta" id="cabecera" aria-label="Dónde vas">
   <div class="placa">
     <span class="cab-nombre">Marenta</span>
     <span class="cab-sep" aria-hidden="true"></span>
-    <span class="cab-parte" id="cab-parte"><span><span class="n" id="cab-n">Parte 1</span><span id="cab-t">La basura</span></span></span>
-    <span class="cab-lam"><span id="cab-lam">2</span> <small>de 19</small></span>
+    <span class="cab-parte" id="cab-parte"><span><span class="n" id="cab-n" hidden></span><span id="cab-t">Dónde estamos</span></span></span>
+    <span class="cab-lam"><span id="cab-lam">2</span> <small id="cab-total">de 24</small></span>
   </div>
 </header>
 
@@ -374,13 +448,13 @@ strong{font-weight:800}
     <div class="placa portada-placa">
       <span class="chico">Condominio</span>
       <h1>Marenta</h1>
-      <span class="tema">Dónde estamos y qué sigue</span>
     </div>
+    <span class="portada-tema">Dónde estamos y qué sigue</span>
     <div class="portada-pie">
       <b>Comité de Vigilancia Marenta</b>
       <span>Cholul, Mérida · <span data-cifra="fecha" data-fmt="texto"></span></span>
     </div>
-    <a class="baja-ya" href="#hacer">
+    <a class="baja-ya" href="#deuda">
       <span>Desliza para leer</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15"/><path d="m6 13 6 6 6-6"/></svg>
     </a>
@@ -388,7 +462,329 @@ strong{font-weight:800}
 </section>
 
 <!-- 2 -->
-<section class="lamina" id="hacer" data-lamina="2" data-parte="h">
+<section class="lamina" id="deuda" data-lamina="2" data-parte="d">
+  <div class="col ancho dos">
+    <div>
+      <h2>El condominio debe cerca de</h2>
+      <span class="cifra falta" data-cifra="deuda_proveedores_aprox"></span>
+      <table class="tabla desglose">
+        <thead><tr><th scope="col">De dónde sale</th><th scope="col" class="m">Monto</th></tr></thead>
+        <tbody>
+          <tr><td>Basura: <span data-cifra="meses_sin_pago_total" data-fmt="num"></span> meses de Sana</td><td class="m" data-cifra="deuda_sana"></td></tr>
+          <tr><td>Vigilancia: <span data-cifra="vigilancia_meses_n" data-fmt="num"></span> meses</td><td class="m" data-cifra="vigilancia_vencida"></td></tr>
+        </tbody>
+        <tfoot><tr><td>Total</td><td class="m" data-cifra="deuda_total_exacta"></td></tr></tfoot>
+      </table>
+      <p class="lead caja-cero">La caja está en cero.</p>
+    </div>
+    <nav class="placa directorio" aria-labelledby="directorio-t">
+      <h3 id="directorio-t">3 problemas y una propuesta</h3>
+      <ol>
+        <li><a href="#que-paso"><span class="escudo">1</span><span class="destino">La basura</span><svg class="hacia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15"/><path d="m6 13 6 6 6-6"/></svg></a></li>
+        <li><a href="#caja"><span class="escudo">2</span><span class="destino">La vigilancia y la cuota que no alcanza</span><svg class="hacia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15"/><path d="m6 13 6 6 6-6"/></svg></a></li>
+        <li><a href="#cobranza"><span class="escudo">3</span><span class="destino">La cobranza</span><svg class="hacia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15"/><path d="m6 13 6 6 6-6"/></svg></a></li>
+        <li class="propuesta-fila"><a href="#propuesta"><span class="escudo" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span><span class="destino">La propuesta</span><svg class="hacia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v15"/><path d="m6 13 6 6 6-6"/></svg></a></li>
+      </ol>
+    </nav>
+  </div>
+</section>
+
+<!-- 3 -->
+<section class="lamina" id="que-fallo" data-lamina="3" data-parte="qf">
+  <div class="col">
+    <h2>Qué falló</h2>
+    <ul class="supuestos">
+      <li>La Administración decidió dejar pasar los pagos a los proveedores y acumular los costos, en lugar de detener el gasto o avisar.</li>
+      <li>No informó que la cuota era insuficiente: financió los gastos de la privada con lo que se les debía a los proveedores.</li>
+      <li>No informó a los vecinos de la situación, y el adeudo se arrastró durante dos años.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 4 · Problema 1 -->
+<section class="lamina" id="que-paso" data-lamina="4" data-parte="1">
+  <div class="col">
+    <h2>Sana suspendió la recolección de basura por adeudo.</h2>
+    <span class="cifra" data-cifra="deuda_sana"></span>
+    <p class="lead">es lo que Sana dice que le debemos.</p>
+    <p class="nota sup-linea">Suponemos que Sana no exigirá su saldo a los vecinos por otra vía.</p>
+  </div>
+</section>
+
+<!-- 5 -->
+<section class="lamina" id="como-llegamos" data-lamina="5" data-parte="1">
+  <div class="col ancho dos">
+    <div>
+      <h2>Cómo llegamos aquí</h2>
+      <ol class="ruta">
+        <li><span class="parada" aria-hidden="true"></span><div><h3>Lo que costaba Sana</h3><p><span data-cifra="tarifa_sana_2023"></span> al mes en 2023; subió a <span data-cifra="tarifa_sana"></span> en 2024.</p></div></li>
+        <li><span class="parada" aria-hidden="true"></span><div><h3>Los pagos se fueron atrasando</h3><p>Hasta ir unos <span data-cifra="atraso_anios_aprox" data-fmt="num"></span> años detrás: en <span data-cifra="atraso_ejemplo.pagado_en" data-fmt="texto"></span> se pagaba <span data-cifra="atraso_ejemplo.servicio" data-fmt="texto"></span>.</p></div></li>
+        <li><span class="parada" aria-hidden="true"></span><div><h3>El último mes pagado</h3><p class="mayus-ini"><span data-cifra="ultimo_mes_pagado" data-fmt="texto"></span>.</p></div></li>
+        <li class="hueco"><span class="parada" aria-hidden="true"></span><div><h3>Se deben <span data-cifra="meses_sin_pago_total" data-fmt="num"></span> meses</h3><p>De <span data-cifra="deuda_desde" data-fmt="texto"></span> a <span data-cifra="deuda_hasta" data-fmt="texto"></span>.</p></div></li>
+      </ol>
+    </div>
+    <div>
+      <figure class="grafica">
+        <div id="grafica"></div>
+        <figcaption>Meses de servicio de Sana: la franja verde es lo pagado; cada cuadro rojo, un mes que se debe.</figcaption>
+      </figure>
+      <div class="cuadre">
+        <p class="cuenta-sana"><span data-cifra="meses_sin_pago_total" data-fmt="num"></span> × <span data-cifra="tarifa_sana"></span> = <b data-cifra="deuda_sana"></b></p>
+        <p class="cuenta-sana-q">lo que reclama Sana.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="lamina" id="basura-mientras" data-lamina="6" data-parte="1">
+  <div class="col">
+    <h2>¿Y qué pasa con la basura mientras tanto?</h2>
+    <p class="lead">Terminaremos nuestra relación con Sana por no poder hacerle frente al adeudo.</p>
+    <p class="lead">Sara estableció un acuerdo con un proveedor de servicio privado, que se ha hecho cargo del servicio los últimos 3 meses. <strong>Tiene un costo de <span data-cifra="tarifa_privado"></span> MXN al mes.</strong></p>
+    <p class="lead">El servicio de recolección continuará de forma habitual, en lo que se llega a un arreglo o se formaliza la terminación del contrato con Sana.</p>
+  </div>
+</section>
+
+<!-- 7 -->
+<section class="lamina" id="ahorro" data-lamina="7" data-parte="1">
+  <div class="col">
+    <h2>Cuánto ahorramos</h2>
+    <div class="compara" id="compara">
+      <div class="renglon"><div class="rotulo"><span>Sana</span><span><span data-cifra="tarifa_sana"></span> al mes</span></div><div class="barra"><i data-ancho="tarifa_sana"></i></div></div>
+      <div class="renglon nuevo"><div class="rotulo"><span>Proveedor privado</span><span><span data-cifra="tarifa_privado"></span> al mes</span></div><div class="barra"><i data-ancho="tarifa_privado"></i></div></div>
+    </div>
+    <span class="cifra" data-cifra="ahorro_anual"></span>
+    <p class="lead">de ahorro al año.</p>
+    <p class="nota sup-linea">Supone un acuerdo de servicio de un año con el recolector privado. El recolector no es una empresa ni un proveedor formal: el precio y las condiciones pueden cambiar.</p>
+  </div>
+</section>
+
+<!-- 8 · Problema 2 -->
+<section class="lamina" id="caja" data-lamina="8" data-parte="2">
+  <div class="col">
+    <span class="cifra cifra-mayor falta" data-cifra="vigilancia_vencida"></span>
+    <h2 class="bajo-cifra">Debemos <span data-cifra="vigilancia_meses_n" data-fmt="num"></span> meses de vigilancia y la caja está en cero</h2>
+  </div>
+</section>
+
+<!-- 9 -->
+<section class="lamina" id="por-que" data-lamina="9" data-parte="2">
+  <div class="col ancho dos">
+    <div>
+      <h2>Por qué estamos aquí</h2>
+      <p class="lead">Se deben <strong data-cifra="vigilancia_meses_vencidos" data-fmt="texto"></strong> de vigilancia:</p>
+      <div class="cuadre">
+        <p class="cuenta-sana"><span data-cifra="vigilancia_meses_n" data-fmt="num"></span> × <span data-cifra="vigilancia_mensual"></span> = <b data-cifra="vigilancia_vencida"></b></p>
+      </div>
+    </div>
+    <div>
+      <p class="lead">El origen: la cuota actual no alcanza. En 2026 cobramos en promedio <strong data-cifra="cobrado_2026_mensual"></strong> al mes y gastamos <strong data-cifra="gasto_2026_mensual"></strong>: faltaron <strong class="falta" data-cifra="faltan_mes"></strong> cada mes.</p>
+      <div class="compara" aria-hidden="true">
+        <div class="renglon"><div class="rotulo"><span>Lo que gastamos al mes</span></div><div class="barra"><i data-ancho="gasto_2026_mensual"></i></div></div>
+        <div class="renglon nuevo"><div class="rotulo"><span>Lo que cobramos al mes</span><span class="falta">faltan <span data-cifra="faltan_mes"></span></span></div><div class="barra con-hueco"><i data-ancho="cobrado_2026_mensual"></i><b class="hueco-barra"></b></div></div>
+      </div>
+      <p class="nota">Aunque todos pagaran, la cuota da <span data-cifra="ingreso_mensual"></span> al mes, menos de lo que pagamos. En 2027 el gasto baja un poco (<span data-cifra="pct_total" data-fmt="pct"></span>), pero sigue arriba de lo que da la cuota.</p>
+      <p class="pie-sup"><a href="#supuestos">Calculado con estos supuestos</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · Problema 3 -->
+<section class="lamina" id="cobranza" data-lamina="10" data-parte="3">
+  <div class="col">
+    <h2>A la privada también le deben cuotas</h2>
+    <p class="lead">Hoy se le deben a la privada <strong data-cifra="por_cobrar"></strong> en cuotas.</p>
+    <p class="lead">El problema es cobrarlas en tiempo y forma. Hoy <span data-cifra="casas_en_cobranza" data-fmt="num"></span> casa tiene un adeudo en proceso de cobranza.</p>
+    <p class="etq vias">La deuda vieja se atiende por dos vías:</p>
+    <ol class="ruta numerada">
+      <li><span class="parada">1</span><div><h3>El trato directo</h3><p>Con la multa del reglamento, de hasta <span data-cifra="multa_tope"></span>, notificada por escrito.</p><p class="art">Art. 108 b de los estatutos.</p></div></li>
+      <li><span class="parada">2</span><div><h3>La vía legal</h3><p>Con la demanda, para recuperar lo que se debe.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 11 · La propuesta -->
+<section class="lamina" id="administracion" data-lamina="11" data-parte="ad">
+  <div class="col">
+    <h2>Lo que está haciendo la Administración</h2>
+    <ul class="supuestos">
+      <li>Puso a disposición toda la información y colaboró para preparar este plan de respuesta.</li>
+      <li>Estableció un acuerdo con un proveedor privado para que el servicio de basura no se interrumpiera, y cubrió la transición con su propio personal, sin costo para la privada, mientras arrancaba el proveedor.</li>
+      <li>Tomó la responsabilidad de tramitar el cierre del contrato con Sana.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="lamina" id="propuesta" data-lamina="12" data-parte="pa">
+  <div class="col">
+    <h2>Lo que proponemos</h2>
+    <ul class="tareas">
+      <li>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h11l6 6v18H8z"/><path d="M19 4v6h6"/><path d="M12 16h9M12 21h9"/></svg>
+        <div><h3>No continuar con Sana</h3><p>La basura sigue con el proveedor privado, a <span data-cifra="tarifa_privado"></span> al mes.</p></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 5v22"/><path d="M9 27h14"/><path d="M6 10h20"/><path d="M6 10l-3.5 8a3.5 3.5 0 0 0 7 0z"/><path d="M26 10l-3.5 8a3.5 3.5 0 0 0 7 0z"/></svg>
+        <div><h3>Contratar a un abogado para la cobranza</h3><p>Para llevar la demanda y recuperar lo que se le debe a la privada.</p></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4h8v5c0 2-2 3-2 5v2h-4v-2c0-2-2-3-2-5z"/><path d="M6 16h20v5H6z"/><path d="M8 26h16"/></svg>
+        <div><h3>Registrar ante notario el acta de la Asamblea de 2027</h3><p>Sus <span data-cifra="notario_reserva"></span> se reservan desde ya, en el cierre de 2026.</p></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="8" width="24" height="16" rx="2"/><path d="M4 13h24"/><path d="M9 19h5"/></svg>
+        <div><h3>Cobrar una cuota extraordinaria para pagar los adeudos con la empresa de seguridad</h3><p><strong data-cifra="extraordinaria"></strong> por casa, a más tardar el <span data-cifra="fecha_limite" data-fmt="texto"></span>. <a href="#cierre-2026">De dónde sale</a></p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="lamina" id="cierre-2026" data-lamina="13" data-parte="pe">
+  <div class="col">
+    <h2>De dónde salen los <span data-cifra="extraordinaria"></span></h2>
+    <table class="tabla" id="tabla-cierre">
+      <thead><tr><th scope="col">Concepto</th><th scope="col" class="m">Monto</th></tr></thead>
+      <tbody></tbody>
+      <tfoot><tr><td>Faltan al 31 de diciembre</td><td class="m" data-cifra="faltante" data-fmt="signo2"></td></tr></tfoot>
+    </table>
+    <p class="nota pie-tabla">Somos <span data-cifra="casas" data-fmt="num"></span> casas. En diciembre pagan <span data-cifra="casas_diciembre" data-fmt="num"></span> porque <span data-cifra="casas_adelantadas" data-fmt="num"></span> ya pagaron por adelantado.</p>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="lamina" id="como-cubrimos" data-lamina="14" data-parte="pe">
+  <div class="col">
+    <h2>Cómo lo cubrimos</h2>
+    <p class="lead">Con una cuota extraordinaria. La establece Sara como Administradora y la Asamblea la confirma el <span data-cifra="asamblea_fecha" data-fmt="texto"></span>. Después, se paga en un solo pago:</p>
+    <div class="panel pago">
+      <span class="cifra" data-cifra="extraordinaria"></span>
+      <span class="etq">por casa, a más tardar el <span data-cifra="fecha_limite" data-fmt="texto"></span></span>
+    </div>
+    <p class="nota">Somos <span data-cifra="casas" data-fmt="num"></span> casas: se reparte entre <span data-cifra="casas_extraordinaria" data-fmt="num"></span> porque <span data-cifra="casas_en_cobranza" data-fmt="num"></span> casa tiene un adeudo en cobranza. La misma fecha límite vale para ponerse al corriente.</p>
+    <p class="nota">La demanda del proceso de cobranza sirve para recuperar lo que se debe. Lo que se recupere regresa a la caja y puede reducir futuras cuotas extraordinarias: es una inversión.</p>
+    <p class="art">Art. 49 b de los estatutos.</p>
+  </div>
+</section>
+
+<!-- 15 -->
+<section class="lamina" id="para-que-no" data-lamina="15" data-parte="pc">
+  <div class="col">
+    <h2 class="frase">Para que esto no vuelva a ocurrir, hay que ajustar la cuota para cubrir cada mes nuestros compromisos</h2>
+  </div>
+</section>
+
+<!-- 16 -->
+<section class="lamina" id="supuestos" data-lamina="16" data-parte="pc">
+  <div class="col">
+    <h2>Sobre qué supuestos</h2>
+    <div class="placa principal">
+      <h3>No continuamos con Sana ni hay arreglo con ellos.</h3>
+      <p>La basura es el proveedor privado a <span data-cifra="tarifa_privado"></span> al mes, y el adeudo con Sana no entra en estas cifras.</p>
+    </div>
+    <ul class="supuestos">
+      <li>Vigilancia <span data-cifra="supuesto_vigilancia_pct" data-fmt="pct"></span> desde marzo de 2027.</li>
+      <li>El <span data-cifra="mora_pct" data-fmt="pctsimple"></span> de las cuotas no se alcanza a cobrar en el año.</li>
+      <li>Mantenimiento recurrente de <span data-cifra="conceptos_2027.@Mantenimiento.mensual_2027"></span> al mes; el portón y las luminarias van al fondo de reserva.</li>
+      <li>Sin aguinaldo de vigilancia.</li>
+      <li>Suponemos que Sana no exigirá su saldo a los vecinos por otra vía.</li>
+      <li>El ahorro de <span data-cifra="ahorro_anual"></span> supone un acuerdo de servicio de un año con el recolector privado. El recolector no es una empresa ni un proveedor formal: el precio y las condiciones pueden cambiar.</li>
+      <li>La app de administración opera desde diciembre de 2026 y cobra <span data-cifra="app_mensual"></span> al mes desde noviembre de 2027.</li>
+      <li>La cuota 2027 no incluye contador, la constitución de la figura legal ni IVA. Si la Asamblea los aprueba, la cuota cambia.</li>
+    </ul>
+    <p class="remate">Si cambia alguno de estos supuestos, cambia la cuota.</p>
+  </div>
+</section>
+
+<!-- 17 a 22 · escena fija -->
+<section class="parte3" id="cuota-2027" aria-label="La cuota 2027, paso a paso">
+  <div class="escena" id="escena" aria-hidden="true">
+    <div class="tablero">
+      <div class="carril" id="carril">
+        <i class="seg s0"></i><i class="seg s1"></i><i class="seg s2"></i><i class="seg s3"></i>
+        <span class="marca-hoy"><span>hoy</span></span>
+      </div>
+      <div class="derecha">
+        <div class="lectura">
+          <span class="valor" id="lectura-valor"></span>
+          <span class="pila"><span class="que" id="lectura-que"></span>
+          <span class="que hoy">hoy <span data-cifra="cuota_actual"></span></span></span>
+        </div>
+        <ul class="claves" id="claves">
+          <li data-k="0"><i style="background:var(--hoy-c)"></i>Cuota de hoy</li>
+          <li data-k="1"><i style="background:var(--azul)"></i>Lo que cuesta 2027</li>
+          <li data-k="2"><i class="k2"></i>Cuotas que no se cobran</li>
+          <li data-k="3"><i class="k3" style="background:var(--lila)"></i>Fondo de reserva</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="pasos">
+    <article class="paso" id="paso-1" data-lamina="17" data-parte="pc" data-nivel="0" data-que="la cuota de hoy">
+      <div class="tarjeta">
+        <h2><span class="num">1</span><span>La cuota actual no alcanza</span></h2>
+        <p class="lead">Lo vimos en <a href="#por-que">Por qué estamos aquí</a>: con la cuota de hoy no se cubre lo que gastamos cada mes.</p>
+      </div>
+    </article>
+
+    <article class="paso" id="paso-2" data-lamina="18" data-parte="pc" data-nivel="0" data-que="la cuota de hoy">
+      <div class="tarjeta">
+        <h2><span class="num">2</span><span>Qué sube y qué baja</span></h2>
+        <table class="tabla" id="tabla-conceptos">
+          <thead><tr><th scope="col">Para 2027</th><th scope="col" class="m">Cambio</th></tr></thead>
+          <tbody></tbody>
+          <tfoot><tr><td>Total</td><td class="m" data-cifra="pct_total" data-fmt="pct"></td></tr></tfoot>
+        </table>
+        <p class="pie-sup"><a href="#supuestos">Calculado con estos supuestos</a></p>
+      </div>
+    </article>
+
+    <article class="paso" id="paso-3" data-lamina="19" data-parte="pc" data-nivel="1" data-que="si todos pagan">
+      <div class="tarjeta">
+        <h2><span class="num">3</span><span>La cuota 2027, si todos pagan</span></h2>
+        <span class="cifra" data-cifra="cuota_sin_mora"></span>
+        <p class="lead">al mes por casa.</p>
+        <p class="pie-sup"><a href="#supuestos">Calculado con estos supuestos</a></p>
+      </div>
+    </article>
+
+    <article class="paso" id="paso-4" data-lamina="20" data-parte="pc" data-nivel="2" data-que="con las cuotas que no se cobran">
+      <div class="tarjeta">
+        <h2><span class="num">4</span><span>No todo se cobra a tiempo</span></h2>
+        <p class="lead">Si el <span data-cifra="mora_pct" data-fmt="pctsimple"></span> de las cuotas no se cobra en el año, la cuota queda en:</p>
+        <span class="cifra"><span data-cifra="cuota_con_mora"></span><span class="redondeo">redondeado</span></span>
+        <p class="nota"><span data-cifra="aumento_mora" data-fmt="signo"></span> por cada casa que sí paga, contra <span data-cifra="cuota_sin_mora"></span>.</p>
+        <p class="pie-sup"><a href="#supuestos">Calculado con estos supuestos</a></p>
+      </div>
+    </article>
+
+    <article class="paso" id="paso-5" data-lamina="21" data-parte="pc" data-nivel="3" data-que="con el fondo">
+      <div class="tarjeta">
+        <h2><span class="num">5</span><span>El fondo de reserva: <span data-cifra="fondo"></span></span></h2>
+        <p class="lead">Este año hubo dos gastos que no son del mes: el motor del portón, <span data-cifra="porton"></span>, y las luminarias, <span data-cifra="luminarias"></span>.</p>
+        <p class="nota">Sin fondo, eso se cobra en extraordinarias: unos <span data-cifra="extra_por_casa_aprox"></span> por casa al año.</p>
+        <p class="nota">Con <span data-cifra="fondo"></span> al mes se cubren, y sobran unos <span data-cifra="ahorro_fondo_aprox"></span> al año.</p>
+        <p class="pie-sup"><a href="#supuestos">Calculado con estos supuestos</a></p>
+      </div>
+    </article>
+
+    <article class="paso" id="paso-6" data-lamina="22" data-parte="pc" data-nivel="3" data-cierre data-que="al mes por casa">
+      <div class="tarjeta cierre-tarjeta">
+        <h2><span>La cuota 2027</span></h2>
+        <span class="cifra" data-cifra="cuota_total"></span>
+        <p class="suma">al mes: <span data-cifra="cuota_con_mora"></span> de mantenimiento + <span data-cifra="fondo"></span> de fondo.</p>
+        <p class="hoy-chico">Hoy pagas <span data-cifra="cuota_actual"></span>.</p>
+        <p class="pie-sup"><a href="#supuestos">Calculado con estos supuestos</a></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 23 · Cierre -->
+<section class="lamina" id="hacer" data-lamina="23" data-parte="h">
   <div class="col ancho">
     <h2>Lo que tenemos que hacer</h2>
     <div class="quien">
@@ -423,7 +819,7 @@ strong{font-weight:800}
           </li>
           <li>
             <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="12" r="4"/><circle cx="22" cy="13" r="3"/><path d="M4 26c.8-4.5 3.5-7 7-7s6.2 2.5 7 7"/><path d="M19 20.5c.9-.4 1.9-.5 3-.5 3 0 5.2 2 6 6"/></svg>
-            <div><h3>Establecer la cuota extraordinaria y convocar a Asamblea el <span data-cifra="asamblea_fecha" data-fmt="texto"></span></h3><p>Con aviso a más tardar el <span data-cifra="aviso_asamblea_limite" data-fmt="texto"></span>. La Asamblea la confirma y aprueba el servicio de basura con el proveedor privado y la cuota 2027 con su fondo de reserva. Después, registrar el acta ante notario.</p><p class="art">Art. 49 b de los estatutos.</p></div>
+            <div><h3>Establecer la cuota extraordinaria y convocar a Asamblea el <span data-cifra="asamblea_fecha" data-fmt="texto"></span></h3><p>Con aviso a más tardar el <span data-cifra="aviso_asamblea_limite" data-fmt="texto"></span>. La Asamblea la confirma y aprueba el servicio de basura con el proveedor privado y la cuota 2027 con su fondo de reserva. El acta que se registra ante notario es la de la Asamblea de 2027.</p><p class="art">Art. 49 b de los estatutos.</p></div>
           </li>
           <li>
             <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 5v22"/><path d="M9 27h14"/><path d="M6 10h20"/><path d="M6 10l-3.5 8a3.5 3.5 0 0 0 7 0z"/><path d="M26 10l-3.5 8a3.5 3.5 0 0 0 7 0z"/></svg>
@@ -439,237 +835,8 @@ strong{font-weight:800}
   </div>
 </section>
 
-<!-- 3 -->
-<section class="lamina" id="que-paso" data-lamina="3" data-parte="1">
-  <div class="col">
-    <h2>Sana suspendió la recolección de basura por adeudo.</h2>
-    <span class="cifra" data-cifra="deuda_sana"></span>
-    <p class="lead">es lo que Sana dice que le debemos.</p>
-    <p class="nota sup-linea">Sara tiene un contrato en lo particular con Sana, y suponemos que la empresa no exigirá su saldo por otra vía.</p>
-  </div>
-</section>
-
-<!-- 4 -->
-<section class="lamina" id="como-llegamos" data-lamina="4" data-parte="1">
-  <div class="col ancho dos">
-    <div>
-      <h2>Cómo llegamos aquí</h2>
-      <ol class="ruta">
-        <li><span class="parada" aria-hidden="true"></span><div><h3>Lo que costaba Sana</h3><p><span data-cifra="tarifa_sana_2023"></span> al mes en 2023; subió a <span data-cifra="tarifa_sana"></span> en 2024.</p></div></li>
-        <li><span class="parada" aria-hidden="true"></span><div><h3>Los pagos se fueron atrasando</h3><p>Hasta ir unos <span data-cifra="atraso_anios_aprox" data-fmt="num"></span> años detrás: en <span data-cifra="atraso_ejemplo.pagado_en" data-fmt="texto"></span> se pagaba <span data-cifra="atraso_ejemplo.servicio" data-fmt="texto"></span>.</p></div></li>
-        <li><span class="parada" aria-hidden="true"></span><div><h3>El último mes pagado</h3><p class="mayus-ini"><span data-cifra="ultimo_mes_pagado" data-fmt="texto"></span>.</p></div></li>
-        <li class="hueco"><span class="parada" aria-hidden="true"></span><div><h3>Se deben <span data-cifra="meses_sin_pago_total" data-fmt="num"></span> meses</h3><p>De <span data-cifra="deuda_desde" data-fmt="texto"></span> a <span data-cifra="deuda_hasta" data-fmt="texto"></span>.</p></div></li>
-      </ol>
-    </div>
-    <div>
-      <figure class="grafica">
-        <div id="grafica"></div>
-        <figcaption>Meses de servicio de Sana: la franja verde es lo pagado; cada cuadro rojo, un mes que se debe.</figcaption>
-      </figure>
-      <div class="cuadre">
-        <p class="cuenta-sana"><span data-cifra="meses_sin_pago_total" data-fmt="num"></span> × <span data-cifra="tarifa_sana"></span> = <b data-cifra="deuda_sana"></b></p>
-        <p class="cuenta-sana-q">lo que reclama Sana.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 5 -->
-<section class="lamina" id="basura-mientras" data-lamina="5" data-parte="1">
-  <div class="col">
-    <h2>¿Y qué pasa con la basura mientras tanto?</h2>
-    <p class="lead">Terminaremos nuestra relación con Sana por no poder hacerle frente al adeudo.</p>
-    <p class="lead">Sara estableció un acuerdo con un proveedor de servicio privado, que se ha hecho cargo del servicio los últimos 3 meses. <strong>Tiene un costo de <span data-cifra="tarifa_privado"></span> MXN al mes.</strong></p>
-    <p class="lead">El servicio de recolección continuará de forma habitual, en lo que se llega a un arreglo o se formaliza la terminación del contrato con Sana.</p>
-  </div>
-</section>
-
-<!-- 6 -->
-<section class="lamina" id="ahorro" data-lamina="6" data-parte="1">
-  <div class="col">
-    <h2>Cuánto ahorramos</h2>
-    <div class="compara" id="compara">
-      <div class="renglon"><div class="rotulo"><span>Sana</span><span><span data-cifra="tarifa_sana"></span> al mes</span></div><div class="barra"><i data-ancho="tarifa_sana"></i></div></div>
-      <div class="renglon nuevo"><div class="rotulo"><span>Proveedor privado</span><span><span data-cifra="tarifa_privado"></span> al mes</span></div><div class="barra"><i data-ancho="tarifa_privado"></i></div></div>
-    </div>
-    <span class="cifra" data-cifra="ahorro_anual"></span>
-    <p class="lead">de ahorro al año.</p>
-    <p class="nota sup-linea">Supone un acuerdo de servicio de un año con el recolector privado. El recolector no es una empresa ni un proveedor formal: el precio y las condiciones pueden cambiar.</p>
-  </div>
-</section>
-
-<!-- 7 -->
-<section class="lamina" id="caja" data-lamina="7" data-parte="2">
-  <div class="col">
-    <h2>La caja está en cero.</h2>
-    <p class="lead">Y debemos dos meses de vigilancia:</p>
-    <span class="cifra falta" data-cifra="vigilancia_vencida"></span>
-  </div>
-</section>
-
-<!-- 8 -->
-<section class="lamina" id="cierre-2026" data-lamina="8" data-parte="2">
-  <div class="col">
-    <h2>Cómo cerramos 2026</h2>
-    <table class="tabla" id="tabla-cierre">
-      <thead><tr><th scope="col">Concepto</th><th scope="col" class="m">Monto</th></tr></thead>
-      <tbody></tbody>
-      <tfoot><tr><td>Faltan al 31 de diciembre</td><td class="m" data-cifra="faltante" data-fmt="signo2"></td></tr></tfoot>
-    </table>
-    <p class="nota pie-tabla">Somos <span data-cifra="casas" data-fmt="num"></span> casas. En diciembre pagan <span data-cifra="casas_diciembre" data-fmt="num"></span> porque <span data-cifra="casas_adelantadas" data-fmt="num"></span> ya pagaron por adelantado.</p>
-  </div>
-</section>
-
-<!-- 9 -->
-<section class="lamina" id="como-cubrimos" data-lamina="9" data-parte="2">
-  <div class="col">
-    <h2>Cómo lo cubrimos</h2>
-    <p class="lead">Con una cuota extraordinaria. La establece Sara como Administradora y la Asamblea la confirma el <span data-cifra="asamblea_fecha" data-fmt="texto"></span>. Después, se paga en un solo pago:</p>
-    <div class="panel pago">
-      <span class="cifra" data-cifra="extraordinaria"></span>
-      <span class="etq">por casa, a más tardar el <span data-cifra="fecha_limite" data-fmt="texto"></span></span>
-    </div>
-    <p class="nota">Somos <span data-cifra="casas" data-fmt="num"></span> casas: se reparte entre <span data-cifra="casas_extraordinaria" data-fmt="num"></span> porque <span data-cifra="casas_en_cobranza" data-fmt="num"></span> casa tiene un adeudo en cobranza. La misma fecha límite vale para ponerse al corriente.</p>
-    <p class="nota">La demanda del proceso de cobranza sirve para recuperar lo que se debe. Lo que se recupere regresa a la caja y puede reducir futuras cuotas extraordinarias: es una inversión.</p>
-    <p class="art">Art. 49 b de los estatutos.</p>
-  </div>
-</section>
-
-<!-- 10 -->
-<section class="lamina" id="supuestos" data-lamina="10" data-parte="3">
-  <div class="col">
-    <h2>Sobre qué supuestos</h2>
-    <div class="placa principal">
-      <h3>No continuamos con Sana ni hay arreglo con ellos.</h3>
-      <p>La basura es el proveedor privado a <span data-cifra="tarifa_privado"></span> al mes, y el adeudo con Sana no entra en estas cifras.</p>
-    </div>
-    <ul class="supuestos">
-      <li>Vigilancia <span data-cifra="supuesto_vigilancia_pct" data-fmt="pct"></span> desde marzo de 2027.</li>
-      <li>El <span data-cifra="mora_pct" data-fmt="pctsimple"></span> de las cuotas no se alcanza a cobrar en el año.</li>
-      <li>Mantenimiento recurrente de <span data-cifra="conceptos_2027.@Mantenimiento.mensual_2027"></span> al mes; el portón y las luminarias van al fondo de reserva.</li>
-      <li>Sin aguinaldo de vigilancia.</li>
-      <li>Sara tiene un contrato en lo particular con Sana, y la empresa no exigirá su saldo por otra vía.</li>
-      <li>El ahorro de <span data-cifra="ahorro_anual"></span> supone un acuerdo de servicio de un año con el recolector privado. El recolector no es una empresa ni un proveedor formal: el precio y las condiciones pueden cambiar.</li>
-      <li>La app de administración opera desde diciembre de 2026 y cobra <span data-cifra="app_mensual"></span> al mes desde noviembre de 2027.</li>
-      <li>La cuota 2027 no incluye contador, la constitución de la figura legal ni IVA. Si la Asamblea los aprueba, la cuota cambia.</li>
-    </ul>
-    <p class="remate">Si cambia alguno de estos supuestos, cambia la cuota.</p>
-  </div>
-</section>
-
-<!-- 11 a 16 · escena fija -->
-<section class="parte3" id="cuota-2027" aria-label="La cuota 2027, paso a paso">
-  <div class="escena" id="escena" aria-hidden="true">
-    <div class="tablero">
-      <div class="carril" id="carril">
-        <i class="seg s0"></i><i class="seg s1"></i><i class="seg s2"></i><i class="seg s3"></i>
-        <span class="marca-hoy"><span>hoy</span></span>
-      </div>
-      <div class="derecha">
-        <div class="lectura">
-          <span class="valor" id="lectura-valor"></span>
-          <span class="pila"><span class="que" id="lectura-que"></span>
-          <span class="que hoy">hoy <span data-cifra="cuota_actual"></span></span></span>
-        </div>
-        <ul class="claves" id="claves">
-          <li data-k="0"><i style="background:var(--hoy-c)"></i>Cuota de hoy</li>
-          <li data-k="1"><i style="background:var(--jade)"></i>Lo que cuesta 2027</li>
-          <li data-k="2"><i class="k2"></i>Cuotas que no se cobran</li>
-          <li data-k="3"><i class="k3" style="background:var(--amarillo)"></i>Fondo de reserva</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="pasos">
-    <article class="paso" id="paso-1" data-lamina="11" data-parte="3" data-nivel="0" data-que="la cuota de hoy">
-      <div class="tarjeta">
-        <h2><span class="num">1</span><span>La cuota actual no alcanza</span></h2>
-        <p class="lead">En 2026 cobramos en promedio <strong data-cifra="cobrado_2026_mensual"></strong> al mes y gastamos <strong data-cifra="gasto_2026_mensual"></strong>: faltaron <strong class="falta" data-cifra="faltan_mes"></strong> cada mes.</p>
-        <p class="nota">Aunque todos pagaran, la cuota da <span data-cifra="ingreso_mensual"></span> al mes, menos de lo que pagamos. En 2027 el gasto baja un poco (<span data-cifra="pct_total" data-fmt="pct"></span>), pero sigue arriba de lo que da la cuota.</p>
-        <p class="nota">De ahí salen los meses de vigilancia vencidos.</p>
-        <p class="pie-sup"><a href="#supuestos">Calculado con estos supuestos</a></p>
-      </div>
-    </article>
-
-    <article class="paso" id="paso-2" data-lamina="12" data-parte="3" data-nivel="0" data-que="la cuota de hoy">
-      <div class="tarjeta">
-        <h2><span class="num">2</span><span>Qué sube y qué baja</span></h2>
-        <table class="tabla" id="tabla-conceptos">
-          <thead><tr><th scope="col">Para 2027</th><th scope="col" class="m">Cambio</th></tr></thead>
-          <tbody></tbody>
-          <tfoot><tr><td>Total</td><td class="m" data-cifra="pct_total" data-fmt="pct"></td></tr></tfoot>
-        </table>
-        <p class="pie-sup"><a href="#supuestos">Calculado con estos supuestos</a></p>
-      </div>
-    </article>
-
-    <article class="paso" id="paso-3" data-lamina="13" data-parte="3" data-nivel="1" data-que="si todos pagan">
-      <div class="tarjeta">
-        <h2><span class="num">3</span><span>La cuota 2027, si todos pagan</span></h2>
-        <span class="cifra" data-cifra="cuota_sin_mora"></span>
-        <p class="lead">al mes por casa.</p>
-        <p class="pie-sup"><a href="#supuestos">Calculado con estos supuestos</a></p>
-      </div>
-    </article>
-
-    <article class="paso" id="paso-4" data-lamina="14" data-parte="3" data-nivel="2" data-que="con las cuotas que no se cobran">
-      <div class="tarjeta">
-        <h2><span class="num">4</span><span>No todo se cobra a tiempo</span></h2>
-        <p class="lead">Si el <span data-cifra="mora_pct" data-fmt="pctsimple"></span> de las cuotas no se cobra en el año, la cuota queda en:</p>
-        <span class="cifra"><span data-cifra="cuota_con_mora"></span><span class="redondeo">redondeado</span></span>
-        <p class="nota"><span data-cifra="aumento_mora" data-fmt="signo"></span> por cada casa que sí paga, contra <span data-cifra="cuota_sin_mora"></span>.</p>
-        <p class="pie-sup"><a href="#supuestos">Calculado con estos supuestos</a></p>
-      </div>
-    </article>
-
-    <article class="paso" id="paso-5" data-lamina="15" data-parte="3" data-nivel="3" data-que="con el fondo">
-      <div class="tarjeta">
-        <h2><span class="num">5</span><span>El fondo de reserva: <span data-cifra="fondo"></span></span></h2>
-        <p class="lead">Este año hubo dos gastos que no son del mes: el motor del portón, <span data-cifra="porton"></span>, y las luminarias, <span data-cifra="luminarias"></span>.</p>
-        <p class="nota">Sin fondo, eso se cobra en extraordinarias: unos <span data-cifra="extra_por_casa_aprox"></span> por casa al año.</p>
-        <p class="nota">Con <span data-cifra="fondo"></span> al mes se cubren, y sobran unos <span data-cifra="ahorro_fondo_aprox"></span> al año.</p>
-        <p class="pie-sup"><a href="#supuestos">Calculado con estos supuestos</a></p>
-      </div>
-    </article>
-
-    <article class="paso" id="paso-6" data-lamina="16" data-parte="3" data-nivel="3" data-cierre data-que="al mes por casa">
-      <div class="tarjeta cierre-tarjeta">
-        <h2><span>La cuota 2027</span></h2>
-        <span class="cifra" data-cifra="cuota_total"></span>
-        <p class="suma">al mes: <span data-cifra="cuota_con_mora"></span> de mantenimiento + <span data-cifra="fondo"></span> de fondo.</p>
-        <p class="hoy-chico">Hoy pagas <span data-cifra="cuota_actual"></span>.</p>
-        <p class="pie-sup"><a href="#supuestos">Calculado con estos supuestos</a></p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- 17 -->
-<section class="lamina" id="preguntas" data-lamina="17" data-parte="f">
-  <div class="col">
-    <h2>Preguntas frecuentes</h2>
-    <div class="faqs">
-      <details class="faq"><summary><span class="faq-n">1</span><span class="faq-q">¿Qué tengo que hacer si estoy al corriente?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Asistir a la Asamblea del <span data-cifra="asamblea_fecha" data-fmt="texto"></span> y pagar la cuota extraordinaria de <span data-cifra="extraordinaria"></span> a más tardar el <span data-cifra="fecha_limite" data-fmt="texto"></span>.</p></details>
-      <details class="faq"><summary><span class="faq-n">2</span><span class="faq-q">¿Cómo sé cuánto debo?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Sara le manda a cada casa su saldo antes del <span data-cifra="fecha_limite" data-fmt="texto"></span>.</p></details>
-      <details class="faq"><summary><span class="faq-n">3</span><span class="faq-q">¿Por qué tengo que pagar por los que no pagan?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Siempre hay una parte de las cuotas que no llega a tiempo, y a los proveedores no se les puede dejar de pagar sin que se corte el servicio para todos. Por eso la cuota considera un porcentaje extra. A cambio, proponemos en la Asamblea un interés moratorio para las casas que se atrasan, como pena por el perjuicio que causan a las demás.</p></details>
-      <details class="faq"><summary><span class="faq-n">4</span><span class="faq-q">¿Por qué se reparte entre <span data-cifra="casas_extraordinaria" data-fmt="num"></span> casas si somos <span data-cifra="casas" data-fmt="num"></span>?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Una casa tiene un adeudo en cobranza; su parte se le reclama en ese proceso.</p></details>
-      <details class="faq"><summary><span class="faq-n">5</span><span class="faq-q">¿Puedo pagar en partes?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>No: un solo pago a más tardar el <span data-cifra="fecha_limite" data-fmt="texto"></span>, porque en diciembre se paga la vigilancia vencida.</p></details>
-      <details class="faq"><summary><span class="faq-n">6</span><span class="faq-q">¿Cómo hemos pagado los servicios si la cuota de 2026 no alcanzaba?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Se fueron dejando pagos pendientes a los proveedores. Por eso hoy la privada debe cerca de <span data-cifra="deuda_proveedores_aprox"></span> (basura y vigilancia).</p></details>
-      <details class="faq"><summary><span class="faq-n">7</span><span class="faq-q">¿No es mucho <span data-cifra="cuota_total"></span> para una privada sin amenidades?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>La cuota no sube desde julio de 2025 y ya no alcanza para los gastos de la privada; la vigilancia sola es más de la mitad.</p></details>
-      <details class="faq"><summary><span class="faq-n">8</span><span class="faq-q">¿Qué pasa si no hay fondo de reserva?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Cada imprevisto (el portón, las bombas de riego, que se han tenido que cambiar cada año) tendría que esperar a una junta y a que todos paguen. Con el fondo se atiende rápido.</p></details>
-      <details class="faq"><summary><span class="faq-n">9</span><span class="faq-q">¿Qué pasa si queremos cambiar algún proveedor?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Se puede, siempre que quede dentro del presupuesto del año, para no subir la cuota.</p></details>
-      <details class="faq"><summary><span class="faq-n">10</span><span class="faq-q">¿Vamos a pagarle a Sana los <span data-cifra="deuda_sana"></span>?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Esta cuota no lo incluye. Cuando Sana nos busque, la Asamblea decide. Mientras, nadie la contacta por su cuenta.</p></details>
-      <details class="faq"><summary><span class="faq-n">11</span><span class="faq-q">¿Es confiable el proveedor de basura?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Es para ganar tiempo; cada pago lleva recibo firmado y después se decide si se queda.</p></details>
-      <details class="faq"><summary><span class="faq-n">12</span><span class="faq-q">¿Por qué una demanda?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Para recuperar lo que se debe, sin nombrar a nadie. Lo que se recupere regresa a la caja y puede bajar futuras cuotas extraordinarias.</p></details>
-      <details class="faq"><summary><span class="faq-n">13</span><span class="faq-q">¿Por qué hay que registrar el acta ante notario (protocolizarla)?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>La ley pide una Asamblea al año, y el registro le da la formalidad necesaria para cobrar por la vía legal. Además, hoy la privada opera con acuerdos que no están en los estatutos (la cuota, el servicio de basura, el comité); hay que ponerlos por escrito, fijar un interés por atraso y preparar la cuenta bancaria propia del condominio.</p></details>
-      <details class="faq"><summary><span class="faq-n">14</span><span class="faq-q">¿En qué nos ayuda una cuenta bancaria propia del condominio?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Hoy las cuotas se reciben, con toda confianza, en la cuenta personal de la Administradora, que también tiene movimientos ajenos a la privada. Una cuenta a nombre del condominio da independencia y transparencia. Para abrirla, probablemente hay que constituir una asociación civil sin fines de lucro que lleve su propia contabilidad; se presenta en la Asamblea de 2027.</p></details>
-    </div>
-  </div>
-</section>
-
-<!-- 18 -->
-<section class="lamina" id="formalizar-2027" data-lamina="18" data-parte="p">
+<!-- 24 -->
+<section class="lamina" id="formalizar-2027" data-lamina="24" data-parte="p">
   <div class="col">
     <h2>Lo que falta formalizar en 2027</h2>
     <ul class="supuestos">
@@ -678,13 +845,14 @@ strong{font-weight:800}
       <li>Facturar las cuotas a cada casa.</li>
       <li>Que los proveedores nos facturen.</li>
       <li>Revisar si las cuotas deben llevar IVA.</li>
+      <li>Una app de administración para que cada vecino consulte en línea los pagos, los gastos y su saldo.</li>
     </ul>
     <p class="remate">Se presentan en la Asamblea de 2027 con su costo, para someter a votación.</p>
   </div>
 </section>
 
-<!-- 19 -->
-<section class="lamina" id="que-sigue" data-lamina="19" data-parte="4">
+<!-- 25 -->
+<section class="lamina" id="que-sigue" data-lamina="25" data-parte="4">
   <div class="col">
     <h2>Qué sigue</h2>
     <ol class="ruta numerada">
@@ -700,9 +868,32 @@ strong{font-weight:800}
   </div>
 </section>
 
+<!-- 26 -->
+<section class="lamina" id="preguntas" data-lamina="26" data-parte="f">
+  <div class="col">
+    <h2>Preguntas frecuentes</h2>
+    <div class="faqs">
+      <details class="faq"><summary><span class="faq-n">1</span><span class="faq-q">¿Qué tengo que hacer si estoy al corriente?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Asistir a la Asamblea del <span data-cifra="asamblea_fecha" data-fmt="texto"></span> y pagar la cuota extraordinaria de <span data-cifra="extraordinaria"></span> a más tardar el <span data-cifra="fecha_limite" data-fmt="texto"></span>.</p></details>
+      <details class="faq"><summary><span class="faq-n">2</span><span class="faq-q">¿Cómo sé cuánto debo?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Sara le manda a cada casa su saldo antes del <span data-cifra="fecha_limite" data-fmt="texto"></span>.</p></details>
+      <details class="faq"><summary><span class="faq-n">3</span><span class="faq-q">¿Por qué tengo que pagar por los que no pagan?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Siempre hay una parte de las cuotas que no llega a tiempo, y a los proveedores no se les puede dejar de pagar sin que se corte el servicio para todos. Por eso la cuota considera un porcentaje extra. A cambio, proponemos en la Asamblea un interés moratorio para las casas que se atrasan, como pena por el perjuicio que causan a las demás.</p></details>
+      <details class="faq"><summary><span class="faq-n">4</span><span class="faq-q">¿Por qué se reparte entre <span data-cifra="casas_extraordinaria" data-fmt="num"></span> casas si somos <span data-cifra="casas" data-fmt="num"></span>?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Una casa tiene un adeudo en cobranza; su parte se le reclama en ese proceso.</p></details>
+      <details class="faq"><summary><span class="faq-n">5</span><span class="faq-q">¿Puedo pagar en partes?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>No: un solo pago a más tardar el <span data-cifra="fecha_limite" data-fmt="texto"></span>, porque en diciembre se paga la vigilancia vencida.</p></details>
+      <details class="faq"><summary><span class="faq-n">6</span><span class="faq-q">¿Cómo hemos pagado los servicios si la cuota de 2026 no alcanzaba?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Se fueron dejando pagos pendientes a los proveedores. Por eso hoy la privada debe cerca de <span data-cifra="deuda_proveedores_aprox"></span> (basura y vigilancia).</p></details>
+      <details class="faq"><summary><span class="faq-n">7</span><span class="faq-q">¿No es mucho <span data-cifra="cuota_total"></span> para una privada sin amenidades?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>La cuota no sube desde julio de 2025 y ya no alcanza para los gastos de la privada; la vigilancia sola es más de la mitad.</p></details>
+      <details class="faq"><summary><span class="faq-n">8</span><span class="faq-q">¿Qué pasa si no hay fondo de reserva?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Cada imprevisto (el portón, las bombas de riego, que se han tenido que cambiar cada año) tendría que esperar a una junta y a que todos paguen. Con el fondo se atiende rápido.</p></details>
+      <details class="faq"><summary><span class="faq-n">9</span><span class="faq-q">¿Qué pasa si queremos cambiar algún proveedor?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Se puede, siempre que quede dentro del presupuesto del año, para no subir la cuota.</p></details>
+      <details class="faq"><summary><span class="faq-n">10</span><span class="faq-q">¿Vamos a pagarle a Sana los <span data-cifra="deuda_sana"></span>?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Esta cuota no lo incluye. Cuando Sana nos busque, la Asamblea decide. Mientras, nadie la contacta por su cuenta.</p></details>
+      <details class="faq"><summary><span class="faq-n">11</span><span class="faq-q">¿Es confiable el proveedor de basura?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Es para ganar tiempo; cada pago lleva recibo firmado y después se decide si se queda.</p></details>
+      <details class="faq"><summary><span class="faq-n">12</span><span class="faq-q">¿Por qué una demanda?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Para recuperar lo que se debe, sin nombrar a nadie. Lo que se recupere regresa a la caja y puede bajar futuras cuotas extraordinarias.</p></details>
+      <details class="faq"><summary><span class="faq-n">13</span><span class="faq-q">¿Por qué hay que registrar ante notario el acta de la Asamblea de 2027 (protocolizarla)?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>La ley pide una Asamblea al año, y el registro le da la formalidad necesaria para cobrar por la vía legal. Además, hoy la privada opera con acuerdos que no están en los estatutos (la cuota, el servicio de basura, el comité); hay que ponerlos por escrito, fijar un interés por atraso y preparar la cuenta bancaria propia del condominio.</p></details>
+      <details class="faq"><summary><span class="faq-n">14</span><span class="faq-q">¿En qué nos ayuda una cuenta bancaria propia del condominio?</span><svg class="chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h10"/><path class="chev-v" d="M10 5v10"/></svg></summary><p>Hoy las cuotas se reciben, con toda confianza, en la cuenta personal de la Administradora, que también tiene movimientos ajenos a la privada. Una cuenta a nombre del condominio da independencia y transparencia. Para abrirla, probablemente hay que constituir una asociación civil sin fines de lucro que lleve su propia contabilidad; se presenta en la Asamblea de 2027.</p></details>
+    </div>
+  </div>
+</section>
+
 </main>
 
-<script type="application/json" id="cifras">{"fecha":"21 de noviembre de 2026","deuda_sana":144900,"tarifa_sana":6900,"tarifa_privado":3000,"ahorro_anual":46800,"pago_parcial":6000,"tarifa_sana_2023":6000,"meses_sin_pago_total":21,"ultimo_mes_pagado":"septiembre de 2024","deuda_desde":"octubre de 2024","deuda_hasta":"junio de 2026","atraso_ejemplo":{"pagado_en":"julio de 2026","servicio":"septiembre de 2024"},"atraso_anios_aprox":2,"recibos_sana":[{"servicio":"2023-04","tarifa":6000,"meses":1,"total":6000,"pagado":"2025-01-16"},{"servicio":"2023-04","tarifa":6000,"meses":1,"total":6000,"pagado":"2025-04-09"},{"servicio":"2023-06","tarifa":6000,"meses":1,"total":6000,"pagado":"2025-04-14"},{"servicio":"2023-07","tarifa":6000,"meses":1,"total":6000,"pagado":"2025-05-30"},{"servicio":"2023-10","tarifa":6000,"meses":1,"total":6000,"pagado":"2025-09-22"},{"servicio":"2024-02","tarifa":6000,"meses":1,"total":6000,"pagado":"2026-02-01"},{"servicio":"2024-05","tarifa":6900,"meses":1,"total":6900,"pagado":"2026-06-04"},{"servicio":"2024-06","tarifa":6900,"meses":1,"total":6900,"pagado":"2026-06-16"},{"servicio":"2024-07","tarifa":6900,"meses":2,"total":13800,"pagado":"2026-06-24"},{"servicio":"2024-09","tarifa":6900,"meses":1,"total":6900,"pagado":"2026-07-14"}],"vigilancia_vencida":55660,"vigilancia_mensual":27830,"cierre_2026":[{"concepto":"Noviembre: falta de limpieza","monto":-800.0},{"concepto":"Diciembre: cuotas (26 casas) y atrasos por cobrar","monto":45580.5},{"concepto":"Diciembre: operación (vigilancia del mes, basura, jardín, administración, limpieza, servicios)","monto":-44390.0},{"concepto":"Vigilancia vencida (2 meses)","monto":-55660},{"concepto":"Inicio del proceso de cobranza (demanda)","monto":-6000.0},{"concepto":"Registrar el acta de la Asamblea ante notario","monto":-14000.0}],"faltante":-75269.5,"casas_extraordinaria":30,"extraordinaria":2510,"fecha_limite":"10 de diciembre","casas":31,"cuota_actual":1447,"ingreso_mensual":44857,"gasto_2026_mensual":51631,"cobrado_2026_mensual":44951,"faltan_mes":6680,"conceptos_2027":[{"concepto":"Vigilancia","mensual_2026":27386.6,"mensual_2027":30149.17,"pct":10.1},{"concepto":"Basura","mensual_2026":8718.18,"mensual_2027":3000.0,"pct":-65.6},{"concepto":"Jardinería","mensual_2026":5058.62,"mensual_2027":5200.0,"pct":2.8},{"concepto":"Administración","mensual_2026":4000.0,"mensual_2027":4000.0,"pct":0.0},{"concepto":"Limpieza","mensual_2026":2495.45,"mensual_2027":3300.0,"pct":32.2},{"concepto":"Mantenimiento","mensual_2026":3077.42,"mensual_2027":3000.0,"pct":-2.5},{"concepto":"Consumibles","mensual_2026":588.48,"mensual_2027":700.0,"pct":19.0},{"concepto":"Internet","mensual_2026":660.0,"mensual_2027":660.0,"pct":0.0},{"concepto":"CFE y agua","mensual_2026":83.82,"mensual_2027":150.0,"pct":79.0},{"concepto":"App de administración","mensual_2026":0,"mensual_2027":166.5,"pct":null,"nuevo":true,"nota":"$999 en noviembre y diciembre"}],"total_2026":52068.57,"total_2027":50325.67,"pct_total":-3.3,"anual_2027":603908,"cuota_sin_mora":1623,"mora_pct":5,"cuota_con_mora":1710,"aumento_mora":87,"fondo":100,"porton":11550,"luminarias":12027,"no_recurrentes":23577,"extra_por_casa_aprox":800,"ahorro_fondo_aprox":11800,"casas_en_cobranza":1,"casas_adelantadas":4,"casas_diciembre":26,"cuenta":{"banco":"HSBC","titular":"Sara Alejandra Ruiz Aguilera","numero":"6450053826","clabe":"021910064500538268","clabe_grupos":"0219 1006 4500 5382 68"},"deuda_proveedores_aprox":200000,"cuota_estatutos":1000,"supuesto_vigilancia_pct":10,"aviso_asamblea_dias":5,"multa_tope":5000,"asamblea_fecha":"sábado 5 de diciembre","aviso_asamblea_limite":"30 de noviembre","app_mensual":999,"app_meses_2027":2,"app_anual_2027":1998,"cuota_total":1810,"pct_vs_hoy":25.1,"escena_barra":[1447,1623,1710,1810]}</script>
+<script type="application/json" id="cifras">{"fecha":"21 de noviembre de 2026","deuda_sana":144900,"tarifa_sana":6900,"tarifa_privado":3000,"ahorro_anual":46800,"pago_parcial":6000,"tarifa_sana_2023":6000,"meses_sin_pago_total":21,"ultimo_mes_pagado":"septiembre de 2024","deuda_desde":"octubre de 2024","deuda_hasta":"junio de 2026","atraso_ejemplo":{"pagado_en":"julio de 2026","servicio":"septiembre de 2024"},"atraso_anios_aprox":2,"recibos_sana":[{"servicio":"2023-04","tarifa":6000,"meses":1,"total":6000,"pagado":"2025-01-16"},{"servicio":"2023-04","tarifa":6000,"meses":1,"total":6000,"pagado":"2025-04-09"},{"servicio":"2023-06","tarifa":6000,"meses":1,"total":6000,"pagado":"2025-04-14"},{"servicio":"2023-07","tarifa":6000,"meses":1,"total":6000,"pagado":"2025-05-30"},{"servicio":"2023-10","tarifa":6000,"meses":1,"total":6000,"pagado":"2025-09-22"},{"servicio":"2024-02","tarifa":6000,"meses":1,"total":6000,"pagado":"2026-02-01"},{"servicio":"2024-05","tarifa":6900,"meses":1,"total":6900,"pagado":"2026-06-04"},{"servicio":"2024-06","tarifa":6900,"meses":1,"total":6900,"pagado":"2026-06-16"},{"servicio":"2024-07","tarifa":6900,"meses":2,"total":13800,"pagado":"2026-06-24"},{"servicio":"2024-09","tarifa":6900,"meses":1,"total":6900,"pagado":"2026-07-14"}],"vigilancia_vencida":55660,"vigilancia_mensual":27830,"vigilancia_meses_vencidos":"octubre y noviembre de 2026","vigilancia_meses_n":2,"deuda_total_exacta":200560,"cierre_2026":[{"concepto":"Noviembre: falta de limpieza","monto":-800.0},{"concepto":"Diciembre: cuotas (26 casas) y atrasos por cobrar","monto":45580.5},{"concepto":"Diciembre: operación (vigilancia del mes, basura, jardín, administración, limpieza, servicios)","monto":-44390.0},{"concepto":"Vigilancia vencida (2 meses)","monto":-55660},{"concepto":"Inicio del proceso de cobranza (demanda)","monto":-6000.0},{"concepto":"Reserva para registrar ante notario el acta de la Asamblea de 2027","monto":-14000.0}],"faltante":-75269.5,"casas_extraordinaria":30,"extraordinaria":2510,"fecha_limite":"10 de diciembre","casas":31,"cuota_actual":1447,"ingreso_mensual":44857,"gasto_2026_mensual":51631,"cobrado_2026_mensual":44951,"faltan_mes":6680,"conceptos_2027":[{"concepto":"Vigilancia","mensual_2026":27386.6,"mensual_2027":30149.17,"pct":10.1},{"concepto":"Basura","mensual_2026":8718.18,"mensual_2027":3000.0,"pct":-65.6},{"concepto":"Jardinería","mensual_2026":5058.62,"mensual_2027":5200.0,"pct":2.8},{"concepto":"Administración","mensual_2026":4000.0,"mensual_2027":4000.0,"pct":0.0},{"concepto":"Limpieza","mensual_2026":2495.45,"mensual_2027":3300.0,"pct":32.2},{"concepto":"Mantenimiento","mensual_2026":3077.42,"mensual_2027":3000.0,"pct":-2.5},{"concepto":"Consumibles","mensual_2026":588.48,"mensual_2027":700.0,"pct":19.0},{"concepto":"Internet","mensual_2026":660.0,"mensual_2027":660.0,"pct":0.0},{"concepto":"CFE y agua","mensual_2026":83.82,"mensual_2027":150.0,"pct":79.0},{"concepto":"App de administración","mensual_2026":0,"mensual_2027":166.5,"pct":null,"nuevo":true,"nota":"$999 en noviembre y diciembre"}],"total_2026":52068.57,"total_2027":50325.67,"pct_total":-3.3,"anual_2027":603908,"cuota_sin_mora":1623,"mora_pct":5,"cuota_con_mora":1710,"aumento_mora":87,"fondo":100,"porton":11550,"luminarias":12027,"no_recurrentes":23577,"extra_por_casa_aprox":800,"ahorro_fondo_aprox":11800,"casas_en_cobranza":1,"casas_adelantadas":4,"casas_diciembre":26,"cuenta":{"banco":"HSBC","titular":"Sara Alejandra Ruiz Aguilera","numero":"6450053826","clabe":"021910064500538268","clabe_grupos":"0219 1006 4500 5382 68"},"deuda_proveedores_aprox":200000,"cuota_estatutos":1000,"supuesto_vigilancia_pct":10,"aviso_asamblea_dias":5,"multa_tope":5000,"por_cobrar":35069,"notario_reserva":14000,"asamblea_fecha":"sábado 5 de diciembre","aviso_asamblea_limite":"30 de noviembre","app_mensual":999,"app_meses_2027":2,"app_anual_2027":1998,"cuota_total":1810,"pct_vs_hoy":25.1,"escena_barra":[1447,1623,1710,1810]}</script>
 <script>
 (() => {
   const root = document.documentElement;
@@ -727,6 +918,7 @@ strong{font-weight:800}
     signo2: v => (v < 0 ? MENOS : '+') + '$' + n2(v),
     pct: v => (v > 0 ? '+' : v < 0 ? MENOS : '') + n1(v) + ' %',
     pctsimple: v => n1(v) + ' %',
+    monto: v => '$' + n0(v),
     num: v => n0(v),
     texto: v => String(v)
   };
@@ -737,7 +929,7 @@ strong{font-weight:800}
   };
   const pintarCifras = (ambito = document) => ambito.querySelectorAll('[data-cifra]').forEach(el => poner(el, el.dataset.cifra, el.dataset.fmt));
 
-  /* Lámina 8: tabla de cierre, fila por fila desde cierre_2026 */
+  /* Lámina 11: tabla de cierre, fila por fila desde cierre_2026 */
   const cuerpoCierre = document.querySelector('#tabla-cierre tbody');
   (C.cierre_2026 || []).forEach((r, i) => {
     const tr = document.createElement('tr');
@@ -746,7 +938,7 @@ strong{font-weight:800}
     cuerpoCierre.appendChild(tr);
   });
 
-  /* Lámina 11: conceptos en el orden del guion; administración e internet van juntos */
+  /* Lámina 16: conceptos en el orden del guion; administración e internet van juntos */
   const orden = [['Vigilancia'], ['Basura'], ['Jardinería'], ['Limpieza'], ['Mantenimiento'], ['Administración', 'Internet'], ['Consumibles'], ['CFE y agua'], ['App de administración']];
   const conceptos = C.conceptos_2027 || [];
   const flechas = {
@@ -777,9 +969,12 @@ strong{font-weight:800}
 
   pintarCifras();
 
-  /* Lámina 5: barras proporcionales */
-  const maxTarifa = Math.max(leer('tarifa_sana') || 0, leer('tarifa_privado') || 0) || 1;
-  document.querySelectorAll('[data-ancho]').forEach(el => el.style.setProperty('--w', ((leer(el.dataset.ancho) || 0) / maxTarifa * 100).toFixed(2) + '%'));
+  /* Láminas 6 y 8: barras proporcionales, cada grupo contra su propio máximo */
+  document.querySelectorAll('.compara').forEach(g => {
+    const els = [...g.querySelectorAll('[data-ancho]')];
+    const max = Math.max(...els.map(el => leer(el.dataset.ancho) || 0)) || 1;
+    els.forEach(el => el.style.setProperty('--w', ((leer(el.dataset.ancho) || 0) / max * 100).toFixed(2) + '%'));
+  });
 
   /* Lámina 4: meses de servicio de Sana, pagados y debidos, con el atraso del pago */
   const caja = document.getElementById('grafica');
@@ -836,10 +1031,11 @@ strong{font-weight:800}
   new ResizeObserver(() => { if (caja.clientWidth !== ancho) { ancho = caja.clientWidth; dibujar(); } }).observe(caja);
 
   /* Cabecera: parte y lámina en curso */
-  const PARTES = { h: ['', 'Lo que hay que hacer'], f: ['', 'Preguntas'], p: ['', 'En 2027'], 1: ['Parte 1', 'La basura'], 2: ['Parte 2', 'La caja hoy'], 3: ['Parte 3', 'La cuota 2027'], 4: ['', 'Qué sigue'] };
+  const PARTES = { d: ['', 'Dónde estamos'], qf: ['', 'Qué falló'], ad: ['La propuesta', 'La Administración'], 1: ['Problema 1 de 3', 'La basura'], 2: ['Problema 2 de 3', 'La vigilancia y la cuota'], 3: ['Problema 3 de 3', 'La cobranza'], pa: ['La propuesta', 'Cuatro acciones'], pe: ['La propuesta', 'La cuota extraordinaria'], pc: ['La propuesta', 'La cuota 2027'], h: ['', 'Lo que hay que hacer'], p: ['', 'En 2027'], 4: ['', 'Qué sigue'], f: ['', 'Preguntas'] };
   const cab = document.getElementById('cabecera');
   const cabParte = document.getElementById('cab-parte');
   const cabN = document.getElementById('cab-n'), cabT = document.getElementById('cab-t'), cabLam = document.getElementById('cab-lam');
+  document.getElementById('cab-total').textContent = 'de ' + document.querySelectorAll('[data-lamina]').length;
   let parteActual = null;
   const marcar = el => {
     const lam = +el.dataset.lamina, parte = el.dataset.parte;
@@ -856,7 +1052,7 @@ strong{font-weight:800}
   const ioLam = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) marcar(e.target); }), { rootMargin: '-50% 0px -50% 0px' });
   document.querySelectorAll('[data-lamina]').forEach(el => ioLam.observe(el));
 
-  /* Parte 3: escena fija; un solo lugar decide qué se ve en cada paso */
+  /* La propuesta, cuota 2027: escena fija; un solo lugar decide qué se ve en cada paso */
   const escena = document.getElementById('escena');
   const barra = (C.escena_barra || []).slice();
   const maxBarra = barra[barra.length - 1] || 1;
@@ -891,7 +1087,7 @@ strong{font-weight:800}
   observar();
   matchMedia('(max-width: 899px)').addEventListener('change', observar);
 
-  /* ?ir=N abre la lámina N (1 a 19; de 11 a 16 abre el paso de la escena). También ?ir=<id> */
+  /* ?ir=N abre la lámina N (1 a 26; de 17 a 22 abre el paso de la escena). También ?ir=<id> */
   const ir = new URLSearchParams(location.search).get('ir');
   if (ir) {
     const t = document.querySelector(`[data-lamina="${CSS.escape(ir)}"]`) || document.getElementById(ir);
